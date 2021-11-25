@@ -1,0 +1,8 @@
+Assets {
+  Id: 7806194382148656985
+  Name: "CubeController"
+  PlatformAssetType: 3
+  TextAsset {
+  }
+  SerializationVersion: 101
+}

@@ -509,7 +509,7 @@ Assets {
         Ability {
           IsEnabled: true
           CastPhaseSettings {
-            Duration: 1.5
+            Duration: 1.4
             PreventOtherAbilities: true
             IsTargetDataUpdated: true
             Facing_V2 {
@@ -525,7 +525,7 @@ Assets {
             }
           }
           RecoveryPhaseSettings {
-            Duration: 1
+            Duration: 0.9
             PreventOtherAbilities: true
             IsTargetDataUpdated: true
             Facing_V2 {
@@ -1765,6 +1765,7 @@ Assets {
         ChildIds: 17770120756957801291
         ChildIds: 3514536989047584781
         ChildIds: 1743476310603601856
+        ChildIds: 2658592554664406584
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1906,6 +1907,51 @@ Assets {
           BlendWeight: 1
           BlendInTime: 0.1
           BlendOutTime: 0.1
+        }
+      }
+      Objects {
+        Id: 2658592554664406584
+        Name: "PowerSlash_recovery_left"
+        Transform {
+          Location {
+            X: 24.9997101
+            Y: -34.9999771
+            Z: 74.9999771
+          }
+          Rotation {
+            Pitch: 90
+            Yaw: -64.7606201
+            Roll: -64.7606201
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 8809950339836570861
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        IKAnchor {
+          AimOffset {
+            X: -26
+          }
+          IKAnchorType {
+            Value: "mc:eikanchortype:lefthand"
+          }
+          BlendWeight: 1
+          BlendInTime: 0.1
+          BlendOutTime: 0.2
         }
       }
       Objects {

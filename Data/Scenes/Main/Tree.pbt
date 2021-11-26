@@ -1038,15 +1038,6 @@ Objects {
   }
   TemplateInstance {
     ParameterOverrideMap {
-      key: 3980038996535613090
-      value {
-        Overrides {
-          Name: "CastDuration"
-          Float: 1.4
-        }
-      }
-    }
-    ParameterOverrideMap {
       key: 13574242069172392238
       value {
         Overrides {

@@ -81,7 +81,7 @@ Objects {
   Name: "Sword3"
   Transform {
     Location {
-      X: -150
+      X: -100
       Y: 75
     }
     Rotation {
@@ -678,13 +678,12 @@ Objects {
   Name: "Sword1"
   Transform {
     Location {
-      X: -50
-      Y: -90
+      X: -150
+      Y: -75
     }
     Rotation {
-      Pitch: 50
+      Pitch: 30
       Yaw: 180
-      Roll: 60
     }
     Scale {
       X: 2
@@ -975,7 +974,7 @@ Objects {
 }
 Objects {
   Id: 3937517487876349599
-  Name: "Melee Half Circle Swing Effect"
+  Name: "TripleSlashSwing"
   Transform {
     Scale {
       X: 1
@@ -985,13 +984,19 @@ Objects {
   }
   ParentId: 4781671109827199097
   WantsNetworking: true
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
   TemplateInstance {
     ParameterOverrideMap {
       key: 10655105632778847111
       value {
         Overrides {
           Name: "Name"
-          String: "Melee Half Circle Swing Effect"
+          String: "TripleSlashSwing"
         }
         Overrides {
           Name: "Position"
@@ -1004,13 +1009,12 @@ Objects {
         Overrides {
           Name: "Rotation"
           Rotator {
-            Roll: 90
           }
         }
       }
     }
     TemplateAsset {
-      Id: 171090409284182791
+      Id: 3359676698435492722
     }
   }
 }
@@ -1033,6 +1037,15 @@ Objects {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
   TemplateInstance {
+    ParameterOverrideMap {
+      key: 3980038996535613090
+      value {
+        Overrides {
+          Name: "CastDuration"
+          Float: 1.4
+        }
+      }
+    }
     ParameterOverrideMap {
       key: 13574242069172392238
       value {

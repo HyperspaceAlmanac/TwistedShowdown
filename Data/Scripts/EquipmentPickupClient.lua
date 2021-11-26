@@ -46,8 +46,5 @@ function OnEquipped(equipment)
     end
 end
 
-if EQUIPMENT.owner ~= nil then
-    EQUIPMENT:Equip(EQUIPMENT.owner)
-end
 -- Initialize
 EQUIPMENT.equippedEvent:Connect(OnEquipped)

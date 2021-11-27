@@ -29,7 +29,13 @@ local originalStance = "unarmed_stance"
 
 -- nil OnEquipped(Equipment, Player)
 function OnEquipped(equipment, player)
-    
+    player.maxHitPoints = equipment:GetCustomProperty("Health")
+    player.hitPoints = player.maxHitPoints
+    player:SetPrivateNetworkedData("maxStamina", equipment:GetCustomProperty("Stamina"))
+    player:SetPrivateNetworkedData("maxMagic", equipment:GetCustomProperty("Magic"))
+    player:SetPrivateNetworkedData("staminaPer2", equipment:GetCustomProperty("StaminaPer2"))
+    player:SetPrivateNetworkedData("magicPer2", equipment:GetCustomProperty("MagicPer2"))
+    player:SetPrivateNetworkedData("health2", equipment:GetCustomProperty("HealthPer2"))
 end
 
 -- nil OnUnequipped(Equipment, Player)

@@ -1,4 +1,3 @@
-local Army = script:GetCustomProperty("Army"):WaitForObject()
 local Target = nil
 local lockedOn = fales
 local ForwardCamera = script:GetCustomProperty("ForwardCamera"):WaitForObject()
@@ -6,36 +5,22 @@ local Reticle = script:GetCustomProperty("Reticle"):WaitForObject()
 local targetName = Reticle:GetCustomProperty("TargetName"):WaitForObject()
 local Targetting = script:GetCustomProperty("Targetting"):WaitForObject()
 
-local player = Game.GetLocalPlayer()
-local soldiers = {}
-local moving = false
-for index, soldier in ipairs(Army:GetChildren()) do
-    soldiers[index] = soldier
-    soldiers[index].visibility = Visibility.FORCE_OFF
-end
+local HealthBar = script:GetCustomProperty("Health"):WaitForObject()
+local StaminaBar = script:GetCustomProperty("Stamina"):WaitForObject()
+local MagicBar = script:GetCustomProperty("Magic"):WaitForObject()
+local HealthText = script:GetCustomProperty("HealthText"):WaitForObject()
+local StaminaText = script:GetCustomProperty("StaminaText"):WaitForObject()
+local MagicText = script:GetCustomProperty("MagicText"):WaitForObject()
 
-function PlayerMovement(player, params)
-    moving = params.direction ~= Vector3.ZERO
-end
+local player = Game.GetLocalPlayer()
+
+local stamina = 100
+local magic = 100
+local maxStamina = 100
+local maxMagic = 100
+local stance = "Sword"
 
 function Tick(deltaTime)
-    local forwardVector = player:GetWorldTransform():GetForwardVector()
-    local needToMove = (soldiers[1]:GetWorldPosition() - (player:GetWorldPosition() + forwardVector * 300)).size > 20
-    soldiers[1]:MoveTo(player:GetWorldPosition() + forwardVector * 300, 0.1)
-    soldiers[1]:SetRotation(player:GetWorldRotation())
-    soldiers[2]:MoveTo(player:GetWorldPosition() - forwardVector * 300, 0.1)
-    soldiers[2]:SetRotation(player:GetWorldRotation())
-    soldiers[3]:MoveTo(player:GetWorldPosition() + Rotation.New(0, 0, 90) * forwardVector * 300, 0.1)
-    soldiers[3]:SetRotation(player:GetWorldRotation())
-    soldiers[4]:MoveTo(player:GetWorldPosition() + Rotation.New(0, 0, -90) * forwardVector * 300, 0.1)
-    soldiers[4]:SetRotation(player:GetWorldRotation())
-    for i = 1, 4 do
-        if moving or needToMove then
-            soldiers[i].animationStance = "unarmed_run_forward"
-        else
-            soldiers[i].animationStance = "unarmed_idle_ready"
-        end
-    end
 
     if lockedOn and Target then
         local rotation = Rotation.New(Target:GetWorldPosition() - player:GetWorldPosition(), player:GetWorldTransform():GetUpVector())
@@ -46,12 +31,12 @@ function Tick(deltaTime)
         ForwardCamera.rotationMode = RotationMode.LOOK_ANGLE
     end
 
-    --local playerPos = player:GetWorldPosition()
-    --playerPos.z = 300
-    --LockonCam:SetWorldPosition(playerPos)
-    --LockonCam:LookAt(Target:GetWorldPosition())
-
-    --Raycast and targetting
+    HealthBar.progress = player.hitPoints / player.maxHitPoints
+    HealthText.text = tostring(player.hitPoints).." / "..tostring(player.maxHitPoints)
+    StaminaBar.progress = stamina / maxStamina
+    StaminaText.text = tostring(stamina).." / "..tostring(maxStamina)
+    MagicBar.progress = magic / maxMagic
+    MagicText.text = tostring(magic).." / "..tostring(maxMagic)
 end
 
 function Other()
@@ -99,8 +84,22 @@ function UpdateStatus(player, key)
             Targetting.visibility = Visibility.FORCE_ON
             Target = nil
         end
+    elseif key == "maxStamina" then
+        maxStamina = player:GetPrivateNetworkedData(key)
+    elseif key == "maxMagic" then
+        maxMagic = player:GetPrivateNetworkedData(key)
+    elseif key == "stamina" then
+        stamina = player:GetPrivateNetworkedData(key)
+    elseif key == "magic" then
+        magic = player:GetPrivateNetworkedData(key)
+    elseif key == "stance" then
+        stance = player:GetPrivateNetworkedData(key)
     end
 end
 
-player.movementHook:Connect(PlayerMovement)
+maxStamina = player:GetPrivateNetworkedData("maxStamina")
+maxMagic = player:GetPrivateNetworkedData("maxMagic")
+stamina = player:GetPrivateNetworkedData("stamina")
+magic = player:GetPrivateNetworkedData("magic")
+stance = player:GetPrivateNetworkedData("Sword")
 player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)

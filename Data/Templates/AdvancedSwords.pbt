@@ -44,24 +44,33 @@ Assets {
           }
           Overrides {
             Name: "cs:HitSphereRadius"
-            Float: 150
+            Float: 200
           }
           Overrides {
             Name: "cs:HitSphereOffset"
             Vector {
-              X: 50
-              Z: 50
+              X: 175
             }
           }
           Overrides {
             Name: "cs:ShowHitSphere"
-            Bool: false
+            Bool: true
           }
           Overrides {
-            Name: "cs:Sword1"
-            ObjectReference {
-              SubObjectId: 2856861572154314801
-            }
+            Name: "cs:Type"
+            String: "Sword"
+          }
+          Overrides {
+            Name: "cs:Fast"
+            Int: 25
+          }
+          Overrides {
+            Name: "cs:Power"
+            Int: 50
+          }
+          Overrides {
+            Name: "cs:Dodge"
+            Int: 25
           }
           Overrides {
             Name: "cs:EquipmentStance:tooltip"
@@ -124,7 +133,6 @@ Assets {
           }
         }
         ParentId: 13574242069172392238
-        ChildIds: 303683742624030455
         ChildIds: 13060467031732753303
         ChildIds: 4507278899446885017
         ChildIds: 14815094773830481311
@@ -140,36 +148,6 @@ Assets {
         }
         NetworkContext {
           Type: Server
-        }
-      }
-      Objects {
-        Id: 303683742624030455
-        Name: "EquipmentStanceServer"
-        Transform {
-          Location {
-          }
-          Rotation {
-          }
-          Scale {
-            X: 1
-            Y: 1
-            Z: 1
-          }
-        }
-        ParentId: 9522309597970367925
-        Collidable_v2 {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        Visible_v2 {
-          Value: "mc:evisibilitysetting:inheritfromparent"
-        }
-        CameraCollidable {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        Script {
-          ScriptAsset {
-            Id: 1427829216143793458
-          }
         }
       }
       Objects {
@@ -286,6 +264,18 @@ Assets {
             Name: "cs:PowerSlash"
             ObjectReference {
               SubObjectId: 3980038996535613090
+            }
+          }
+          Overrides {
+            Name: "cs:QuickSlash"
+            ObjectReference {
+              SubObjectId: 5610374673043739474
+            }
+          }
+          Overrides {
+            Name: "cs:Dodge"
+            ObjectReference {
+              SubObjectId: 14552111713936995218
             }
           }
         }
@@ -430,7 +420,6 @@ Assets {
             }
           }
           CooldownPhaseSettings {
-            Duration: 1
             CanMove: true
             CanJump: true
             CanRotate: true

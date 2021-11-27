@@ -221,7 +221,7 @@ Objects {
       CanMoveLeft: true
       CanMoveRight: true
       AbilityAimMode {
-        Value: "mc:eabilityaimmode:viewrelative"
+        Value: "mc:eabilityaimmode:lookrelative"
       }
       AppearanceChannelingTime: 2
       MountChannelingTime: 2

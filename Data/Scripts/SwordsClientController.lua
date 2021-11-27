@@ -1,4 +1,4 @@
-local propSwords = script:GetCustomProperty("Swords"):WaitForObject()
+local Swords = script:GetCustomProperty("Swords"):WaitForObject()
 local Sword1 = script:GetCustomProperty("Sword1"):WaitForObject()
 local Blade1 = Sword1:GetCustomProperty("Blade"):WaitForObject()
 local Sword2 = script:GetCustomProperty("Sword2"):WaitForObject()
@@ -23,8 +23,10 @@ local b3_rot = Blade3:GetRotation()
 function PlayQuickAnimation()
     Blade1:MoveTo(Vector3.New(0, 0, 86), 0.1, true)
     Task.Wait(0.1)
-    Blade1:RotateTo(Rotation.New(-50, 50, 180), 0.2, true)
-    Blade1:MoveTo(Vector3.New(-65, 30, 60), 0.2, true)
+    --Blade1:RotateTo(Rotation.New(-50, 50, 180), 0.2, true)
+    --Blade1:MoveTo(Vector3.New(-65, 30, 60), 0.2, true)
+    Blade1:RotateTo(Rotation.New(-72.4, 50, 124.7), 0.2, true)
+    Blade1:MoveTo(Vector3.New(-48.7, 38.6, 77.8), 0.2, true)
     Sword1:MoveTo(Vector3.New(-75, -75, 0), 0.2, true)
     Task.Wait(0.2)
     --Blade1:SetRotation(Rotation.New(0, 0, 0))
@@ -133,6 +135,12 @@ function QuickSlashAnimation(ability)
 end
 function PowerSlashAnimation(ability)
     Task.Spawn(PlayPowerAnimation)
+end
+
+function Tick(deltaTime)
+    if QuickSlash.owner ~= nil then
+        Swords:SetWorldRotation(QuickSlash.owner:GetLookWorldRotation())
+    end
 end
 QuickSlash.castEvent:Connect(QuickSlashAnimation)
 PowerSlash.castEvent:Connect(PowerSlashAnimation)

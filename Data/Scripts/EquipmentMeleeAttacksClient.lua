@@ -154,8 +154,8 @@ function SpawnSwingEffect(abilityInfo)
         -- Spawn the swing effect
         abilityInfo.currentSwing = World.SpawnAsset(abilityInfo.swingEffect, {
             position = EQUIPMENT.owner:GetWorldPosition(),
-            rotation = Rotation.New(abilityInfo.swingRotationX, abilityInfo.swingRotationY, EQUIPMENT.owner:GetWorldRotation().z)})
-
+            --rotation = Rotation.New(abilityInfo.swingRotationX, abilityInfo.swingRotationY, EQUIPMENT.owner:GetWorldRotation().z)})
+            rotation = abilityInfo.ability.owner:GetLookWorldRotation() + Rotation.New(abilityInfo.swingRotationX, abilityInfo.swingRotationY, 0)})
         -- Apply default life span if the vfx template doesn't have a lifespan
         if abilityInfo.currentSwing.lifeSpan == 0 then
             abilityInfo.currentSwing.lifeSpan = DEFAULT_LIFE_SPAN

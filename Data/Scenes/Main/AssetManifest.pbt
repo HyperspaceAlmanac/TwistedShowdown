@@ -35,12 +35,12 @@ Assets {
   }
 }
 Assets {
-  Id: 16096430010822664482
-  Name: "Humanoid 1 Aparna"
-  PlatformAssetType: 26
+  Id: 16327934883181731081
+  Name: "Icon Food"
+  PlatformAssetType: 9
   PrimaryAsset {
-    AssetType: "SkinnedMeshAssetRef"
-    AssetId: "npc_human_gal_head_basic_008_ref"
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "Icon_Food"
   }
 }
 Assets {
@@ -68,15 +68,6 @@ Assets {
   PrimaryAsset {
     AssetType: "SkinnedMeshAssetRef"
     AssetId: "npc_human_gal_head_basic_004_ref"
-  }
-}
-Assets {
-  Id: 13315692267709887749
-  Name: "Sphere"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_sphere_002"
   }
 }
 Assets {
@@ -152,21 +143,30 @@ Assets {
   }
 }
 Assets {
-  Id: 7997871488546521706
-  Name: "Energy Tube Glow"
-  PlatformAssetType: 2
-  PrimaryAsset {
-    AssetType: "MaterialAssetRef"
-    AssetId: "Energy_Tube_Glow"
-  }
-}
-Assets {
   Id: 7887238662729938253
   Name: "Sky Dome"
   PlatformAssetType: 6
   PrimaryAsset {
     AssetType: "BlueprintAssetRef"
     AssetId: "CORESKY_Sky"
+  }
+}
+Assets {
+  Id: 7746980843523454802
+  Name: "Abstract Background 04"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "Core_UI_AbstractPack_Background_005"
+  }
+}
+Assets {
+  Id: 5196377603841433560
+  Name: "BG Gradient 001"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "BackgroundFlat_020"
   }
 }
 Assets {

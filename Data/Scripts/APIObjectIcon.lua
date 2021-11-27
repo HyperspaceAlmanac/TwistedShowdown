@@ -1,5 +1,5 @@
 --[[
-Copyright 2020 Manticore Games, Inc.
+Copyright 2019 Manticore Games, Inc. 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
@@ -15,32 +15,28 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER I
 OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --]]
 
--- Internal custom properties
-local EQUIPMENT = script:FindAncestorByType('Equipment')
-if not EQUIPMENT:IsA('Equipment') then
-    error(script.name .. " should be part of Equipment object hierarchy.")
+--[[
+This allows objects to have UI icons associated with them. This could be used for abilities, weapons, and possibly
+anything that can be held in an inventory. Object Icons are a purely client-side concept.
+--]]
+
+local API = {}
+
+-- nil SetObjectIcon(CoreObject, string) [Client]
+-- Called once on creation by each object that wishes to have an icon associated with it. Icon it stored as the MUID
+-- string of the icon asset (not a template).
+function API.SetObjectIcon(object, icon)
+	object.clientUserData.APIObjectIcons_Icon = icon
 end
 
--- User Exposed Variables
-local EQUIPMENT_STANCE = EQUIPMENT:GetCustomProperty("EquipmentStance")
+-- <string> GetObjectIcon(CoreObject) [Client]
+-- Returns the MUID of the icon or nil
+function API.GetObjectIcon(object)
+	if not object or not Object.IsValid(object) then
+		return nil
+	end
 
--- Internal variables
-local originalStance = "unarmed_stance"
-
--- nil OnEquipped(Equipment, Player)
-function OnEquipped(equipment, player)
-    
+	return object.clientUserData.APIObjectIcons_Icon
 end
 
--- nil OnUnequipped(Equipment, Player)
-function OnUnequipped(equipment, player)
-    player.animationStance = originalStance
-end
-
-if EQUIPMENT.owner ~= nil then
-    EQUIPMENT:OnEquipped(EQUIPMENT, EQUIPMENT.owner)
-end
-
--- Initialize
-EQUIPMENT.equippedEvent:Connect(OnEquipped)
-EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
+return API

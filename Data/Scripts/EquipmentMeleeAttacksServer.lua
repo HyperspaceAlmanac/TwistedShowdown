@@ -57,10 +57,13 @@ function GetHitSpherePosition()
 
     local ownerTransform = EQUIPMENT.owner:GetWorldTransform()
 
-    return EQUIPMENT.owner:GetWorldPosition() + 
-            ownerTransform:GetForwardVector() * HIT_SPHERE_OFFSET.x + 
-            ownerTransform:GetRightVector() * HIT_SPHERE_OFFSET.y + 
-            ownerTransform:GetUpVector() * HIT_SPHERE_OFFSET.z
+    local position = EQUIPMENT.owner:GetWorldPosition()
+    local viewRot = Quaternion.New(EQUIPMENT.owner:GetViewWorldRotation())
+    return EQUIPMENT.owner:GetWorldPosition() +
+        viewRot:GetForwardVector() * 300
+    --        ownerTransform:GetForwardVector() * HIT_SPHERE_OFFSET.x + 
+    --        ownerTransform:GetRightVector() * HIT_SPHERE_OFFSET.y + 
+    --        ownerTransform:GetUpVector() * HIT_SPHERE_OFFSET.z
 end
 
 -- GetValidTarget(Object)

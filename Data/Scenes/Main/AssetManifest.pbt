@@ -17,6 +17,15 @@ Assets {
   }
 }
 Assets {
+  Id: 16996673655604572076
+  Name: "Sci-fi Cargo Crate 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_scf_crate_cargo_002"
+  }
+}
+Assets {
   Id: 16910278292812118833
   Name: "Sun Light"
   PlatformAssetType: 6
@@ -44,30 +53,21 @@ Assets {
   }
 }
 Assets {
-  Id: 15886381828502173648
-  Name: "Wakizashi Blade"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_prop_jpn_wakizashi_blade_001"
-  }
-}
-Assets {
-  Id: 15882327866846003284
-  Name: "Magic Glass"
-  PlatformAssetType: 2
-  PrimaryAsset {
-    AssetType: "MaterialAssetRef"
-    AssetId: "fxmi_magic_glass"
-  }
-}
-Assets {
   Id: 14941129441712685284
   Name: "Humanoid 1 Kate"
   PlatformAssetType: 26
   PrimaryAsset {
     AssetType: "SkinnedMeshAssetRef"
     AssetId: "npc_human_gal_head_basic_004_ref"
+  }
+}
+Assets {
+  Id: 13710161915374590549
+  Name: "Rock 03"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_rock_generic_003"
   }
 }
 Assets {
@@ -89,24 +89,6 @@ Assets {
   }
 }
 Assets {
-  Id: 12080914882244420748
-  Name: "Wakizashi Handle"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_prop_jpn_wakizashi_handle_001"
-  }
-}
-Assets {
-  Id: 11808325857538090669
-  Name: "Capsule"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_capsule_001"
-  }
-}
-Assets {
   Id: 11515840070784317904
   Name: "Skylight"
   PlatformAssetType: 6
@@ -116,30 +98,12 @@ Assets {
   }
 }
 Assets {
-  Id: 9805942287566312257
-  Name: "Glass 01"
-  PlatformAssetType: 2
+  Id: 8774124567196061759
+  Name: "Ice Spikes Trail VFX"
+  PlatformAssetType: 8
   PrimaryAsset {
-    AssetType: "MaterialAssetRef"
-    AssetId: "mi_basic_glass_refrac_001"
-  }
-}
-Assets {
-  Id: 9431042241311314062
-  Name: "Wakizashi Guard"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_prop_jpn_wakizashi_guard_001"
-  }
-}
-Assets {
-  Id: 8476829092336201027
-  Name: "Wakizashi Scabbard"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_prop_jpn_wakizashi_scabbard_001"
+    AssetType: "VfxBlueprintAssetRef"
+    AssetId: "fxbp_ice_spikes_line"
   }
 }
 Assets {
@@ -188,20 +152,11 @@ Assets {
   }
 }
 Assets {
-  Id: 3361107000866463297
-  Name: "Fantasy Shield 03"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_weap_fan_shield_003"
-  }
-}
-Assets {
-  Id: 184584825560688570
-  Name: "Additive Soft Edge"
+  Id: 105931313654138488
+  Name: "Ice Ground Transparent"
   PlatformAssetType: 2
   PrimaryAsset {
     AssetType: "MaterialAssetRef"
-    AssetId: "fxma_additive_edgefade"
+    AssetId: "fxmi_ice_transparent_ground"
   }
 }

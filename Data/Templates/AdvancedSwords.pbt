@@ -134,7 +134,6 @@ Assets {
         }
         ParentId: 13574242069172392238
         ChildIds: 13060467031732753303
-        ChildIds: 4507278899446885017
         ChildIds: 14815094773830481311
         WantsNetworking: true
         Collidable_v2 {
@@ -179,68 +178,6 @@ Assets {
         Script {
           ScriptAsset {
             Id: 5082628058110625875
-          }
-        }
-      }
-      Objects {
-        Id: 4507278899446885017
-        Name: "SwordsServerController"
-        Transform {
-          Location {
-            X: 300
-            Y: 700
-            Z: 250
-          }
-          Rotation {
-          }
-          Scale {
-            X: 1
-            Y: 1
-            Z: 1
-          }
-        }
-        ParentId: 9522309597970367925
-        UnregisteredParameters {
-          Overrides {
-            Name: "cs:Attack1"
-            ObjectReference {
-              SubObjectId: 5610374673043739474
-            }
-          }
-          Overrides {
-            Name: "cs:Attack2"
-            ObjectReference {
-              SubObjectId: 3980038996535613090
-            }
-          }
-          Overrides {
-            Name: "cs:Dodge"
-            ObjectReference {
-              SubObjectId: 14552111713936995218
-            }
-          }
-          Overrides {
-            Name: "cs:BladeProjectile"
-            AssetReference {
-              Id: 14590863155893255144
-            }
-          }
-        }
-        Collidable_v2 {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        Visible_v2 {
-          Value: "mc:evisibilitysetting:inheritfromparent"
-        }
-        CameraCollidable {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        EditorIndicatorVisibility {
-          Value: "mc:eindicatorvisibility:visiblewhenselected"
-        }
-        Script {
-          ScriptAsset {
-            Id: 8012161127502278388
           }
         }
       }

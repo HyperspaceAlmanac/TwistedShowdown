@@ -37,7 +37,7 @@ function SCast(ability)
     Task.Spawn(function()
         DisableThenEnable(false, true, true)
     end)
-    ability.owner:SetPrivateNetworkedData("stance", "sword")
+    ability.owner:SetPrivateNetworkedData("stance", "Sword")
 end
 
 function MCast(ability)
@@ -45,7 +45,7 @@ function MCast(ability)
     Task.Spawn(function()
         DisableThenEnable(true, false, true)
     end)
-    ability.owner:SetPrivateNetworkedData("stance", "magic")
+    ability.owner:SetPrivateNetworkedData("stance", "Magic")
 end
 
 function FCast(ability)
@@ -53,7 +53,7 @@ function FCast(ability)
     Task.Spawn(function()
         DisableThenEnable(true, true, false)
     end)
-    ability.owner:SetPrivateNetworkedData("stance", "flower")
+    ability.owner:SetPrivateNetworkedData("stance", "Flower")
 end
 
 -- Enable Magic and Flower forms
@@ -74,7 +74,7 @@ function Equipped(eqp, player)
             end
         end
     end
-    player:SetPrivateNetworkedData("stance", "sword")
+    player:SetPrivateNetworkedData("stance", "Sword")
 end
 
 if Equipment.owner ~= nil then

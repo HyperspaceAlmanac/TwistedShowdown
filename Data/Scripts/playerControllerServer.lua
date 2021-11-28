@@ -36,14 +36,16 @@ function Tick(deltaTime)
             local rotation = Quaternion.New(player:GetLookWorldRotation())
             --local hitResult = World.Raycast(player:GetWorldPosition() + cameraOffset, player:GetWorldPosition() + rotation:GetForwardVector() * 10000,
             local hitResult = World.Raycast(player:GetViewWorldPosition(), player:GetWorldPosition() + rotation:GetForwardVector() * 10000,
-                {ignorePlayers = {player}}
+                {ignorePlayers = {player} } --shouldDebugRender = true
             )
             local other = hitResult and hitResult.other or nil
             --print(other)
             if other ~= nil and Object.IsValid(other) and other:IsA("StaticMesh") and other:GetCustomProperty("Tag") ~= nil then
                 Target = other
+                player.serverUserData.target = Target
                 player:SetPrivateNetworkedData("Target", other)
             else
+                player.serverUserData.target = nil
                 player:SetPrivateNetworkedData("Target", nil)
             end
         end

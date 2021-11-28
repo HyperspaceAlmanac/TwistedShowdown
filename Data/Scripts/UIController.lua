@@ -70,7 +70,6 @@ function Other()
 end
 
 function UpdateStatus(player, key)
-    print(key)
     if key == "LockedOn" then
         lockedOn = player:GetPrivateNetworkedData(key)
     elseif key == "Target" then
@@ -97,9 +96,9 @@ function UpdateStatus(player, key)
     end
 end
 
-maxStamina = player:GetPrivateNetworkedData("maxStamina")
-maxMagic = player:GetPrivateNetworkedData("maxMagic")
-stamina = player:GetPrivateNetworkedData("stamina")
-magic = player:GetPrivateNetworkedData("magic")
-stance = player:GetPrivateNetworkedData("Sword")
+maxStamina = player:GetPrivateNetworkedData("maxStamina") or 100
+maxMagic = player:GetPrivateNetworkedData("maxMagic") or 100
+stamina = player:GetPrivateNetworkedData("stamina") or 100
+magic = player:GetPrivateNetworkedData("magic") or 100
+stance = player:GetPrivateNetworkedData("Sword") or "Sword"
 player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)

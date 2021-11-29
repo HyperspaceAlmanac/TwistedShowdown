@@ -62,15 +62,22 @@ function UpdateStats()
 	while true do
 	    for _, player in ipairs(Game.GetPlayers()) do
 	        local stats = statTable[player]
-	        if stats and stats.initialized then
+            local casting = player.serverUserData.casting
+	        if stats and stats.initialized and player.isDead == false then
 	            if player.hitPoints > 0 then
-	                player.hitPoints = math.min(player.maxHitPoints, player.hitPoints + stats.health2)
-	                stats.stamina = math.min(stats.maxStamina, stats.stamina + stats.stamina2)
-	                player.serverUserData.stamina = stats.stamina
-	                player:SetPrivateNetworkedData("stamina", stats.stamina)
-	                stats.magic = math.min(stats.maxMagic, stats.magic + stats.magic2)
-	                player.serverUserData.magic = stats.magic
-	                player:SetPrivateNetworkedData("magic", stats.magic)
+                    if stats.stance ~= "Flower" or casting == false then
+    	                player.hitPoints = math.min(player.maxHitPoints, player.hitPoints + stats.health2)
+                    end
+                    if stats.stance ~= "Sword" or casting == false then
+	                    stats.stamina = math.min(stats.maxStamina, stats.stamina + stats.stamina2)
+	                    player.serverUserData.stamina = stats.stamina
+	                    player:SetPrivateNetworkedData("stamina", stats.stamina)
+	                end
+                    if stats.stance ~= "Magic" or casting == false then
+                        stats.magic = math.min(stats.maxMagic, stats.magic + stats.magic2)
+    	                player.serverUserData.magic = stats.magic
+    	                player:SetPrivateNetworkedData("magic", stats.magic)
+                    end
 	            end
 	        end
 	    end
@@ -131,6 +138,7 @@ function PlayerJoined(player)
     player.serverUserData.stamina = 100
     player.serverUserData.magic = 100
     player.serverUserData.stance = "Sword"
+    player.serverUserData.casting = false
     statTable[player]["initialized"] = true
     print("On player join")
 end

@@ -722,7 +722,7 @@ Assets {
             }
           }
           KeyBinding_v2 {
-            Value: "mc:egameaction:extraaction_30"
+            Value: "mc:egameaction:extraaction_04"
           }
         }
       }

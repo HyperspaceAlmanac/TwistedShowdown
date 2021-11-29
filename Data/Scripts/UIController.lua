@@ -102,3 +102,20 @@ stamina = player:GetPrivateNetworkedData("stamina") or 100
 magic = player:GetPrivateNetworkedData("magic") or 100
 stance = player:GetPrivateNetworkedData("Sword") or "Sword"
 player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)
+
+local client_listeners = {}
+function PlayerJoined(player)
+    client_listeners[player] = {}
+    client_listeners[player]["died"] = player.diedEvent:Connect(function(player, dmg)
+        for _, ik in ipairs(player:GetIKAnchors()) do
+            ik:Deactivate()
+        end
+    end)
+end
+
+function PlayerLeft(player)
+    client_listeners[player]["died"]:Disconnect()
+    client_listeners[player] = nil
+end
+Game.playerJoinedEvent:Connect(PlayerJoined)
+Game.playerLeftEvent:Connect(PlayerLeft)

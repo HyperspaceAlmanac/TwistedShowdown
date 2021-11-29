@@ -164,6 +164,12 @@ Assets {
               SubObjectId: 9141415743232429155
             }
           }
+          Overrides {
+            Name: "cs:Meditate"
+            ObjectReference {
+              SubObjectId: 11626558946568358950
+            }
+          }
         }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -200,6 +206,7 @@ Assets {
         ParentId: 13574242069172392238
         ChildIds: 5610374673043739474
         ChildIds: 9141415743232429155
+        ChildIds: 11626558946568358950
         WantsNetworking: true
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -379,6 +386,86 @@ Assets {
         }
       }
       Objects {
+        Id: 11626558946568358950
+        Name: "Meditate"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 5919908733518702135
+        UnregisteredParameters {
+          Overrides {
+            Name: "cs:Power"
+            Float: 100
+          }
+          Overrides {
+            Name: "cs:Cost"
+            Int: 0
+          }
+          Overrides {
+            Name: "cs:Power:tooltip"
+            String: "Damage value applied to a player hit by hitbox trigger."
+          }
+        }
+        WantsNetworking: true
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Ability {
+          IsEnabled: true
+          CastPhaseSettings {
+            Duration: 1
+            PreventOtherAbilities: true
+            IsTargetDataUpdated: true
+            Facing_V2 {
+              Value: "mc:eabilitysetfacing:aim"
+            }
+          }
+          ExecutePhaseSettings {
+            Duration: 6
+            PreventOtherAbilities: true
+            IsTargetDataUpdated: true
+            Facing_V2 {
+              Value: "mc:eabilitysetfacing:aim"
+            }
+          }
+          RecoveryPhaseSettings {
+            Duration: 1
+            PreventOtherAbilities: true
+            IsTargetDataUpdated: true
+            Facing_V2 {
+              Value: "mc:eabilitysetfacing:none"
+            }
+          }
+          CooldownPhaseSettings {
+            CanMove: true
+            CanJump: true
+            CanRotate: true
+            PreventOtherAbilities: true
+            IsTargetDataUpdated: true
+            Facing_V2 {
+              Value: "mc:eabilitysetfacing:none"
+            }
+          }
+          KeyBinding_v2 {
+            Value: "mc:egameaction:extraaction_04"
+          }
+        }
+      }
+      Objects {
         Id: 6889705872886417966
         Name: "ClientContext"
         Transform {
@@ -393,6 +480,7 @@ Assets {
           }
         }
         ParentId: 13574242069172392238
+        ChildIds: 4856853742509373457
         ChildIds: 13831199862395227742
         ChildIds: 13511061744678159582
         ChildIds: 6258939578426429010
@@ -409,6 +497,62 @@ Assets {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
         NetworkContext {
+        }
+      }
+      Objects {
+        Id: 4856853742509373457
+        Name: "HealCloud"
+        Transform {
+          Location {
+            X: 20
+            Y: 40
+            Z: 85
+          }
+          Rotation {
+          }
+          Scale {
+            X: 0.2
+            Y: 0.2
+            Z: 0.1
+          }
+        }
+        ParentId: 6889705872886417966
+        UnregisteredParameters {
+          Overrides {
+            Name: "bp:Color A"
+            Color {
+              G: 1
+              A: 1
+            }
+          }
+          Overrides {
+            Name: "bp:Color B"
+            Color {
+              R: 0.131
+              G: 0.0895349905
+              B: 0.0517449975
+              A: 1
+            }
+          }
+        }
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:forceoff"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Blueprint {
+          BlueprintAsset {
+            Id: 12895515524351229973
+          }
+          TeamSettings {
+          }
         }
       }
       Objects {
@@ -1835,6 +1979,18 @@ Assets {
               SubObjectId: 9141415743232429155
             }
           }
+          Overrides {
+            Name: "cs:HealCloud"
+            ObjectReference {
+              SubObjectId: 4856853742509373457
+            }
+          }
+          Overrides {
+            Name: "cs:Meditate"
+            ObjectReference {
+              SubObjectId: 11626558946568358950
+            }
+          }
         }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -2219,6 +2375,8 @@ Assets {
         ChildIds: 6695629219989072881
         ChildIds: 14585674998597240732
         ChildIds: 16879280501306376883
+        ChildIds: 9024949876371066750
+        ChildIds: 4416444872855748179
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2404,6 +2562,91 @@ Assets {
         }
       }
       Objects {
+        Id: 9024949876371066750
+        Name: "Meditate_cast_right"
+        Transform {
+          Location {
+            X: 20
+            Y: 40
+            Z: 80
+          }
+          Rotation {
+            Pitch: 90
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 8809950339836570861
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        IKAnchor {
+          AimOffset {
+            X: -26
+          }
+          IKAnchorType {
+            Value: "mc:eikanchortype:righthand"
+          }
+          BlendWeight: 1
+          BlendInTime: 0.5
+          BlendOutTime: 1
+        }
+      }
+      Objects {
+        Id: 4416444872855748179
+        Name: "Meditate_execute_right"
+        Transform {
+          Location {
+            X: 20
+            Y: 40
+            Z: 80
+          }
+          Rotation {
+            Pitch: 90
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 8809950339836570861
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        IKAnchor {
+          AimOffset {
+            X: -26
+          }
+          IKAnchorType {
+            Value: "mc:eikanchortype:righthand"
+          }
+          BlendWeight: 1
+          BlendOutTime: 0.3
+        }
+      }
+      Objects {
         Id: 2489136421185338430
         Name: "IKAnimations"
         Transform {
@@ -2455,6 +2698,15 @@ Assets {
             Id: 1293911671925627851
           }
         }
+      }
+    }
+    Assets {
+      Id: 12895515524351229973
+      Name: "Tornado VFX"
+      PlatformAssetType: 6
+      PrimaryAsset {
+        AssetType: "BlueprintAssetRef"
+        AssetId: "fxbp_tornado"
       }
     }
     Assets {

@@ -1,5 +1,6 @@
 local QuickCast = script:GetCustomProperty("QuickCast"):WaitForObject()
 local PowerCast = script:GetCustomProperty("PowerCast"):WaitForObject()
+local Meditate = script:GetCustomProperty("Meditate"):WaitForObject()
 local weapon = script:FindAncestorByType("Equipment")
 
 local qCost, qPower = QuickCast:GetCustomProperty("Cost"), QuickCast:GetCustomProperty("Power")
@@ -13,6 +14,7 @@ function QuickCastEvent(ability)
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", true)
     end
+    ability.owner.serverUserData.casting = true
 end
 
 function QuickExecuteEvent(ability)
@@ -29,6 +31,7 @@ function PowerCastEvent(ability)
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", true)
     end
+    ability.owner.serverUserData.casting = true
 end
 
 function PowerExecuteEvent(ability)
@@ -37,6 +40,26 @@ function PowerExecuteEvent(ability)
     end
     ability.owner:ApplyDamage(Damage.New(pCost))
     lockedOn = false
+end
+
+function MeditateExecuteEvent(ability)
+    Task.Spawn(
+        function()
+            local player = ability.owner
+            local maxHitPoints = ability.owner.maxHitPoints
+            local amount = weapon:GetCustomProperty("HealthPer2") * 2
+            for i = 1, 7 do
+                if player.isDead == false then
+                    player.hitPoints = math.min(maxHitPoints, player.hitPoints + amount)
+                else
+                    return
+                end
+                if i < 7 then
+                    Task.Wait(1)
+                end
+            end
+        end
+    )
 end
 
 function Tick(deltaTime)
@@ -56,6 +79,22 @@ end
 
 QuickCast.castEvent:Connect(QuickCastEvent)
 QuickCast.executeEvent:Connect(QuickExecuteEvent)
+QuickCast.recoveryEvent:Connect(function(ability)
+    local player = ability.owner
+    player.serverUserData.casting = false
+end)
 PowerCast.castEvent:Connect(PowerCastEvent)
 PowerCast.executeEvent:Connect(PowerExecuteEvent)
+PowerCast.recoveryEvent:Connect(function(ability)
+    local player = ability.owner
+    player.serverUserData.casting = false
+end)
+Meditate.castEvent:Connect(function(ability)
+    ability.owner.serverUserData.casting = true
+end)
+Meditate.executeEvent:Connect(MeditateExecuteEvent)
+Meditate.recoveryEvent:Connect(function(ability)
+    local player = ability.owner
+    player.serverUserData.casting = false
+end)
 

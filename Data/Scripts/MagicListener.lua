@@ -11,6 +11,7 @@ local lockedOn = false
 
 function CastPower(ability)
     ability.owner:ResetVelocity()
+    ability.owner.serverUserData.casting = true
     lockedOn = ability.owner:GetPrivateNetworkedData("LockedOn")
     
     if lockedOn == false then
@@ -23,13 +24,15 @@ function ExecutePower(ability)
     end
     lockedOn = false
 end
-function CooldownPower(ability)
+function RecoveryPower(ability)
     local player = ability.owner
-    player:SetPrivateNetworkedData("magic", player.serverUserData.stamina - powerCost)
+    player.serverUserData.casting = false
+    player:SetPrivateNetworkedData("magic", player.serverUserData.magic - powerCost)
 end
 
 function CastFast(ability)
     ability.owner:ResetVelocity()
+    ability.owner.serverUserData.casting = true
     lockedOn = ability.owner:GetPrivateNetworkedData("LockedOn")
     
     if lockedOn == false then
@@ -45,9 +48,10 @@ function ExecuteFast(ability)
 end
 
 
-function CooldownFast(ability)
+function RecoveryFast(ability)
     local player = ability.owner
-    player:SetPrivateNetworkedData("magic", player.serverUserData.stamina - fastCost)
+    player.serverUserData.casting = false
+    player:SetPrivateNetworkedData("magic", player.serverUserData.magic - fastCost)
 end
 
 function ExecuteShield(ability)
@@ -56,9 +60,10 @@ function ExecuteShield(ability)
     ShieldObj.collision = Collision.FORCE_ON
 end
 
-function CooldownShield(ability)
+function RecoveryShield(ability)
     local player = ability.owner
-    player:SetPrivateNetworkedData("magic", player.serverUserData.stamina - shieldCost)
+    player.serverUserData.casting = false
+    player:SetPrivateNetworkedData("magic", player.serverUserData.magic - shieldCost)
     ShieldObj.visibility = Visibility.FORCE_OFF
     ShieldObj.collision = Collision.FORCE_OFF
 end
@@ -92,9 +97,12 @@ end
 
 PowerCast.castEvent:Connect(CastPower)
 PowerCast.executeEvent:Connect(ExecutePower)
-PowerCast.cooldownEvent:Connect(CooldownPower)
+PowerCast.recoveryEvent:Connect(RecoveryPower)
 QuickCast.castEvent:Connect(CastFast)
 QuickCast.executeEvent:Connect(ExecuteFast)
-QuickCast.cooldownEvent:Connect(CooldownFast)
+QuickCast.recoveryEvent:Connect(RecoveryFast)
+Shield.castEvent:Connect(function(ability)
+    ability.owner.serverUserData.casting = true
+end)
 Shield.executeEvent:Connect(ExecuteShield)
-Shield.cooldownEvent:Connect(CooldownShield)
+Shield.recoveryEvent:Connect(RecoveryShield)

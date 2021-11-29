@@ -6,18 +6,36 @@ local QuickSlash = script:GetCustomProperty("QuickSlash"):WaitForObject()
 local Dodge = script:GetCustomProperty("Dodge"):WaitForObject()
 local PowerSlash = script:GetCustomProperty("PowerSlash"):WaitForObject()
 
-function ActivatePower(ability)
+function RecoveryPower(ability)
     local player = ability.owner
+    player.serverUserData.casting = false
     player:SetPrivateNetworkedData("stamina", player.serverUserData.stamina - powerCost)
 end
 
-function ActivateFast(ability)
+function RecoveryFast(ability)
     local player = ability.owner
+    player.serverUserData.casting = false
     player:SetPrivateNetworkedData("stamina", player.serverUserData.stamina - fastCost)
 end
 
-function ActivateDodge(ability)
+function ExecuteDodge(ability)
     local player = ability.owner
+    player.serverUserData.casting = true
+    local transform = Quaternion.New(player:GetViewWorldRotation())
+    if player:IsBindingPressed("ability_extra_30") then
+        player:AddImpulse(transform:GetRightVector() * player.mass * -3000)
+    elseif player:IsBindingPressed("ability_extra_32") then
+        player:AddImpulse(transform:GetRightVector() * player.mass * 3000)
+    elseif player:IsBindingPressed("ability_extra_31") then
+        player:AddImpulse(transform:GetForwardVector() * player.mass * -3000)
+    else
+        player:AddImpulse(transform:GetForwardVector() * player.mass * 3000)
+    end
+end
+
+function RecoveryDodge(ability)
+    local player = ability.owner
+    player.serverUserData.casting = false
     player:SetPrivateNetworkedData("stamina", player.serverUserData.stamina - dodgeCost)
 end
 
@@ -48,7 +66,17 @@ function Tick(deltaTime)
     end
 end
 
-PowerSlash.castEvent:Connect(function(ability) ability.owner:ResetVelocity() end)
-PowerSlash.cooldownEvent:Connect(ActivatePower)
-QuickSlash.cooldownEvent:Connect(ActivateFast)
-Dodge.cooldownEvent:Connect(ActivateDodge)
+PowerSlash.castEvent:Connect(function(ability)
+    ability.owner:ResetVelocity()
+    ability.owner.serverUserData.casting = true
+end)
+QuickSlash.castEvent:Connect(function(ability)
+    ability.owner.serverUserData.casting = true
+end)
+PowerSlash.recoveryEvent:Connect(RecoveryPower)
+QuickSlash.recoveryEvent:Connect(RecoveryFast)
+Dodge.castEvent:Connect(function(ability)
+    ability.owner.serverUserData.casting = true
+end)
+Dodge.executeEvent:Connect(ExecuteDodge)
+Dodge.recoveryEvent:Connect(RecoveryDodge)

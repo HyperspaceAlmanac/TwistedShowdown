@@ -541,7 +541,6 @@ Assets {
             }
           }
           CooldownPhaseSettings {
-            Duration: 3
             CanMove: true
             CanJump: true
             CanRotate: true
@@ -551,9 +550,8 @@ Assets {
               Value: "mc:eabilitysetfacing:none"
             }
           }
-          Animation: "unarmed_roll"
           KeyBinding_v2 {
-            Value: "mc:egameaction:extraaction_30"
+            Value: "mc:egameaction:extraaction_04"
           }
         }
       }

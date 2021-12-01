@@ -93,6 +93,7 @@ function UpdateStatus(player, key)
         magic = player:GetPrivateNetworkedData(key)
     elseif key == "stance" then
         stance = player:GetPrivateNetworkedData(key)
+        player.clientUserData.stance = stance
     end
 end
 
@@ -101,6 +102,7 @@ maxMagic = player:GetPrivateNetworkedData("maxMagic") or 100
 stamina = player:GetPrivateNetworkedData("stamina") or 100
 magic = player:GetPrivateNetworkedData("magic") or 100
 stance = player:GetPrivateNetworkedData("Sword") or "Sword"
+player.clientUserData.stance = stance
 player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)
 
 local client_listeners = {}

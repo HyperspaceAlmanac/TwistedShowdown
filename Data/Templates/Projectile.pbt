@@ -19,7 +19,7 @@ Assets {
         ChildIds: 9894858761970611076
         UnregisteredParameters {
         }
-        Lifespan: 1
+        Lifespan: 2
         WantsNetworking: true
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -42,9 +42,9 @@ Assets {
           Rotation {
           }
           Scale {
-            X: 1
-            Y: 1
-            Z: 1
+            X: 2
+            Y: 2
+            Z: 2
           }
         }
         ParentId: 1144382770181115560
@@ -52,8 +52,7 @@ Assets {
           Overrides {
             Name: "bp:Color"
             Color {
-              G: 5
-              B: 5
+              B: 20
               A: 1
             }
           }
@@ -70,7 +69,11 @@ Assets {
           }
           Overrides {
             Name: "bp:Density"
-            Float: 10
+            Float: 5
+          }
+          Overrides {
+            Name: "bp:Emissive Boost"
+            Float: 20
           }
         }
         Collidable_v2 {

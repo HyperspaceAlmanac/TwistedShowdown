@@ -26,7 +26,7 @@ function DisableThenEnable(sword, magic, flower)
     Sword.isEnabled = false
     Magic.isEnabled = false
     Flower.isEnabled = false
-    Task.Wait(4)
+    Task.Wait(1)
     Sword.isEnabled = sword
     Magic.isEnabled = magic
     Flower.isEnabled = flower

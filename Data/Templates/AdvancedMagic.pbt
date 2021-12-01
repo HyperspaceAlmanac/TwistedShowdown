@@ -30,15 +30,15 @@ Assets {
             String: "Magic"
           }
           Overrides {
-            Name: "cs:Fast"
+            Name: "cs:Cost1"
             Int: 25
           }
           Overrides {
-            Name: "cs:Power"
+            Name: "cs:Cost2"
             Int: 50
           }
           Overrides {
-            Name: "cs:Shield"
+            Name: "cs:Cost3"
             Int: 50
           }
           Overrides {
@@ -441,6 +441,18 @@ Assets {
               SubObjectId: 18433659464597527236
             }
           }
+          Overrides {
+            Name: "cs:IceShard"
+            AssetReference {
+              Id: 8249645253140520879
+            }
+          }
+          Overrides {
+            Name: "cs:IceShardLarge"
+            AssetReference {
+              Id: 10551120879855387517
+            }
+          }
         }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -513,7 +525,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 35
+            Float: 25
           }
           Overrides {
             Name: "cs:Damage:tooltip"
@@ -591,7 +603,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 35
+            Float: 100
           }
           Overrides {
             Name: "cs:Damage:tooltip"
@@ -611,7 +623,7 @@ Assets {
         Ability {
           IsEnabled: true
           CastPhaseSettings {
-            Duration: 2
+            Duration: 2.1
             PreventOtherAbilities: true
             IsTargetDataUpdated: true
             Facing_V2 {
@@ -803,6 +815,12 @@ Assets {
             Name: "cs:Shield"
             ObjectReference {
               SubObjectId: 8376920245396229760
+            }
+          }
+          Overrides {
+            Name: "cs:Orbs"
+            ObjectReference {
+              SubObjectId: 6258939578426429010
             }
           }
         }

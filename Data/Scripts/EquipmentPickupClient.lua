@@ -33,7 +33,7 @@ local PICKUP_SOUND = script:GetCustomProperty("PickupSound")
 local DEFAULT_LIFESPAN = 1
 
 -- nil OnEquipped(Equipment)
-function OnEquipped(equipment)
+function OnEquipped(equipment, player)
 
     -- Spawn a pickup sound when a player picks up the weapon
     if PICKUP_SOUND then
@@ -42,6 +42,22 @@ function OnEquipped(equipment)
         -- Set a default lifespan if the pickup sound template has 0 lifeSpan
         if pickupSound.lifeSpan == 0 then
             pickupSound.lifeSpan = DEFAULT_LIFESPAN
+        end
+    end
+    local weaponType = equipment:GetCustomProperty("Type")
+    if weaponType ~= nil then
+        if weaponType == "Sword" then
+            player.clientUserData.s1 = equipment:GetCustomProperty("Cost1")
+            player.clientUserData.s2 = equipment:GetCustomProperty("Cost2")
+            player.clientUserData.s3 = equipment:GetCustomProperty("Cost3")
+        elseif weaponType == "Magic" then
+            player.clientUserData.m1 = equipment:GetCustomProperty("Cost1")
+            player.clientUserData.m2 = equipment:GetCustomProperty("Cost2")
+            player.clientUserData.m3 = equipment:GetCustomProperty("Cost3")
+        elseif weaponType == "Flower" then
+            player.clientUserData.f1 = equipment:GetCustomProperty("Cost1")
+            player.clientUserData.f2 = equipment:GetCustomProperty("Cost2")
+            player.clientUserData.f3 = equipment:GetCustomProperty("Cost3")
         end
     end
 end

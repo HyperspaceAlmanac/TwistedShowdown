@@ -1,9 +1,7 @@
-local MagicShot = script:GetCustomProperty("Projectile")
-local Target = script:GetCustomProperty("Target"):WaitForObject()
+local Target = nil
 local playerListeners = {}
 local prevShot = 0
 
-local projectileTable = {}
 local statTable = {}
 
 function Tick(deltaTime)
@@ -12,25 +10,6 @@ function Tick(deltaTime)
             player:ActivateFlying()
         end
         local rotation = player:GetWorldRotation()
-        if player:IsBindingPressed("ability_extra_20") then
-
-        elseif player:IsBindingPressed("ability_primary") then
-            if prevShot == 0 then
-                local forwardVector = player:GetWorldTransform():GetForwardVector()
-                local projectile = Projectile.Spawn(MagicShot, player:GetWorldPosition() + forwardVector * 100, forwardVector)
-                projectile.speed = 2000
-                projectile.gravityScale = 0
-                projectile.lifeSpan = 2
-                projectile.homingTarget = Target
-                prevShot = 0.1
-                projectileTable[projectile] = projectile.lifeSpanEndedEvent:Connect(
-                    function()
-                        projectileTable[projectile]:Disconnect()
-                        projectileTable[projectile] = nil
-                    end
-                )
-            end
-        end
         if player:GetPrivateNetworkedData("LockedOn") == false then
             --raycast
             local rotation = Quaternion.New(player:GetLookWorldRotation())

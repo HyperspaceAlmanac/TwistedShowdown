@@ -54,6 +54,22 @@ Assets {
             Name: "cs:HealthPer2"
             Int: 5
           }
+          Overrides {
+            Name: "cs:Cost1"
+            Int: 50
+          }
+          Overrides {
+            Name: "cs:Cost2"
+            Int: 100
+          }
+          Overrides {
+            Name: "cs:Cost3"
+            Int: 70
+          }
+          Overrides {
+            Name: "cs:Cost3:tooltip"
+            String: "7 * healthPer2 * 2"
+          }
         }
         WantsNetworking: true
         Collidable_v2 {
@@ -480,6 +496,7 @@ Assets {
           }
         }
         ParentId: 13574242069172392238
+        ChildIds: 12355377632742904329
         ChildIds: 4856853742509373457
         ChildIds: 13831199862395227742
         ChildIds: 13511061744678159582
@@ -497,6 +514,47 @@ Assets {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
         NetworkContext {
+        }
+      }
+      Objects {
+        Id: 12355377632742904329
+        Name: "EquipmentPickupClient"
+        Transform {
+          Location {
+            X: 500
+            Y: -100
+            Z: 150
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 6889705872886417966
+        UnregisteredParameters {
+          Overrides {
+            Name: "cs:PickupSound"
+            AssetReference {
+              Id: 4020958367257585299
+            }
+          }
+        }
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Script {
+          ScriptAsset {
+            Id: 440168262593430639
+          }
         }
       }
       Objects {

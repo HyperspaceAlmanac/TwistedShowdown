@@ -1,6 +1,6 @@
 Assets {
-  Id: 713221949511553649
-  Name: "serverGameState"
+  Id: 14444598865296520950
+  Name: "IconController"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {

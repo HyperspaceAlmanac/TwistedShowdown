@@ -3,6 +3,8 @@ Assets {
   Name: "AbilitiesListener"
   PlatformAssetType: 3
   TextAsset {
+    CustomParameters {
+    }
   }
   SerializationVersion: 101
 }

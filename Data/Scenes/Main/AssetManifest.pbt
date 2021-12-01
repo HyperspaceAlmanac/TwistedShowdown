@@ -1,10 +1,10 @@
 Assets {
-  Id: 18431279897210076694
-  Name: "Flower Wild Lily 02"
-  PlatformAssetType: 1
+  Id: 18348942487415386698
+  Name: "Fantasy Ability Red 016"
+  PlatformAssetType: 9
   PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_foliage_gen_flower_wild_lily_002_ref"
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Red_016"
   }
 }
 Assets {
@@ -44,30 +44,12 @@ Assets {
   }
 }
 Assets {
-  Id: 16327934883181731081
-  Name: "Icon Food"
-  PlatformAssetType: 9
-  PrimaryAsset {
-    AssetType: "PlatformBrushAssetRef"
-    AssetId: "Icon_Food"
-  }
-}
-Assets {
   Id: 14941129441712685284
   Name: "Humanoid 1 Kate"
   PlatformAssetType: 26
   PrimaryAsset {
     AssetType: "SkinnedMeshAssetRef"
     AssetId: "npc_human_gal_head_basic_004_ref"
-  }
-}
-Assets {
-  Id: 13710161915374590549
-  Name: "Rock 03"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_rock_generic_003"
   }
 }
 Assets {
@@ -98,12 +80,30 @@ Assets {
   }
 }
 Assets {
-  Id: 8774124567196061759
-  Name: "Ice Spikes Trail VFX"
-  PlatformAssetType: 8
+  Id: 11390460717838521883
+  Name: "Fantasy Ability Yellow 005"
+  PlatformAssetType: 9
   PrimaryAsset {
-    AssetType: "VfxBlueprintAssetRef"
-    AssetId: "fxbp_ice_spikes_line"
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Yellow_005"
+  }
+}
+Assets {
+  Id: 9338546721314186430
+  Name: "Fantasy Ability Yellow 024"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Yellow_024"
+  }
+}
+Assets {
+  Id: 8821708826965602383
+  Name: "Fantasy Ability Green 011"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Green_011"
   }
 }
 Assets {
@@ -125,21 +125,48 @@ Assets {
   }
 }
 Assets {
-  Id: 5196377603841433560
-  Name: "BG Gradient 001"
+  Id: 7372847416584772991
+  Name: "Fantasy Ability Blue 004"
   PlatformAssetType: 9
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
-    AssetId: "BackgroundFlat_020"
+    AssetId: "UI_Fantasy_Ability_Blue_004"
   }
 }
 Assets {
-  Id: 4801985963367974663
-  Name: "Fantasy Sword Blade 03"
-  PlatformAssetType: 1
+  Id: 6801448069576003894
+  Name: "Japanese Ability Weapon Clash"
+  PlatformAssetType: 9
   PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_weap_fan_blade_sword_003"
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "IllustratedIcons_Japan_Abilities_WeaponClash"
+  }
+}
+Assets {
+  Id: 6275702538971290018
+  Name: "Military Ability Healing 002"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "Icon_Military_Ability_Green_004"
+  }
+}
+Assets {
+  Id: 5257745730810053693
+  Name: "Fantasy Ability Blue 018"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Blue_018"
+  }
+}
+Assets {
+  Id: 5077155677629092808
+  Name: "Fantasy Ability Green 022"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Green_022"
   }
 }
 Assets {
@@ -152,11 +179,29 @@ Assets {
   }
 }
 Assets {
-  Id: 105931313654138488
-  Name: "Ice Ground Transparent"
-  PlatformAssetType: 2
+  Id: 1510567160265264152
+  Name: "Fantasy Ability Blue 017"
+  PlatformAssetType: 9
   PrimaryAsset {
-    AssetType: "MaterialAssetRef"
-    AssetId: "fxmi_ice_transparent_ground"
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Blue_017"
+  }
+}
+Assets {
+  Id: 1057049713203263152
+  Name: "Fantasy Ability Blue 021"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Blue_021"
+  }
+}
+Assets {
+  Id: 217584946935527202
+  Name: "Fantasy Ability Green 017"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Ability_Green_017"
   }
 }

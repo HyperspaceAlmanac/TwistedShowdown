@@ -3,6 +3,8 @@ Assets {
   Name: "CameraExperiment"
   PlatformAssetType: 3
   TextAsset {
+    CustomParameters {
+    }
   }
   SerializationVersion: 101
 }

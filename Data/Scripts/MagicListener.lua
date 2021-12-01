@@ -1,13 +1,60 @@
 local weapon = script.parent.parent
-local fastCost = weapon:GetCustomProperty("Fast")
-local powerCost = weapon:GetCustomProperty("Power")
-local shieldCost = weapon:GetCustomProperty("Shield")
+local fastCost = weapon:GetCustomProperty("Cost1")
+local powerCost = weapon:GetCustomProperty("Cost2")
+local shieldCost = weapon:GetCustomProperty("Cost3")
 local QuickCast = script:GetCustomProperty("QuickCast"):WaitForObject()
 local PowerCast = script:GetCustomProperty("PowerCast"):WaitForObject()
 local Shield = script:GetCustomProperty("Shield"):WaitForObject()
 local ShieldObj = script:GetCustomProperty("ShieldObj"):WaitForObject()
 
+local FastProjectile = script:GetCustomProperty("IceShard")
+local PowerProjectile = script:GetCustomProperty("IceShardLarge")
+local damageFast = QuickCast:GetCustomProperty("Damage")
+local damagePower = QuickCast:GetCustomProperty("Damage")
+
+local projectileTable = {}
 local lockedOn = false
+
+function ImpactEventFast(projectile, other, hit)
+    print("Hit")
+end
+function ImpactEventPower(projectile, other, hit)
+    print("Hard Hit")
+end
+
+function SpawnProjectile(ability, fast)
+    local player = ability.owner
+    local playerTransform = player:GetWorldTransform()
+    local projectile = nil
+    if fast then
+        local offset = playerTransform:GetForwardVector() * 100 + playerTransform:GetRightVector() * 100 + playerTransform:GetUpVector() * 100
+        projectile = Projectile.Spawn(FastProjectile, player:GetWorldPosition() + offset, playerTransform:GetForwardVector())
+    else
+        local offset = playerTransform:GetForwardVector() * 200
+        projectile = Projectile.Spawn(PowerProjectile, player:GetWorldPosition() + offset, playerTransform:GetForwardVector())
+    end
+    if projectile == nil then
+        return
+    end
+    if fast then
+        projectile.speed = 3000
+    else
+        projectile.speed = 2000
+    end
+    projectile.gravityScale = 0
+    projectile.lifeSpan = 2
+    projectile.homingTarget = player.serverUserData.target
+    lockedOn = false
+    if fast then
+        projectileTable[projectile] = projectile.impactEvent:Connect(ImpactEventFast)
+    else
+        projectileTable[projectile] = projectile.impactEvent:Connect(ImpactEventPower)
+    end
+    Task.Spawn(function()
+        projectileTable[projectile]:Disconnect()
+        projectileTable[projectile] = nil
+    end, 2.5)
+end
 
 function CastPower(ability)
     ability.owner:ResetVelocity()
@@ -23,6 +70,7 @@ function ExecutePower(ability)
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
     lockedOn = false
+    SpawnProjectile(ability, false)
 end
 function RecoveryPower(ability)
     local player = ability.owner
@@ -44,7 +92,7 @@ function ExecuteFast(ability)
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
-    lockedOn = false
+    SpawnProjectile(ability, true)
 end
 
 

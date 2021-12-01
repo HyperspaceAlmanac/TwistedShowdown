@@ -61,15 +61,15 @@ Assets {
             String: "Sword"
           }
           Overrides {
-            Name: "cs:Fast"
+            Name: "cs:Cost1"
             Int: 25
           }
           Overrides {
-            Name: "cs:Power"
+            Name: "cs:Cost2"
             Int: 50
           }
           Overrides {
-            Name: "cs:Dodge"
+            Name: "cs:Cost3"
             Int: 25
           }
           Overrides {

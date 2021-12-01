@@ -3,8 +3,8 @@ local PowerCast = script:GetCustomProperty("PowerCast"):WaitForObject()
 local Meditate = script:GetCustomProperty("Meditate"):WaitForObject()
 local weapon = script:FindAncestorByType("Equipment")
 
-local qCost, qPower = QuickCast:GetCustomProperty("Cost"), QuickCast:GetCustomProperty("Power")
-local pCost, pPower = PowerCast:GetCustomProperty("Cost"), PowerCast:GetCustomProperty("Power")
+local qCost, qPower = weapon:GetCustomProperty("Cost1"), QuickCast:GetCustomProperty("Power")
+local pCost, pPower = weapon:GetCustomProperty("Cost2"), PowerCast:GetCustomProperty("Power")
 
 local lockedOn = false
 

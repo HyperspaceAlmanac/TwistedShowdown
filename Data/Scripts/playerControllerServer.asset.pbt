@@ -3,6 +3,8 @@ Assets {
   Name: "playerControllerServer"
   PlatformAssetType: 3
   TextAsset {
+    CustomParameters {
+    }
   }
   SerializationVersion: 101
 }

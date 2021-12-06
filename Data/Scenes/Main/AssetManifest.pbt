@@ -8,12 +8,30 @@ Assets {
   }
 }
 Assets {
+  Id: 17804966421917202844
+  Name: "Forest Floor 02"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "forest-floor_002"
+  }
+}
+Assets {
   Id: 17623511261233907949
   Name: "Cube - Arcade 01"
   PlatformAssetType: 1
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_arcade_cube_001"
+  }
+}
+Assets {
+  Id: 17246754151924769898
+  Name: "Fantasy Castle Floor 03 4m"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_ts_fan_cas_floor_003_4m_ref"
   }
 }
 Assets {
@@ -26,12 +44,12 @@ Assets {
   }
 }
 Assets {
-  Id: 16910278292812118833
-  Name: "Sun Light"
-  PlatformAssetType: 6
+  Id: 16883239239760630760
+  Name: "Sphere - Half Thin"
+  PlatformAssetType: 1
   PrimaryAsset {
-    AssetType: "BlueprintAssetRef"
-    AssetId: "CORESKY_SunLight"
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_hemisphere_002"
   }
 }
 Assets {
@@ -44,12 +62,66 @@ Assets {
   }
 }
 Assets {
+  Id: 16516339866119199245
+  Name: "Ice Opaque"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxmi_ice_opaque"
+  }
+}
+Assets {
+  Id: 16048367406070731799
+  Name: "Plane 1m - One Sided"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_plane_1m_001"
+  }
+}
+Assets {
   Id: 14941129441712685284
   Name: "Humanoid 1 Kate"
   PlatformAssetType: 26
   PrimaryAsset {
     AssetType: "SkinnedMeshAssetRef"
     AssetId: "npc_human_gal_head_basic_004_ref"
+  }
+}
+Assets {
+  Id: 14476679536478096151
+  Name: "Fantasy Castle Pillar 02 - Base"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_ts_fan_cas_pillar_002_base"
+  }
+}
+Assets {
+  Id: 13591052692852497934
+  Name: "Raptor Mob"
+  PlatformAssetType: 17
+  PrimaryAsset {
+    AssetType: "AnimatedMeshAssetRef"
+    AssetId: "npc_raptor_default_basic_001_ref"
+  }
+}
+Assets {
+  Id: 13562721483254485835
+  Name: "Hex Energy Cycling Tile"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxmi_hex_cycle"
+  }
+}
+Assets {
+  Id: 13413646463672375865
+  Name: "Bricks Rough Stone Floor 02"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_brick_stone_floor_rough_002"
   }
 }
 Assets {
@@ -71,12 +143,21 @@ Assets {
   }
 }
 Assets {
-  Id: 11515840070784317904
-  Name: "Skylight"
-  PlatformAssetType: 6
+  Id: 11761871474221141479
+  Name: "Fantasy Castle Door 02"
+  PlatformAssetType: 1
   PrimaryAsset {
-    AssetType: "BlueprintAssetRef"
-    AssetId: "CORESKY_Skylight"
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_ts_fan_cas_door_002"
+  }
+}
+Assets {
+  Id: 11597013006328979743
+  Name: "Cone - Truncated Hollow Wide"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_cone_truncated_hollow_004"
   }
 }
 Assets {
@@ -89,12 +170,39 @@ Assets {
   }
 }
 Assets {
+  Id: 10850769815684373087
+  Name: "Plane 1m - Two Sided"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_plane_1m_002"
+  }
+}
+Assets {
+  Id: 10640712633089590968
+  Name: "Cone - Truncated Hollow Wide Thin"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_cone_truncated_hollow_006"
+  }
+}
+Assets {
   Id: 9338546721314186430
   Name: "Fantasy Ability Yellow 024"
   PlatformAssetType: 9
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Ability_Yellow_024"
+  }
+}
+Assets {
+  Id: 8983708969469221779
+  Name: "Fantasy Castle Wall 03"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_ts_fan_cas_wall_003"
   }
 }
 Assets {
@@ -107,12 +215,21 @@ Assets {
   }
 }
 Assets {
-  Id: 7887238662729938253
-  Name: "Sky Dome"
-  PlatformAssetType: 6
+  Id: 8274563864735355392
+  Name: "Fox Mob"
+  PlatformAssetType: 17
   PrimaryAsset {
-    AssetType: "BlueprintAssetRef"
-    AssetId: "CORESKY_Sky"
+    AssetType: "AnimatedMeshAssetRef"
+    AssetId: "npc_fox_default_basic_001_ref"
+  }
+}
+Assets {
+  Id: 8250394013304145202
+  Name: "Wood Shingles Cedar 01"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_wood_cedar_shingles_001_uv"
   }
 }
 Assets {
@@ -122,6 +239,15 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "Core_UI_AbstractPack_Background_005"
+  }
+}
+Assets {
+  Id: 7690346876694402261
+  Name: "Fantasy Castle Wall 03 - Doorway 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_ts_fan_cas_wall_003_door_02"
   }
 }
 Assets {
@@ -179,6 +305,15 @@ Assets {
   }
 }
 Assets {
+  Id: 2106164552835247281
+  Name: "Rubble Concrete 01"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_mil_rubble_002_uv_ref"
+  }
+}
+Assets {
   Id: 1510567160265264152
   Name: "Fantasy Ability Blue 017"
   PlatformAssetType: 9
@@ -194,6 +329,15 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Ability_Blue_021"
+  }
+}
+Assets {
+  Id: 292218483506520555
+  Name: "Plane Pentagon - One Sided"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_plane_pentagon_001"
   }
 }
 Assets {

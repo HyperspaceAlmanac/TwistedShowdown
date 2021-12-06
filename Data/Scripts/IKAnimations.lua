@@ -24,6 +24,9 @@ function OnReady(ability)
             tempBodyAnchor[1] = nil
         end
     end
+    for _, anchor in ipairs(ability.owner:GetIKAnchors()) do
+        anchor:Deactivate()
+    end
 end
 
 function OnCast(ability)

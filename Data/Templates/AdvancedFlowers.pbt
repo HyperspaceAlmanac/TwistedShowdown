@@ -315,6 +315,7 @@ Assets {
               Value: "mc:eabilitysetfacing:none"
             }
           }
+          CanBePrevented: true
           KeyBinding_v2 {
             Value: "mc:egameaction:primaryaction"
           }
@@ -396,6 +397,7 @@ Assets {
               Value: "mc:eabilitysetfacing:none"
             }
           }
+          CanBePrevented: true
           KeyBinding_v2 {
             Value: "mc:egameaction:secondaryaction"
           }
@@ -476,6 +478,7 @@ Assets {
               Value: "mc:eabilitysetfacing:none"
             }
           }
+          CanBePrevented: true
           KeyBinding_v2 {
             Value: "mc:egameaction:extraaction_04"
           }

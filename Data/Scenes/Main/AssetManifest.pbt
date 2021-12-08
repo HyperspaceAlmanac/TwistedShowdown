@@ -1,4 +1,13 @@
 Assets {
+  Id: 18431279897210076694
+  Name: "Flower Wild Lily 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_foliage_gen_flower_wild_lily_002_ref"
+  }
+}
+Assets {
   Id: 18348942487415386698
   Name: "Fantasy Ability Red 016"
   PlatformAssetType: 9
@@ -35,12 +44,12 @@ Assets {
   }
 }
 Assets {
-  Id: 16996673655604572076
-  Name: "Sci-fi Cargo Crate 02"
-  PlatformAssetType: 1
+  Id: 16910278292812118833
+  Name: "Sun Light"
+  PlatformAssetType: 6
   PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_prop_scf_crate_cargo_002"
+    AssetType: "BlueprintAssetRef"
+    AssetId: "CORESKY_SunLight"
   }
 }
 Assets {
@@ -80,12 +89,39 @@ Assets {
   }
 }
 Assets {
+  Id: 15565635978480456297
+  Name: "Craftsman End Table"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_urb_end_table_001"
+  }
+}
+Assets {
   Id: 14941129441712685284
   Name: "Humanoid 1 Kate"
   PlatformAssetType: 26
   PrimaryAsset {
     AssetType: "SkinnedMeshAssetRef"
     AssetId: "npc_human_gal_head_basic_004_ref"
+  }
+}
+Assets {
+  Id: 14908025622032748832
+  Name: "Icon Health"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "Icon_Health"
+  }
+}
+Assets {
+  Id: 14767404608396807431
+  Name: "Crosshair 001"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "Crosshair_001"
   }
 }
 Assets {
@@ -125,6 +161,24 @@ Assets {
   }
 }
 Assets {
+  Id: 12580249422089955857
+  Name: "Retro and Arcade Music Score Set 01"
+  PlatformAssetType: 10
+  PrimaryAsset {
+    AssetType: "AudioBlueprintAssetRef"
+    AssetId: "abp_RetroArcadeMusic_ref"
+  }
+}
+Assets {
+  Id: 12344193518355455075
+  Name: "Star Dome"
+  PlatformAssetType: 6
+  PrimaryAsset {
+    AssetType: "BlueprintAssetRef"
+    AssetId: "CORESKY_StarDome"
+  }
+}
+Assets {
   Id: 12180765644736270884
   Name: "Humanoid 1 Rig"
   PlatformAssetType: 25
@@ -161,12 +215,39 @@ Assets {
   }
 }
 Assets {
+  Id: 11515840070784317904
+  Name: "Skylight"
+  PlatformAssetType: 6
+  PrimaryAsset {
+    AssetType: "BlueprintAssetRef"
+    AssetId: "CORESKY_Skylight"
+  }
+}
+Assets {
   Id: 11390460717838521883
   Name: "Fantasy Ability Yellow 005"
   PlatformAssetType: 9
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Ability_Yellow_005"
+  }
+}
+Assets {
+  Id: 10995193757661392908
+  Name: "Urban Interior - Oil Lantern 01 - Base 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_urb_lantern_oil_base_001_ref"
+  }
+}
+Assets {
+  Id: 10864504753264567166
+  Name: "Street Light Pole Base 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_urb_st_post_lights_pole_001_base"
   }
 }
 Assets {
@@ -215,6 +296,15 @@ Assets {
   }
 }
 Assets {
+  Id: 8687595600370261993
+  Name: "Abstract Background 05"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "Core_UI_AbstractPack_Background_006"
+  }
+}
+Assets {
   Id: 8274563864735355392
   Name: "Fox Mob"
   PlatformAssetType: 17
@@ -230,6 +320,15 @@ Assets {
   PrimaryAsset {
     AssetType: "MaterialAssetRef"
     AssetId: "mi_wood_cedar_shingles_001_uv"
+  }
+}
+Assets {
+  Id: 7887238662729938253
+  Name: "Sky Dome"
+  PlatformAssetType: 6
+  PrimaryAsset {
+    AssetType: "BlueprintAssetRef"
+    AssetId: "CORESKY_Sky"
   }
 }
 Assets {
@@ -260,6 +359,24 @@ Assets {
   }
 }
 Assets {
+  Id: 7296091871461150667
+  Name: "Shuriken 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_shuriken_002"
+  }
+}
+Assets {
+  Id: 6918710273059145556
+  Name: "Urban Interior - Oil Lantern 01 - Shade 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_urb_lantern_oil_shade_001_ref"
+  }
+}
+Assets {
   Id: 6801448069576003894
   Name: "Japanese Ability Weapon Clash"
   PlatformAssetType: 9
@@ -275,6 +392,24 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "Icon_Military_Ability_Green_004"
+  }
+}
+Assets {
+  Id: 6189341320457717304
+  Name: "Bark Redwood 01"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_bark_redwood_001_uv"
+  }
+}
+Assets {
+  Id: 6014798083757548285
+  Name: "Crosshair 002"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "Crosshair_002"
   }
 }
 Assets {
@@ -305,12 +440,66 @@ Assets {
   }
 }
 Assets {
+  Id: 4204935042848427516
+  Name: "Magic Circle Generator Advanced: Fantasy VFX"
+  PlatformAssetType: 8
+  PrimaryAsset {
+    AssetType: "VfxBlueprintAssetRef"
+    AssetId: "fxbp_magic_circle_generator_fantasy"
+  }
+}
+Assets {
+  Id: 4062643196608680735
+  Name: "Bottle 06"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_fantasy_bottle_006"
+  }
+}
+Assets {
+  Id: 3922197109724794572
+  Name: "Cinematic Music Score Set 01"
+  PlatformAssetType: 10
+  PrimaryAsset {
+    AssetType: "AudioBlueprintAssetRef"
+    AssetId: "abp_CinematicMusic_ref"
+  }
+}
+Assets {
+  Id: 3917661374708622930
+  Name: "Urban Interior - Oil Lantern 01 - Chimney 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_urb_lantern_oil_chimeny_001_ref"
+  }
+}
+Assets {
+  Id: 2433051722484962510
+  Name: "Cylinder - 2-Toned"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_cylinder_003"
+  }
+}
+Assets {
   Id: 2106164552835247281
   Name: "Rubble Concrete 01"
   PlatformAssetType: 2
   PrimaryAsset {
     AssetType: "MaterialAssetRef"
     AssetId: "mi_mil_rubble_002_uv_ref"
+  }
+}
+Assets {
+  Id: 1976089651343959467
+  Name: "Upbeat Music Score Set 01"
+  PlatformAssetType: 10
+  PrimaryAsset {
+    AssetType: "AudioBlueprintAssetRef"
+    AssetId: "abp_UpbeatMusic_ref"
   }
 }
 Assets {
@@ -329,6 +518,24 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Ability_Blue_021"
+  }
+}
+Assets {
+  Id: 692366952103547914
+  Name: "Fantasy Music Score Set 01"
+  PlatformAssetType: 10
+  PrimaryAsset {
+    AssetType: "AudioBlueprintAssetRef"
+    AssetId: "abp_FantasyMusic_ref"
+  }
+}
+Assets {
+  Id: 598972589683568663
+  Name: "Fantasy Gold 001"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Fantasy_Equip_Gold_001"
   }
 }
 Assets {

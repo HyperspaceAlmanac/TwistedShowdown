@@ -1,3 +1,11 @@
+-- API 
+local API = require(script:GetCustomProperty("GameStateAPI"))
+
+local Hideout = script:GetCustomProperty("Hideout"):WaitForObject()
+local Level1 = script:GetCustomProperty("Level1"):WaitForObject()
+local Level2 = script:GetCustomProperty("Level2"):WaitForObject()
+
+
 local Target = nil
 local playerListeners = {}
 local prevShot = 0
@@ -9,8 +17,9 @@ function Tick(deltaTime)
         if player.isFlying == false then
             player:ActivateFlying()
         end
+        local prevHealth = statTable[player]["prevHealth"]
         local rotation = player:GetWorldRotation()
-        if player:GetPrivateNetworkedData("LockedOn") == false then
+        if player.serverUserData.lockedOn == false then
             --raycast
             local rotation = Quaternion.New(player:GetLookWorldRotation())
             --local hitResult = World.Raycast(player:GetWorldPosition() + cameraOffset, player:GetWorldPosition() + rotation:GetForwardVector() * 10000,
@@ -19,11 +28,41 @@ function Tick(deltaTime)
             )
             local other = hitResult and hitResult.other or nil
             --print(other)
-            if other ~= nil and Object.IsValid(other) and other:IsA("StaticMesh") and other:GetCustomProperty("Tag") ~= nil then
+            local gameTarget, trainingTarget = API.ValidTarget(player, other), API.ValidTrainingTarget(player, other)
+            if gameTarget or trainingTarget then
                 Target = other
                 player.serverUserData.target = Target
                 player:SetPrivateNetworkedData("Target", other)
+                local newHealth = 0
+                if gameTarget then
+                    newHealth = gameTarget[1] / gameTarget[2]
+                else
+                    newHealth = trainingTarget[1] / trainingTarget[2]
+                end
+                if newHealth ~= prevHealth then
+                    statTable[player]["prevHealth"] = newHealth
+                    player:SetPrivateNetworkedData("targetHealth", newHealth)
+                end
             else
+                player.serverUserData.target = nil
+                player:SetPrivateNetworkedData("Target", nil)
+            end
+        else
+            local gameTarget, trainingTarget = API.ValidTarget(player, Target), API.ValidTrainingTarget(player, Target)
+            if gameTarget or trainingTarget then
+                local newHealth = 0
+                if gameTarget then
+                    newHealth = gameTarget[1] / gameTarget[2]
+                else
+                    newHealth = trainingTarget[1] / trainingTarget[2]
+                end
+                if newHealth ~= prevHealth then
+                    statTable[player]["prevHealth"] = newHealth
+                    player:SetPrivateNetworkedData("targetHealth", newHealth)
+                end
+            else
+                player.serverUserData.lockedOn = false
+                player:SetPrivateNetworkedData("LockedOn", false)
                 player.serverUserData.target = nil
                 player:SetPrivateNetworkedData("Target", nil)
             end
@@ -66,12 +105,14 @@ end
 
 function BindingReleased(player, key)
     if key == "ability_extra_23" then
-        local lockedOn = player:GetPrivateNetworkedData("LockedOn")
-        local target = player:GetPrivateNetworkedData("Target")
+        local lockedOn = player.serverUserData.lockedOn
+        local target = player.serverUserData.target
         if lockedOn then
+            player.serverUserData.lockedOn = false
             player:SetPrivateNetworkedData("LockedOn", false)
         else
             if target then
+                player.serverUserData.lockedOn = true
                 player:SetPrivateNetworkedData("LockedOn", true)
             end
         end
@@ -102,15 +143,19 @@ function DataChanged(player, key)
 end
 
 function PlayerJoined(player)
-    player:ActivateFlying()
+    print("Player Joined")
     player:SetPrivateNetworkedData("LockedOn", false)
     player:SetPrivateNetworkedData("Target", nil)
+    player:SetPrivateNetworkedData("targetHealth", 0)
+    player.serverUserData.lockedOn = false
+    player.serverUserData.target = nil
     playerListeners[player] = {}
     playerListeners[player]["binding_released"] = player.bindingReleasedEvent:Connect(BindingReleased)
     playerListeners[player]["dataChanged"] = player.privateNetworkedDataChangedEvent:Connect(DataChanged)
     statTable[player] ={maxStamina = 100, stamina = 100,
         maxMagic = 100, magic = 100, stance = "Sword",
-        stamina2 = 10, magic2 = 10, health2 = 5, initialized = false}
+        stamina2 = 10, magic2 = 10, health2 = 5,
+        prevHealth = 0, initialized = false}
     for key, val in pairs(statTable[player]) do
         player:SetPrivateNetworkedData(key, val)
     end
@@ -119,7 +164,20 @@ function PlayerJoined(player)
     player.serverUserData.stance = "Sword"
     player.serverUserData.casting = false
     statTable[player]["initialized"] = true
-    print("On player join")
+    player:Spawn({position = Hideout:GetWorldPosition(), rotation = Hideout:GetWorldRotation()})
+
+    -- Resource
+    local persistentTable = Storage.GetPlayerData(player)
+    player.serverUserData.resources = {}
+    for key, value in pairs(persistentTable) do
+        if key == "gold" then
+            player:SetPrivateNetworkedData(key, value or 0)
+            player.serverUserData.resources[key] = value or 0
+        else
+            player:SetPrivateNetworkedData(key, value or false)
+            player.serverUserData.resources[key] = value or false
+        end
+    end
 end
 
 function PlayerLeft(player)
@@ -127,6 +185,12 @@ function PlayerLeft(player)
     playerListeners[player]["dataChanged"]:Disconnect()
     playerListeners[player] = nil
     statTable[player] = nil
+
+    local persistentTable = Storage.GetPlayerData(player)
+    for key, value in pairs(player.serverUserData.resources) do
+        persistentTable[key] = value
+    end
+    Storage.SetPlayerData(player, persistentTable)
 end
 
 Task.Spawn(UpdateStats)

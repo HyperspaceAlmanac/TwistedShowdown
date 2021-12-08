@@ -306,9 +306,6 @@ Assets {
             }
           }
           CooldownPhaseSettings {
-            CanMove: true
-            CanJump: true
-            CanRotate: true
             PreventOtherAbilities: true
             IsTargetDataUpdated: true
             Facing_V2 {

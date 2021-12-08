@@ -8,6 +8,14 @@ local pCost, pPower = weapon:GetCustomProperty("Cost2"), PowerCast:GetCustomProp
 
 local lockedOn = false
 
+function HandleInterrupt(ability)
+    local player = ability.owner
+    player.serverUserData.casting = false
+    if lockedOn == false then
+        ability.owner:SetPrivateNetworkedData("LockedOn", false)
+    end
+end
+
 function QuickCastEvent(ability)
     lockedOn = ability.owner:GetPrivateNetworkedData("LockedOn")
     
@@ -22,7 +30,6 @@ function QuickExecuteEvent(ability)
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
     ability.owner:ApplyDamage(Damage.New(qCost))
-    lockedOn = false
 end
 
 function PowerCastEvent(ability)
@@ -39,7 +46,6 @@ function PowerExecuteEvent(ability)
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
     ability.owner:ApplyDamage(Damage.New(pCost))
-    lockedOn = false
 end
 
 function MeditateExecuteEvent(ability)
@@ -77,18 +83,21 @@ function Tick(deltaTime)
     end
 end
 
+QuickCast.interruptedEvent:Connect(HandleInterrupt)
 QuickCast.castEvent:Connect(QuickCastEvent)
 QuickCast.executeEvent:Connect(QuickExecuteEvent)
 QuickCast.recoveryEvent:Connect(function(ability)
     local player = ability.owner
     player.serverUserData.casting = false
 end)
+PowerCast.interruptedEvent:Connect(HandleInterrupt)
 PowerCast.castEvent:Connect(PowerCastEvent)
 PowerCast.executeEvent:Connect(PowerExecuteEvent)
 PowerCast.recoveryEvent:Connect(function(ability)
     local player = ability.owner
     player.serverUserData.casting = false
 end)
+Meditate.interruptedEvent:Connect(HandleInterrupt)
 Meditate.castEvent:Connect(function(ability)
     ability.owner.serverUserData.casting = true
 end)

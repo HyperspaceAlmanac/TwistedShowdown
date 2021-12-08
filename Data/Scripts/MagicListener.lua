@@ -44,7 +44,6 @@ function SpawnProjectile(ability, fast)
     projectile.gravityScale = 0
     projectile.lifeSpan = 2
     projectile.homingTarget = player.serverUserData.target
-    lockedOn = false
     if fast then
         projectileTable[projectile] = projectile.impactEvent:Connect(ImpactEventFast)
     else
@@ -54,6 +53,14 @@ function SpawnProjectile(ability, fast)
         projectileTable[projectile]:Disconnect()
         projectileTable[projectile] = nil
     end, 2.5)
+end
+
+function HandleInterrupt(ability)
+    local player = ability.owner
+    player.serverUserData.casting = false
+    if lockedOn == false then
+        ability.owner:SetPrivateNetworkedData("LockedOn", false)
+    end
 end
 
 function CastPower(ability)
@@ -69,7 +76,6 @@ function ExecutePower(ability)
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
-    lockedOn = false
     SpawnProjectile(ability, false)
 end
 function RecoveryPower(ability)
@@ -143,12 +149,17 @@ function Tick(deltaTime)
     end
 end
 
+PowerCast.interruptedEvent:Connect(HandleInterrupt)
 PowerCast.castEvent:Connect(CastPower)
 PowerCast.executeEvent:Connect(ExecutePower)
 PowerCast.recoveryEvent:Connect(RecoveryPower)
+
+QuickCast.interruptedEvent:Connect(HandleInterrupt)
 QuickCast.castEvent:Connect(CastFast)
 QuickCast.executeEvent:Connect(ExecuteFast)
 QuickCast.recoveryEvent:Connect(RecoveryFast)
+
+Shield.interruptedEvent:Connect(HandleInterrupt)
 Shield.castEvent:Connect(function(ability)
     ability.owner.serverUserData.casting = true
 end)

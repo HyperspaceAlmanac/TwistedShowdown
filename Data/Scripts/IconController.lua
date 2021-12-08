@@ -20,6 +20,9 @@ local F_3 = script:GetCustomProperty("F_3")
 local F_Main = script:GetCustomProperty("F_Main")
 local F_2 = script:GetCustomProperty("F_2")
 
+local LockOn = script:GetCustomProperty("LockOn"):WaitForObject()
+local LockOnOff = script:GetCustomProperty("LockOnOff"):WaitForObject()
+
 
 local player = Game.GetLocalPlayer()
 
@@ -63,5 +66,10 @@ function Tick(deltaTime)
     else
         MainIcon.visibility = Visibility.FORCE_OFF
         BottomIcons.visibility = Visibility.FORCE_OFF
+    end
+    if player.clientUserData.lockedOn then
+        LockOn.visibility = Visibility.INHERIT
+    else
+        LockOn.visibility = Visibility.FORCE_OFF
     end
 end

@@ -3452,7 +3452,7 @@ Objects {
       }
       Size: 20
       Justification {
-        Value: "mc:etextjustify:center"
+        Value: "mc:etextjustify:left"
       }
       AutoWrapText: true
       Font {

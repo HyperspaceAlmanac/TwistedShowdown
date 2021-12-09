@@ -96,6 +96,25 @@ function GoldDisplay(amount)
     end
 end
 
+function UpdateHealthDisplay()
+    targetHealth = player:GetPrivateNetworkedData("targetHealth")
+    player.clientUserData.targetHealth = targetHealth
+
+    if stance == "Sword" then
+        Progress.progress = targetHealth
+        Progress:SetFillColor(green)
+        Progress:SetBackgroundColor(red)
+    elseif stance == "Magic" then
+        Progress.progress = 1 - targetHealth
+        Progress:SetFillColor(cyan)
+        Progress:SetBackgroundColor(white)
+    elseif stance == "Flower" then
+        Progress.progress = 1 - targetHealth
+        Progress:SetFillColor(green)
+        Progress:SetBackgroundColor(brown)
+    end
+end
+
 function UpdateStatus(player, key)
     if key == "LockedOn" then
         lockedOn = player:GetPrivateNetworkedData(key)
@@ -106,25 +125,12 @@ function UpdateStatus(player, key)
             targetName.text = Target.name
             Reticle.visibility = Visibility.FORCE_ON
             Targetting.visibility = Visibility.FORCE_OFF
-
-            if stance == "Sword" then
-                Progress.progress = targetHealth
-                Progress:SetFillColor(green)
-                Progress:SetBackgroundColor(red)
-            elseif stance == "Magic" then
-                Progress.progress = 1 - targetHealth
-                Progress:SetFillColor(cyan)
-                Progress:SetBackgroundColor(white)
-            elseif stance == "Flower" then
-                Progress.progress = 1 - targetHealth
-                Progress:SetFillColor(green)
-                Progress:SetBackgroundColor(brown)
-            end
         else
             Reticle.visibility = Visibility.FORCE_OFF
             Targetting.visibility = Visibility.FORCE_ON
             Target = nil
         end
+        UpdateHealthDisplay()
     elseif key == "maxStamina" then
         maxStamina = player:GetPrivateNetworkedData(key)
     elseif key == "maxMagic" then
@@ -137,8 +143,7 @@ function UpdateStatus(player, key)
         stance = player:GetPrivateNetworkedData(key)
         player.clientUserData.stance = stance
     elseif key == "targetHealth" then
-        targetHealth = player:GetPrivateNetworkedData(key)
-        player.clientUserData.targetHealth = targetHealth
+        UpdateHealthDisplay()
     elseif resources[key] ~= nil then
         local value = player:GetPrivateNetworkedData(key)
         player.clientUserData.resources[key] = value

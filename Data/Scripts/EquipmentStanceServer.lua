@@ -29,16 +29,14 @@ local originalStance = "unarmed_stance"
 
 -- nil OnEquipped(Equipment, Player)
 function OnEquipped(equipment, player)
-    
+    if EQUIPMENT_STANCE then
+        player.animationStance = EQUIPMENT_STANCE
+    end
 end
 
 -- nil OnUnequipped(Equipment, Player)
 function OnUnequipped(equipment, player)
     player.animationStance = originalStance
-end
-
-if EQUIPMENT.owner ~= nil then
-    EQUIPMENT:OnEquipped(EQUIPMENT, EQUIPMENT.owner)
 end
 
 -- Initialize

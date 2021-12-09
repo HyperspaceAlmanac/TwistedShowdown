@@ -1,3 +1,5 @@
+
+
 local weapon = script.parent.parent
 local fastCost = weapon:GetCustomProperty("Cost1")
 local powerCost = weapon:GetCustomProperty("Cost2")
@@ -12,14 +14,46 @@ local PowerProjectile = script:GetCustomProperty("IceShardLarge")
 local damageFast = QuickCast:GetCustomProperty("Damage")
 local damagePower = QuickCast:GetCustomProperty("Damage")
 
+local IceExplosion = script:GetCustomProperty("IceExplosion")
+
+local API = require(script:GetCustomProperty("GameStateAPI"))
+
 local projectileTable = {}
 local lockedOn = false
 
+function GetValidTarget(player, target)
+    if not Object.IsValid(target) then return nil end
+
+    if API.ValidTrainingTarget(player, target) then
+        return target
+    elseif API.ValidTrainingTarget(player, target) then
+        return target
+    else
+        return nil
+    end
+end
+
 function ImpactEventFast(projectile, other, hit)
-    print("Hit")
+    if hit then
+        World.SpawnAsset(IceExplosion, {position = hit:GetImpactPosition()})
+    end
+    if Object.IsValid(weapon) and Object.IsValid(weapon.owner) then
+        local result = GetValidTarget(weapon.owner, other)
+        if result then
+            API.FreezeHit(weapon.owner, other, damageFast)
+        end
+    end
 end
 function ImpactEventPower(projectile, other, hit)
-    print("Hard Hit")
+    if hit then
+        World.SpawnAsset(IceExplosion, {position = hit:GetImpactPosition()})
+    end
+    if Object.IsValid(weapon) and Object.IsValid(weapon.owner) then
+        local result = GetValidTarget(weapon.owner, other)
+        if result then
+            API.FreezeHit(weapon.owner, other, damagePower)
+        end
+    end
 end
 
 function SpawnProjectile(ability, fast)

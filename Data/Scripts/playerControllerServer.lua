@@ -125,7 +125,7 @@ function DataChanged(player, key)
     elseif key == "maxMagic" then
         statTable[player]["maxStamina"] = player:GetPrivateNetworkedData(key)
     elseif key == "stamina2" then
-        statTable[player]["stamina5"] = player:GetPrivateNetworkedData(key)
+        statTable[player]["stamina2"] = player:GetPrivateNetworkedData(key)
     elseif key == "magic2" then
         statTable[player]["magic2"] = player:GetPrivateNetworkedData(key)
     elseif key == "health2" then
@@ -139,6 +139,22 @@ function DataChanged(player, key)
     elseif key == "stance" then
         player.serverUserData.stance = player:GetPrivateNetworkedData(key)
         statTable[player]["stance"] = player.serverUserData.stance
+    end
+end
+
+local changeableParams = {"maxStamina", "maxMagic", "stamina2", "magic2", "health2", "stamina", "magic", "stance"}
+-- Equip script happens before other scripts.
+function InitializeValues(player)
+    for _, key in ipairs(changeableParams) do
+        local val = player:GetPrivateNetworkedData(key)
+        if val ~= nil then
+            statTable[player][key] = val
+            if key == "stamina" or key == "magic" or key == "stance" then
+                player.serverUserData[key] = val
+            end
+        else
+            player:SetPrivateNetworkedData(key, statTable[player][key])
+        end
     end
 end
 
@@ -156,14 +172,12 @@ function PlayerJoined(player)
         maxMagic = 100, magic = 100, stance = "Sword",
         stamina2 = 10, magic2 = 10, health2 = 5,
         prevHealth = 0, initialized = false}
-    for key, val in pairs(statTable[player]) do
-        player:SetPrivateNetworkedData(key, val)
-    end
     player.serverUserData.stamina = 100
     player.serverUserData.magic = 100
     player.serverUserData.stance = "Sword"
     player.serverUserData.casting = false
     statTable[player]["initialized"] = true
+    InitializeValues(player)
     player:Spawn({position = Hideout:GetWorldPosition(), rotation = Hideout:GetWorldRotation()})
 
     -- Resource
@@ -178,9 +192,11 @@ function PlayerJoined(player)
             player.serverUserData.resources[key] = value or false
         end
     end
+    API.PlayerJoined(player)
 end
 
 function PlayerLeft(player)
+    API.PlayerLeft(player)
     playerListeners[player]["binding_released"]:Disconnect()
     playerListeners[player]["dataChanged"]:Disconnect()
     playerListeners[player] = nil

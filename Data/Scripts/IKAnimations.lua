@@ -5,17 +5,14 @@ local Equipment = script.parent.parent
 
 
 local AbilitiesTable = {}
-local LOCAL_PLAYER = Game.GetLocalPlayer()
 local tempBodyAnchor = {}
 
 function OnReady(ability)
     local prevIK = AbilitiesTable[ability.name]["recovery"]
     if prevIK ~= nil then
-        if Equipment.owner == LOCAL_PLAYER then
-            for _, anchor in ipairs(prevIK) do
-                if anchor[2] ~= "body" then
-                    anchor[1]:Deactivate()
-                end
+        for _, anchor in ipairs(prevIK) do
+            if anchor[2] ~= "body" then
+                anchor[1]:Deactivate()
             end
         end
         if tempBodyAnchor[1] ~= nil then
@@ -39,14 +36,12 @@ function OnCast(ability)
         tempBodyAnchor[1]:Destroy()
         tempBodyAnchor[1] = nil
     end
-    if Equipment.owner == LOCAL_PLAYER then
-        for _, anchor in ipairs(currentIK) do
-            if anchor[2] == "body" then
-                tempBodyAnchor[1] = World.SpawnAsset(BodyAnchor, {transform = anchor[1]:GetWorldTransform()})
-                tempBodyAnchor[1]:Activate(LOCAL_PLAYER)
-            else
-                anchor[1]:Activate(LOCAL_PLAYER)
-            end
+    for _, anchor in ipairs(currentIK) do
+        if anchor[2] == "body" then
+            tempBodyAnchor[1] = World.SpawnAsset(BodyAnchor, {transform = anchor[1]:GetWorldTransform()})
+            tempBodyAnchor[1]:Activate(ability.owner)
+        else
+            anchor[1]:Activate(ability.owner)
         end
     end
 end
@@ -54,11 +49,9 @@ end
 function OnExecute(ability)
     local prevIK = AbilitiesTable[ability.name]["cast"]
     if prevIK ~= nil then
-        if Equipment.owner == LOCAL_PLAYER then
-            for _, anchor in ipairs(prevIK) do
-                if anchor[2] ~= "body" then
-                    anchor[1]:Deactivate()
-                end
+        for _, anchor in ipairs(prevIK) do
+            if anchor[2] ~= "body" then
+                anchor[1]:Deactivate()
             end
         end
         if tempBodyAnchor[1] ~= nil then
@@ -71,14 +64,12 @@ function OnExecute(ability)
     if currentIK == nil then
         return
     end
-    if Equipment.owner == LOCAL_PLAYER then
-        for _, anchor in ipairs(currentIK) do
-            if anchor[2] == "body" then
-                tempBodyAnchor[1] = World.SpawnAsset(BodyAnchor, {transform = anchor[1]:GetWorldTransform()})
-                tempBodyAnchor[1]:Activate(LOCAL_PLAYER)
-            else
-                anchor[1]:Activate(LOCAL_PLAYER)
-            end
+    for _, anchor in ipairs(currentIK) do
+        if anchor[2] == "body" then
+            tempBodyAnchor[1] = World.SpawnAsset(BodyAnchor, {transform = anchor[1]:GetWorldTransform()})
+            tempBodyAnchor[1]:Activate(ability.owner)
+        else
+            anchor[1]:Activate(ability.owner)
         end
     end
 end
@@ -86,11 +77,9 @@ end
 function OnRecovery(ability)
     local prevIK = AbilitiesTable[ability.name]["execute"]
     if prevIK ~= nil then
-        if Equipment.owner == LOCAL_PLAYER then
-            for _, anchor in ipairs(prevIK) do
-                if anchor[2] ~= "body" then
-                    anchor[1]:Deactivate()
-                end
+        for _, anchor in ipairs(prevIK) do
+            if anchor[2] ~= "body" then
+                anchor[1]:Deactivate()
             end
         end
         if tempBodyAnchor[1] ~= nil then
@@ -103,14 +92,12 @@ function OnRecovery(ability)
     if currentIK == nil then
         return
     end
-    if Equipment.owner == LOCAL_PLAYER then
-        for _, anchor in ipairs(currentIK) do
-            if anchor[2] == "body" then
-                tempBodyAnchor[1] = World.SpawnAsset(BodyAnchor, {transform = anchor[1]:GetWorldTransform()})
-                tempBodyAnchor[1]:Activate(LOCAL_PLAYER)
-            else
-                anchor[1]:Activate(LOCAL_PLAYER)
-            end
+    for _, anchor in ipairs(currentIK) do
+        if anchor[2] == "body" then
+            tempBodyAnchor[1] = World.SpawnAsset(BodyAnchor, {transform = anchor[1]:GetWorldTransform()})
+            tempBodyAnchor[1]:Activate(ability.owner)
+        else
+            anchor[1]:Activate(ability.owner)
         end
     end
 end

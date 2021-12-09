@@ -25,6 +25,8 @@ if not EQUIPMENT:IsA('Equipment') then
     error(script.name .. " should be part of Equipment object hierarchy.")
 end
 
+local API = require(script:GetCustomProperty("GameStateAPI"))
+
 -- User exposed properties
 local HIT_SPHERE_RADIUS = EQUIPMENT:GetCustomProperty("HitSphereRadius")
 local HIT_SPHERE_OFFSET = EQUIPMENT:GetCustomProperty("HitSphereOffset")
@@ -66,7 +68,7 @@ end
 -- GetValidTarget(Object)
 -- Returns the valid Player or Damageable object
 function GetValidTarget(player, target)
-    if not Object.IsValid(target) then return nil end
+    if not Object.IsValid(target) or not Object.IsValid(player) then return nil end
 
     if API.ValidTrainingTarget(player, target) then
         return target
@@ -87,16 +89,16 @@ function DetectAndDamageInSphere(center, radius, abilityInfo)
     end
 
     for index, hitResult in ipairs(hitResults) do
-        local validTarget = GetValidTarget(hitResult.other)
+        local validTarget = GetValidTarget(EQUIPMENT.owner, hitResult.other)
         if validTarget then
-            MeleeAttack(validTarget, abilityInfo)
+            MeleeAttack(EQUIPMENT.owner, validTarget, abilityInfo)
         end
     end
 end
 
 -- nil MeleeAttack(Player or Damageable Object)
 -- Detect players or damagable objects within hitbox to apply damage
-function MeleeAttack(target, abilityInfo)
+function MeleeAttack(player, target, abilityInfo)
     if not Object.IsValid(target) then return end
 
     local ability = abilityInfo.ability
@@ -107,18 +109,12 @@ function MeleeAttack(target, abilityInfo)
     if target == ability.owner then return end
 
     -- Ignore friendly attack
-    if target:IsA("Player") then
-        if Teams.AreTeamsFriendly(target.team, ability.owner.team) then return end
-    end
-
     -- Avoid hitting the same player or damageable object multiple times in a single swing
     if (abilityInfo.ignoreList[target] ~= 1) then
 
         -- Creates new damage info at apply it to the enemy
-        local damage = Damage.New(abilityInfo.damage)
-        damage.sourcePlayer = ability.owner
-        damage.sourceAbility = ability
-        target:ApplyDamage(damage)
+        local damage = abilityInfo.damage
+        API.SwordHit(player, target, damage)
 
         abilityInfo.ignoreList[target] = 1
     end

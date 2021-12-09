@@ -3,10 +3,33 @@ local PowerCast = script:GetCustomProperty("PowerCast"):WaitForObject()
 local Meditate = script:GetCustomProperty("Meditate"):WaitForObject()
 local weapon = script:FindAncestorByType("Equipment")
 
+local API = require(script:GetCustomProperty("GameStateAPI"))
+
 local qCost, qPower = weapon:GetCustomProperty("Cost1"), QuickCast:GetCustomProperty("Power")
 local pCost, pPower = weapon:GetCustomProperty("Cost2"), PowerCast:GetCustomProperty("Power")
 
 local lockedOn = false
+
+function GetValidTarget(player, target)
+    if not Object.IsValid(target) then return nil end
+
+    if API.ValidTrainingTarget(player, target) then
+        return target
+    elseif API.ValidTrainingTarget(player, target) then
+        return target
+    else
+        return nil
+    end
+end
+
+function ApplyHeal(player, target, amount)
+    if Object.IsValid(player) and Object.IsValid(target) then
+        local result = GetValidTarget(player, target)
+        if result then
+            API.HealTarget(player, target, amount)
+        end
+    end
+end
 
 function HandleInterrupt(ability)
     local player = ability.owner
@@ -30,6 +53,8 @@ function QuickExecuteEvent(ability)
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
     ability.owner:ApplyDamage(Damage.New(qCost))
+    local player = ability.owner
+    ApplyHeal(player, player.serverUserData.target, qPower)
 end
 
 function PowerCastEvent(ability)
@@ -46,6 +71,8 @@ function PowerExecuteEvent(ability)
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
     ability.owner:ApplyDamage(Damage.New(pCost))
+    local player = ability.owner
+    ApplyHeal(player, player.serverUserData.target, pPower)
 end
 
 function MeditateExecuteEvent(ability)

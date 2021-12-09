@@ -104,66 +104,6 @@ function API.FailMission()
     API.Cleanup()
 end
 
-function API.SwordHit(player, target, damage)
-    local hit = API.ValidTarget(player, target)
-    if hit then
-        API.ApplyDamage(target, damage, 1)
-    end
-    hit = API.ValidTrainingTarget()
-    if hit then
-        API.TrainingDamage(player, target, damage, 1)
-    end
-end
-
-function API.FreezeHit(player, target, damage)
-    local hit = API.ValidTarget(player, target)
-    if hit then
-        API.ApplyDamage(target, damage, 2)
-    end
-    hit = API.ValidTrainingTarget(player, target)
-    if hit then
-        API.TrainingDamage(player, target, damage, 2)
-    end
-end
-
-function API.HealTarget(player,target, damage)
-    local hit = API.ValidTarget(player, target)
-    if hit then
-        API.ApplyDamage(target, damage, 3)
-    end
-    hit = API.ValidTrainingTarget()
-    if hit then
-        API.TrainingDamage(player, target, damage, 3)
-    end
-end
-
-function API.ApplyDamage(target, damage, index)
-    if Object.IsValid(target) then
-        target.serverUserData.health = math.max(0, target.serverUserData.health - damage)
-    else
-        if API.SpawnedObjects[3][target] ~= nil then
-            API.SpawnedObjects[3][target] = nil
-        end
-        return
-    end
-    if target.serverUserData.health == 0 then
-        API.SpawnedObjects[3][target] = nil
-        API.Static:DestroySharedAsset(target)
-    end
-end
-
-function API.TrainingDamage(player, target, damage, index)
-    local trainingTable = API.TrainingTable[player][index][target]
-    local mitigatedDamage = math.max(0, damage - trainingTable.defense)
-    local health = math.max(0, trainingTable.health - mitigatedDamage)
-    if health == 0 then
-        trainingTable.health = trainingTable.maxHealth
-        local newAmount = player.serverUserData.resources.gold + trainingTable.reward
-        player.serverUserData.resources.gold = newAmount
-        player:SetPrivateNetworkedData("gold", newAmount)
-    end
-end
-
 -- Training Objects
 function API.RegisterSword(target, data)
     local temp = API.TrainingObjects[1]
@@ -192,6 +132,23 @@ function API.RegisterFlower(target, data)
     temp[target].health = temp[target].maxHealth
 end
 
+function API.PlayerJoined(player)
+    API.TrainingTables[player] = {{}, {}, {}}
+    local trainingTable = API.TrainingTables[player]
+    for type, trainingObjects in pairs(API.TrainingObjects) do 
+        for object, params in pairs(trainingObjects) do
+            trainingTable[type][object] = {}
+            for key, value in pairs(params) do
+                trainingTable[type][object][key] = value
+            end
+        end
+    end
+end
+
+function API.PlayerLeft(player)
+    API.TrainingTables[player] = nil
+end
+
 function API.PlayerDied()
     if API.GAME_STATE ~= "Mission" then
         API.Lives = API.Lives - 1
@@ -213,10 +170,72 @@ function API.StanceToNumber(stance)
     end
 end
 
+function API.SwordHit(player, target, damage)
+    local hit = API.ValidTarget(player, target)
+    if hit then
+        API.ApplyDamage(target, damage, 1)
+    end
+    hit = API.ValidTrainingTarget(player, target)
+    if hit then
+        API.TrainingDamage(player, target, damage, 1)
+    end
+end
+
+function API.FreezeHit(player, target, damage)
+    local hit = API.ValidTarget(player, target)
+    if hit then
+        API.ApplyDamage(target, damage, 2)
+    end
+    hit = API.ValidTrainingTarget(player, target)
+    if hit then
+        API.TrainingDamage(player, target, damage, 2)
+    end
+end
+
+function API.HealTarget(player,target, damage)
+    local hit = API.ValidTarget(player, target)
+    if hit then
+        API.ApplyDamage(target, damage, 3)
+    end
+    hit = API.ValidTrainingTarget(player, target)
+    if hit then
+        API.TrainingDamage(player, target, damage, 3)
+    end
+end
+
+function API.ApplyDamage(target, damage, index)
+    if Object.IsValid(target) then
+        target.serverUserData.health = math.max(0, target.serverUserData.health - damage)
+    else
+        if API.SpawnedObjects[3][target] ~= nil then
+            API.SpawnedObjects[3][target] = nil
+        end
+        return
+    end
+    if target.serverUserData.health == 0 then
+        API.SpawnedObjects[3][target] = nil
+        API.Static:DestroySharedAsset(target)
+    end
+end
+
+function API.TrainingDamage(player, target, damage, index)
+    local trainingTable = API.TrainingTables[player][index][target]
+    local mitigatedDamage = math.max(0, damage - trainingTable.defense)
+    local health = math.max(0, trainingTable.health - mitigatedDamage)
+    if health == 0 then
+        trainingTable.health = trainingTable.maxHealth
+        local newAmount = player.serverUserData.resources.gold + trainingTable.reward
+        player.serverUserData.resources.gold = newAmount
+        player:SetPrivateNetworkedData("gold", newAmount)
+    else
+    	trainingTable.health = health
+    end
+end
+
 function API.ValidTrainingTarget(player, target)
     local index = API.StanceToNumber(player.serverUserData.stance)
     if API.TrainingObjects[index][target] ~= nil then
-        local health = API.TrainingObjects[index][target].health
+        local health = API.TrainingTables[player][index][target].health
         local maxHealth = API.TrainingObjects[index][target].maxHealth
         return {health, maxHealth, target.name}
     end

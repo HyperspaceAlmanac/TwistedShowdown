@@ -26,15 +26,6 @@ Assets {
   }
 }
 Assets {
-  Id: 17623511261233907949
-  Name: "Cube - Arcade 01"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_arcade_cube_001"
-  }
-}
-Assets {
   Id: 17246754151924769898
   Name: "Fantasy Castle Floor 03 4m"
   PlatformAssetType: 1
@@ -95,15 +86,6 @@ Assets {
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_urb_end_table_001"
-  }
-}
-Assets {
-  Id: 14941129441712685284
-  Name: "Humanoid 1 Kate"
-  PlatformAssetType: 26
-  PrimaryAsset {
-    AssetType: "SkinnedMeshAssetRef"
-    AssetId: "npc_human_gal_head_basic_004_ref"
   }
 }
 Assets {
@@ -176,15 +158,6 @@ Assets {
   PrimaryAsset {
     AssetType: "BlueprintAssetRef"
     AssetId: "CORESKY_StarDome"
-  }
-}
-Assets {
-  Id: 12180765644736270884
-  Name: "Humanoid 1 Rig"
-  PlatformAssetType: 25
-  PrimaryAsset {
-    AssetType: "SkeletonAssetRef"
-    AssetId: "npc_gal_wireframe_001_ref"
   }
 }
 Assets {

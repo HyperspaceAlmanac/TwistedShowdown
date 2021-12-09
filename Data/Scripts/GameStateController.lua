@@ -40,6 +40,12 @@ function StartLevelTwo(trigger, player)
 
 end
 
+function Tick(deltaTime)
+    if API.CountDown then
+        API.CountDownTick(deltaTime)
+    end
+end
+
 Initialize()
 Level1Trigger.interactedEvent:Connect(StartLevelOne)
 Level2Trigger.interactedEvent:Connect(StartLevelTwo)

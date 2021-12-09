@@ -11,6 +11,8 @@ end
 API.GAME_STATE = "Waiting"
 API.CURRENT_ARENA = 0
 API.ArenaState = {}
+API.Phase = 0
+API.PhaseTimer = 0
 API.TimeLeft = 0
 API.CountDown = false
 API.SpawnedObjects = {{}, {}, {}, {}}
@@ -30,6 +32,14 @@ function API.RegisterSpawn(spawnPoints)
     for _, spawn in ipairs(spawnPoints) do
         API.SpawnPoints[#API.SpawnPoints + 1] = spawn
     end
+end
+
+function API.RegisterObjectives(objectives)
+    API.Objectives = objectives
+end
+
+function API.BroadcastDanger(dangerList) -- broadcast once
+    Events.Broadcast("Danger", dangerList, API.CURRENT_ARENA, API.NumPlayers, API.Phase)
 end
 
 function API.RegisterMessage(networkedObj)
@@ -71,7 +81,36 @@ end
 function API.Cleanup()
     API.Lives = 0
     API.StateEvent:SetCustomProperty("Lives", API.Lives)
+    API.CountDown = false
+    API.TimeLeft = 0
+    API.Phase = 0
+    API.PhaseTimer = 0
+    API.CountdownState:SetCustomProperty("TimeLeft", 0)
+    API.ClearSpawned()
+end
 
+function API.StartCountDown(time)
+    API.CountDown = true
+    API.TimeLeft = time
+    API.Phasetimer = 0
+    API.CountdownState:SetCustomProperty("TimeLeft", time)
+end
+
+function API.StopCountDown()
+    API.CountDown = false
+    API.TimeLeft = 0
+    API.CountdownState:SetCustomProperty("TimeLeft", 0)
+end
+
+function API.CountDownTick(time)
+    if API.CountDown then
+        API.TimeLeft = API.TimeLeft - time
+        if API.TimeLeft <= 0 then
+            API.FailMission()
+        end
+    end
+    API.PhaseTimer = API.PhaseTimer + time
+    API.CountdownState:SetCustomProperty("TimeLeft", API.TimeLeft)
 end
 
 function API.StartMission(missionNumber)
@@ -82,6 +121,17 @@ function API.StartMission(missionNumber)
     elseif missionNumber == 2 then
         API.CURRENT_ARENA = 2
     end
+end
+
+function API.ClearSpawned()
+    for i = 1, 4 do
+        for key, val in pairs(API.SpawnedObjects[i]) do
+            if Object.IsValid(val) then
+                API.Static:DestroySharedAsset(val)
+            end
+        end
+    end
+    API.SpawnedObjects = {{}, {}, {}, {}}
 end
 
 function API.CompletedPhase()

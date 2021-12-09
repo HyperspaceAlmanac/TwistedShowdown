@@ -158,6 +158,19 @@ function InitializeValues(player)
     end
 end
 
+function PlayerDied(player, dmg)
+    API.PlayerDied()
+    Task.Spawn(function()
+        Task.Wait(2)
+        local values = API.GetSpawn(player)
+        local spawn = values[1]
+        local offset = values[2]
+        player:Spawn({rotation = spawn:GetWorldRotation(),
+            position = spawn:GetWorldPosition() + Vector3.New(offset, 0, 0)
+        })
+    end)
+end
+
 function PlayerJoined(player)
     print("Player Joined")
     player:SetPrivateNetworkedData("LockedOn", false)
@@ -168,6 +181,7 @@ function PlayerJoined(player)
     playerListeners[player] = {}
     playerListeners[player]["binding_released"] = player.bindingReleasedEvent:Connect(BindingReleased)
     playerListeners[player]["dataChanged"] = player.privateNetworkedDataChangedEvent:Connect(DataChanged)
+    playerListeners[player]["died"] = player.diedEvent:Connect(PlayerDied)
     statTable[player] ={maxStamina = 100, stamina = 100,
         maxMagic = 100, magic = 100, stance = "Sword",
         stamina2 = 10, magic2 = 10, health2 = 5,
@@ -199,6 +213,7 @@ function PlayerLeft(player)
     API.PlayerLeft(player)
     playerListeners[player]["binding_released"]:Disconnect()
     playerListeners[player]["dataChanged"]:Disconnect()
+    playerListeners[player]["died"]:Disconnect()
     playerListeners[player] = nil
     statTable[player] = nil
 

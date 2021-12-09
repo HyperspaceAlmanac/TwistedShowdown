@@ -29,10 +29,26 @@ function MeditateRecovery(ability)
     HealCloud.visibility = Visibility.FORCE_OFF
 end
 
+QuickCast.interruptedEvent:Connect(
+    function()
+        HealVFX.visibility = Visibility.FORCE_OFF
+    end
+)
 QuickCast.castEvent:Connect(QuickCastEvent)
 QuickCast.executeEvent:Connect(QuickExecuteEvent)
+
+PowerCast.interruptedEvent:Connect(
+    function()
+        HealVFX.visibility = Visibility.FORCE_OFF
+    end
+)
 PowerCast.castEvent:Connect(PowerCastEvent)
 PowerCast.executeEvent:Connect(PowerExecuteEvent)
 
+Meditate.interruptedEvent:Connect(
+    function()
+        HealCloud.visibility = Visibility.FORCE_OFF
+    end
+)
 Meditate.executeEvent:Connect(MeditateExecute)
 Meditate.recoveryEvent:Connect(MeditateRecovery)

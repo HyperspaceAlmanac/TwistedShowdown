@@ -1,6 +1,4 @@
-
-
-local weapon = script.parent.parent
+local weapon = script.parent
 local fastCost = weapon:GetCustomProperty("Cost1")
 local powerCost = weapon:GetCustomProperty("Cost2")
 local shieldCost = weapon:GetCustomProperty("Cost3")

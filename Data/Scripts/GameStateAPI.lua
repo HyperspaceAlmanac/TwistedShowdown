@@ -149,6 +149,16 @@ function API.PlayerLeft(player)
     API.TrainingTables[player] = nil
 end
 
+function API.GetSpawn(player)
+    local offset = 0
+    for i, _player in ipairs(Game.GetPlayers()) do
+        if player == _player then
+            offset = i * 300
+        end
+    end
+    return {API.SpawnPoints[API.CURRENT_ARENA + 1], offset}
+end
+
 function API.PlayerDied()
     if API.GAME_STATE ~= "Mission" then
         API.Lives = API.Lives - 1

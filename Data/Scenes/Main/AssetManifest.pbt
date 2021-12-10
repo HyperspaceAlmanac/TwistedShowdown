@@ -1,4 +1,13 @@
 Assets {
+  Id: 18433058463017763407
+  Name: "Bark Birch 01"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_bark_birch_001_uv"
+  }
+}
+Assets {
   Id: 18431279897210076694
   Name: "Flower Wild Lily 02"
   PlatformAssetType: 1
@@ -143,6 +152,15 @@ Assets {
   }
 }
 Assets {
+  Id: 12972318422346155431
+  Name: "Bark Pine 01"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_bark_pine_001_uv"
+  }
+}
+Assets {
   Id: 12580249422089955857
   Name: "Retro and Arcade Music Score Set 01"
   PlatformAssetType: 10
@@ -251,6 +269,15 @@ Assets {
   }
 }
 Assets {
+  Id: 9240069346964304576
+  Name: "Coral Branches Small"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_coral_branch_small_01"
+  }
+}
+Assets {
   Id: 8983708969469221779
   Name: "Fantasy Castle Wall 03"
   PlatformAssetType: 1
@@ -320,6 +347,15 @@ Assets {
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_ts_fan_cas_wall_003_door_02"
+  }
+}
+Assets {
+  Id: 7527690427359065786
+  Name: "Bark Oak 01"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_bark_oak_001_uv"
   }
 }
 Assets {
@@ -413,6 +449,15 @@ Assets {
   }
 }
 Assets {
+  Id: 4215768537620124391
+  Name: "Bottle 04"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_fantasy_bottle_004"
+  }
+}
+Assets {
   Id: 4204935042848427516
   Name: "Magic Circle Generator Advanced: Fantasy VFX"
   PlatformAssetType: 8
@@ -440,21 +485,30 @@ Assets {
   }
 }
 Assets {
-  Id: 3917661374708622930
-  Name: "Urban Interior - Oil Lantern 01 - Chimney 01"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_prop_urb_lantern_oil_chimeny_001_ref"
-  }
-}
-Assets {
   Id: 2433051722484962510
   Name: "Cylinder - 2-Toned"
   PlatformAssetType: 1
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_cylinder_003"
+  }
+}
+Assets {
+  Id: 2352832144438868376
+  Name: "Flower Bellflower 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_foliage_gen_flower_bell_001_ref"
+  }
+}
+Assets {
+  Id: 2260961056021813309
+  Name: "Bottle 05"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_fantasy_bottle_005"
   }
 }
 Assets {
@@ -485,6 +539,15 @@ Assets {
   }
 }
 Assets {
+  Id: 1443162974908252624
+  Name: "Fern 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_fern_generic_002"
+  }
+}
+Assets {
   Id: 1057049713203263152
   Name: "Fantasy Ability Blue 021"
   PlatformAssetType: 9
@@ -509,6 +572,15 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Equip_Gold_001"
+  }
+}
+Assets {
+  Id: 346745856239294870
+  Name: "Bottle 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_fantasy_bottle_002"
   }
 }
 Assets {

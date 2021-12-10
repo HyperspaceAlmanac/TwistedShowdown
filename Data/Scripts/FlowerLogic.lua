@@ -37,9 +37,11 @@ function HandleInterrupt(ability)
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
+    player.lookControlMode = LookControlMode.RELATIVE
 end
 
-function QuickCastEvent(ability)
+function CastEvent(ability)
+    ability.owner.lookControlMode = LookControlMode.NONE
     lockedOn = ability.owner:GetPrivateNetworkedData("LockedOn")
     
     if lockedOn == false then
@@ -55,15 +57,6 @@ function QuickExecuteEvent(ability)
     ability.owner:ApplyDamage(Damage.New(qCost))
     local player = ability.owner
     ApplyHeal(player, player.serverUserData.target, qPower)
-end
-
-function PowerCastEvent(ability)
-    lockedOn = ability.owner:GetPrivateNetworkedData("LockedOn")
-
-    if lockedOn == false then
-        ability.owner:SetPrivateNetworkedData("LockedOn", true)
-    end
-    ability.owner.serverUserData.casting = true
 end
 
 function PowerExecuteEvent(ability)
@@ -111,18 +104,20 @@ function Tick(deltaTime)
 end
 
 QuickCast.interruptedEvent:Connect(HandleInterrupt)
-QuickCast.castEvent:Connect(QuickCastEvent)
+QuickCast.castEvent:Connect(CastEvent)
 QuickCast.executeEvent:Connect(QuickExecuteEvent)
 QuickCast.recoveryEvent:Connect(function(ability)
     local player = ability.owner
     player.serverUserData.casting = false
+    player.lookControlMode = LookControlMode.RELATIVE
 end)
 PowerCast.interruptedEvent:Connect(HandleInterrupt)
-PowerCast.castEvent:Connect(PowerCastEvent)
+PowerCast.castEvent:Connect(CastEvent)
 PowerCast.executeEvent:Connect(PowerExecuteEvent)
 PowerCast.recoveryEvent:Connect(function(ability)
     local player = ability.owner
     player.serverUserData.casting = false
+    player.lookControlMode = LookControlMode.RELATIVE
 end)
 Meditate.interruptedEvent:Connect(HandleInterrupt)
 Meditate.castEvent:Connect(function(ability)

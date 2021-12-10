@@ -60,10 +60,10 @@ function SpawnProjectile(ability, fast)
     local projectile = nil
     if fast then
         local offset = playerTransform:GetForwardVector() * 100 + playerTransform:GetRightVector() * 100 + playerTransform:GetUpVector() * 100
-        projectile = Projectile.Spawn(FastProjectile, player:GetWorldPosition() + offset, playerTransform:GetForwardVector())
+        projectile = Projectile.Spawn(FastProjectile, player:GetWorldPosition() + offset, Quaternion.New(player:GetViewWorldRotation()):GetForwardVector())
     else
         local offset = playerTransform:GetForwardVector() * 200
-        projectile = Projectile.Spawn(PowerProjectile, player:GetWorldPosition() + offset, playerTransform:GetForwardVector())
+        projectile = Projectile.Spawn(PowerProjectile, player:GetWorldPosition() + offset, Quaternion.New(player:GetViewWorldRotation()):GetForwardVector())
     end
     if projectile == nil then
         return
@@ -75,7 +75,7 @@ function SpawnProjectile(ability, fast)
     end
     projectile.gravityScale = 0
     projectile.lifeSpan = 2
-    projectile.homingTarget = player.serverUserData.target
+    --projectile.homingTarget = player.serverUserData.target
     if fast then
         projectileTable[projectile] = projectile.impactEvent:Connect(ImpactEventFast)
     else
@@ -93,16 +93,22 @@ function HandleInterrupt(ability)
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
+    print("Interrupted!")
+    player.lookControlMode = LookControlMode.RELATIVE
 end
 
-function CastPower(ability)
-    ability.owner:ResetVelocity()
-    ability.owner.serverUserData.casting = true
+function CastEvent(ability)
+    local player = ability.owner
+    --player.lookControlMode = LookControlMode.RELATIVE
+    player:ResetVelocity()
+    player.serverUserData.casting = true
     lockedOn = ability.owner:GetPrivateNetworkedData("LockedOn")
     
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", true)
     end
+    player.lookControlMode = LookControlMode.NONE
+    
 end
 function ExecutePower(ability)
     if lockedOn == false then
@@ -114,16 +120,7 @@ function RecoveryPower(ability)
     local player = ability.owner
     player.serverUserData.casting = false
     player:SetPrivateNetworkedData("magic", player.serverUserData.magic - powerCost)
-end
-
-function CastFast(ability)
-    ability.owner:ResetVelocity()
-    ability.owner.serverUserData.casting = true
-    lockedOn = ability.owner:GetPrivateNetworkedData("LockedOn")
-    
-    if lockedOn == false then
-        ability.owner:SetPrivateNetworkedData("LockedOn", true)
-    end
+    player.lookControlMode = LookControlMode.RELATIVE
 end
 
 function ExecuteFast(ability)
@@ -138,6 +135,7 @@ function RecoveryFast(ability)
     local player = ability.owner
     player.serverUserData.casting = false
     player:SetPrivateNetworkedData("magic", player.serverUserData.magic - fastCost)
+    player.lookControlMode = LookControlMode.RELATIVE
 end
 
 function ExecuteShield(ability)
@@ -182,12 +180,12 @@ function Tick(deltaTime)
 end
 
 PowerCast.interruptedEvent:Connect(HandleInterrupt)
-PowerCast.castEvent:Connect(CastPower)
+PowerCast.castEvent:Connect(CastEvent)
 PowerCast.executeEvent:Connect(ExecutePower)
 PowerCast.recoveryEvent:Connect(RecoveryPower)
 
 QuickCast.interruptedEvent:Connect(HandleInterrupt)
-QuickCast.castEvent:Connect(CastFast)
+QuickCast.castEvent:Connect(CastEvent)
 QuickCast.executeEvent:Connect(ExecuteFast)
 QuickCast.recoveryEvent:Connect(RecoveryFast)
 

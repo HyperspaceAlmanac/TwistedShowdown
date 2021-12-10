@@ -548,6 +548,15 @@ Assets {
   }
 }
 Assets {
+  Id: 1084291772070349001
+  Name: "Timer Quarter"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Racing_Icon_027"
+  }
+}
+Assets {
   Id: 1057049713203263152
   Name: "Fantasy Ability Blue 021"
   PlatformAssetType: 9

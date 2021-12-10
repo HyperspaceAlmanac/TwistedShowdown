@@ -83,12 +83,12 @@ Objects {
   Name: "Hideout"
   Transform {
     Location {
-      X: 4000
-      Y: -11550
-      Z: 450
+      X: 8850
+      Y: -11900
+      Z: 500
     }
     Rotation {
-      Yaw: 90
+      Yaw: 180
     }
     Scale {
       X: 1

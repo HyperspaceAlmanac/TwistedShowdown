@@ -11,6 +11,7 @@ local playerListeners = {}
 local prevShot = 0
 
 local statTable = {}
+local resourceNames = {"gold", "s1", "s2", "s3", "m1", "m2", "m3", "f1", "f2", "f3"}
 
 function Tick(deltaTime)
     for _, player in ipairs(Game.GetPlayers()) do
@@ -166,7 +167,7 @@ function PlayerDied(player, dmg)
         local spawn = values[1]
         local offset = values[2]
         player:Spawn({rotation = spawn:GetWorldRotation(),
-            position = spawn:GetWorldPosition() + Vector3.New(offset, 0, 0)
+            position = spawn:GetWorldPosition() + Vector3.New(0, offset, 0)
         })
     end)
 end
@@ -192,12 +193,13 @@ function PlayerJoined(player)
     player.serverUserData.casting = false
     statTable[player]["initialized"] = true
     InitializeValues(player)
-    player:Spawn({position = Hideout:GetWorldPosition(), rotation = Hideout:GetWorldRotation()})
+    player:Spawn({position = Hideout:GetWorldPosition() + Vector3.New(0, (#Game.GetPlayers() - 1) * 200, 0), rotation = Hideout:GetWorldRotation()})
 
     -- Resource
     local persistentTable = Storage.GetPlayerData(player)
     player.serverUserData.resources = {}
-    for key, value in pairs(persistentTable) do
+    for _, key in ipairs(resourceNames) do
+        local value = persistentTable[key]
         if key == "gold" then
             player:SetPrivateNetworkedData(key, value or 0)
             player.serverUserData.resources[key] = value or 0

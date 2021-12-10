@@ -22,6 +22,7 @@ Objects {
   ChildIds: 8882167172195862892
   ChildIds: 13761596602606752352
   ChildIds: 4270654975677522684
+  ChildIds: 16334696014319218
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -34,6 +35,53 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Folder {
+  }
+}
+Objects {
+  Id: 16334696014319218
+  Name: "Bottle 02"
+  Transform {
+    Location {
+      X: -19250
+      Y: 15550
+      Z: -4200
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 346745856239294870
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
   }
 }
 Objects {
@@ -219,6 +267,28 @@ Objects {
     }
   }
   ParentId: 17755622305476538058
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:GameStateAPI"
+      AssetReference {
+        Id: 15612790520903086079
+      }
+    }
+    Overrides {
+      Name: "cs:HazardBarrel"
+      AssetReference {
+        Id: 13696423629609913774
+      }
+    }
+    Overrides {
+      Name: "cs:HazardBarrel:category"
+      String: "Sword"
+    }
+    Overrides {
+      Name: "cs:GameStateAPI:category"
+      String: "API"
+    }
+  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -293,6 +363,49 @@ Objects {
   ChildIds: 17800835201160716300
   ChildIds: 11643491724388538679
   ChildIds: 6787278796769098760
+  ChildIds: 14695209825500316069
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsGroup: true
+  }
+}
+Objects {
+  Id: 14695209825500316069
+  Name: "Music"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 7129625667831014451
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:Song"
+      Int: 1
+    }
+    Overrides {
+      Name: "cs:Song:isrep"
+      Bool: true
+    }
+  }
+  WantsNetworking: true
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -594,12 +707,10 @@ Objects {
     TeamSettings {
     }
     AudioBP {
+      Repeat: true
       Volume: 1
       Falloff: 3600
       Radius: 400
-      EnableOcclusion: true
-      IsSpatializationEnabled: true
-      IsAttenuationEnabled: true
     }
   }
 }
@@ -646,12 +757,10 @@ Objects {
     TeamSettings {
     }
     AudioBP {
+      Repeat: true
       Volume: 1
       Falloff: 3600
       Radius: 400
-      EnableOcclusion: true
-      IsSpatializationEnabled: true
-      IsAttenuationEnabled: true
     }
   }
 }
@@ -698,12 +807,10 @@ Objects {
     TeamSettings {
     }
     AudioBP {
+      Repeat: true
       Volume: 1
       Falloff: 3600
       Radius: 400
-      EnableOcclusion: true
-      IsSpatializationEnabled: true
-      IsAttenuationEnabled: true
     }
   }
 }
@@ -723,6 +830,8 @@ Objects {
     }
   }
   ParentId: 6558680809115561540
+  UnregisteredParameters {
+  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -742,6 +851,7 @@ Objects {
     TeamSettings {
     }
     AudioBP {
+      Repeat: true
       Volume: 1
       Falloff: 3600
       Radius: 400
@@ -791,6 +901,7 @@ Objects {
     TeamSettings {
     }
     AudioBP {
+      Repeat: true
       Volume: 1
       Falloff: 3600
       Radius: 400
@@ -812,6 +923,32 @@ Objects {
     }
   }
   ParentId: 6558680809115561540
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:Music"
+      ObjectReference {
+        SelfId: 14695209825500316069
+      }
+    }
+    Overrides {
+      Name: "cs:HideOut"
+      ObjectReference {
+        SelfId: 1112759131217034258
+      }
+    }
+    Overrides {
+      Name: "cs:Mission1"
+      ObjectReference {
+        SelfId: 15344963685809194736
+      }
+    }
+    Overrides {
+      Name: "cs:Mission2"
+      ObjectReference {
+        SelfId: 13985278784376497172
+      }
+    }
+  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -846,12 +983,6 @@ Objects {
   }
   ParentId: 5101020888712234164
   UnregisteredParameters {
-    Overrides {
-      Name: "cs:Target"
-      ObjectReference {
-        SelfId: 841534158063459245
-      }
-    }
     Overrides {
       Name: "cs:CurveX"
       SimpleCurve {
@@ -2592,7 +2723,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Control {
-    Width: 200
+    Width: 350
     Height: 60
     UIY: -100
     RenderTransformPivot {
@@ -3422,6 +3553,7 @@ Objects {
   ChildIds: 17490270831864928398
   ChildIds: 11547596085941507137
   ChildIds: 1806877306005476507
+  ChildIds: 6006773902802149001
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -3451,6 +3583,155 @@ Objects {
         Y: 1024
       }
       RedrawTime: 30
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:topleft"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:topleft"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 6006773902802149001
+  Name: "Timer"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 152320582178839916
+  ChildIds: 11213495857575363223
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:forceoff"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 100
+    Height: 100
+    UIX: -150
+    UIY: 120
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    Image {
+      Brush {
+        Id: 1084291772070349001
+      }
+      Color {
+        R: 1
+        G: 1
+        B: 1
+        A: 1
+      }
+      TeamSettings {
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      ScreenshotIndex: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:topright"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:topright"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 11213495857575363223
+  Name: "TimeLeft"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 6006773902802149001
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 200
+    Height: 100
+    UIX: 111.923035
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    Text {
+      Label: "Text"
+      Color {
+        R: 1
+        G: 1
+        B: 1
+        A: 1
+      }
+      Size: 32
+      Justification {
+        Value: "mc:etextjustify:left"
+      }
+      AutoWrapText: true
+      Font {
+        Id: 841534158063459245
+      }
+      VerticalJustification {
+        Value: "mc:everticaljustification:center"
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      OutlineColor {
+        A: 1
+      }
     }
     AnchorLayout {
       SelfAnchor {
@@ -4119,6 +4400,12 @@ Objects {
   ParentId: 5101020888712234164
   UnregisteredParameters {
     Overrides {
+      Name: "cs:CountDown"
+      ObjectReference {
+        SelfId: 6787278796769098760
+      }
+    }
+    Overrides {
       Name: "cs:Message"
       ObjectReference {
         SelfId: 13604069070051794907
@@ -4141,6 +4428,30 @@ Objects {
       ObjectReference {
         SelfId: 12517947502805022732
       }
+    }
+    Overrides {
+      Name: "cs:Timer"
+      ObjectReference {
+        SelfId: 6006773902802149001
+      }
+    }
+    Overrides {
+      Name: "cs:TimeLeft"
+      ObjectReference {
+        SelfId: 11213495857575363223
+      }
+    }
+    Overrides {
+      Name: "cs:CountDown:category"
+      String: "Networking"
+    }
+    Overrides {
+      Name: "cs:Message:category"
+      String: "Networking"
+    }
+    Overrides {
+      Name: "cs:Reward:category"
+      String: "Networking"
     }
   }
   Collidable_v2 {
@@ -4377,6 +4688,12 @@ Objects {
       }
     }
     Overrides {
+      Name: "cs:Music"
+      ObjectReference {
+        SelfId: 14695209825500316069
+      }
+    }
+    Overrides {
       Name: "cs:Hideout"
       ObjectReference {
         SelfId: 16813558807825262224
@@ -4446,6 +4763,10 @@ Objects {
     }
     Overrides {
       Name: "cs:Message:category"
+      String: "Networking"
+    }
+    Overrides {
+      Name: "cs:Music:category"
       String: "Networking"
     }
   }
@@ -17064,7 +17385,8 @@ Objects {
   Name: "Ceiling"
   Transform {
     Location {
-      X: 50
+      Y: -9050
+      Z: 650
     }
     Rotation {
     }
@@ -17097,14 +17419,13 @@ Objects {
   Name: "Ceiling"
   Transform {
     Location {
-      X: 7200
-      Y: -8650
-      Z: 4000
+      X: -950
+      Z: -50
     }
     Rotation {
     }
     Scale {
-      X: 60
+      X: 100
       Y: 90
       Z: 1
     }
@@ -17369,7 +17690,7 @@ Objects {
   }
   Trigger {
     Interactable: true
-    InteractionLabel: "Start Level 1"
+    InteractionLabel: "Start Level 2"
     TeamSettings {
       IsTeamCollisionEnabled: true
       IsEnemyCollisionEnabled: true

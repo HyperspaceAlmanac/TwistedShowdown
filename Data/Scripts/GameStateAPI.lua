@@ -16,17 +16,22 @@ API.PhaseTimer = 0
 API.TimeLeft = 0
 API.CountDown = false
 API.SpawnedObjects = {{}, {}, {}, {}}
+API.MissionTable = {}
 API.NumPlayers = 1
 API.SpawnPoints = {}
 API.MessageEvent = nil
 API.StateEvent = nil
 API.RewardMessage = nil
+API.RewardAmount = 0
 API.CountdownState = nil
+API.Music = nil
 API.Static = nil
 API.Lives = 0
 API.Triggers = {}
 API.TrainingTables = {}
 API.TrainingObjects = {{}, {}, {}}
+
+API.CallBack = nil
 
 function API.RegisterSpawn(spawnPoints)
     for _, spawn in ipairs(spawnPoints) do
@@ -39,7 +44,7 @@ function API.RegisterObjectives(objectives)
 end
 
 function API.BroadcastDanger(dangerList) -- broadcast once
-    Events.Broadcast("Danger", dangerList, API.CURRENT_ARENA, API.NumPlayers, API.Phase)
+    --Events.Broadcast("Danger", dangerList, API.CURRENT_ARENA, API.NumPlayers, API.Phase)
 end
 
 function API.RegisterMessage(networkedObj)
@@ -52,6 +57,10 @@ end
 
 function API.RegisterReward(networkedObj)
     API.RewardMessage = networkedObj
+end
+
+function API.RegisterMusic(music)
+    API.Music = music
 end
 
 function API.RegisterCountdown(networkedObj)
@@ -86,6 +95,8 @@ function API.Cleanup()
     API.Phase = 0
     API.PhaseTimer = 0
     API.CountdownState:SetCustomProperty("TimeLeft", 0)
+    API.MissionTable = {}
+    API.Music:SetCustomProperty("Song", 1)
     API.ClearSpawned()
 end
 
@@ -103,6 +114,12 @@ function API.StopCountDown()
 end
 
 function API.CountDownTick(time)
+    if API.CompletedPhase() then
+        API.StopCountDown()
+        API.ClearSpawned()
+        API.Phase = API.Phase + 1
+        API.StartPhase()
+    end
     if API.CountDown then
         API.TimeLeft = API.TimeLeft - time
         if API.TimeLeft <= 0 then
@@ -113,14 +130,50 @@ function API.CountDownTick(time)
     API.CountdownState:SetCustomProperty("TimeLeft", API.TimeLeft)
 end
 
+function API.StartPhase()
+    if API.Phase <= #API.MissionTable then
+        local mission = API.MissionTable[API.Phase]
+        API.MessageEvent:SetCustomProperty("Message", mission.objective)
+        for i=1,4 do
+            for _, tbl in ipairs(mission.objects[i]) do
+                local spawned = API.Static:SpawnSharedAsset(tbl.template, {position = tbl.position, rotation = tbl.rotation})
+                spawned.serverUserData.health = tbl.health
+                spawned.serverUserData.maxHealth = tbl.health
+                API.SpawnedObjects[i][spawned] = {}
+            end
+        end
+        API.StartCountDown(mission.time)
+    else
+        API.MissionSuccess()
+    end
+end
+
 function API.StartMission(missionNumber)
-    API.Lives = 3
+    -- don't do anything for second one if someone else starts
+    if API.CURRENT_ARENA ~= 0 then
+        return
+    end
+    API.Lives = 4
     API.NumPlayers = #Game.GetPlayers()
+    API.StateEvent:SetCustomProperty("Lives", API.Lives)
     if missionNumber == 1 then
         API.CURRENT_ARENA = 1
     elseif missionNumber == 2 then
         API.CURRENT_ARENA = 2
     end
+    local values = API.CallBack(missionNumber)
+    API.MissionTable = values[1]
+    API.RewardAmount = values[2]
+    API.SpawnAllPlayers()
+    Task.Spawn(
+        function()
+            API.MessageEvent:SetCustomProperty("Message", "Starting mission")
+            Task.Wait(2)
+            API.Music:SetCustomProperty("Song", 2)
+            API.Phase = 1
+            API.StartPhase()
+        end
+    )
 end
 
 function API.ClearSpawned()
@@ -144,14 +197,60 @@ function API.CompletedPhase()
     return true
 end
 
+function API.MissionSuccess()
+    API.CURRENT_ARENA = 0
+    API.Cleanup()
+    Task.Spawn(
+        function()
+            API.MessageEvent:SetCustomProperty("Message", "Succesfully Completed the Mission!")
+            API.RewardMessage:SetCustomProperty("Message", "Everyone received "..tostring(API.RewardAmount).." coins")
+            for i, player in ipairs(Game.GetPlayers()) do
+                if not player.isDead then
+                    player:SetWorldPosition(API.SpawnPoints[1]:GetWorldPosition() - Vector3.New(0, 200 * i, 0))
+                end
+                local gold = player.serverUserData.resources.gold + API.RewardAmount
+                player.serverUserData.resources.gold = gold
+                player:SetPrivateNetworkedData("gold", gold)
+            end
+            Task.Wait(3)
+            API.RewardMessage:SetCustomProperty("Message", "")
+            API.MessageEvent:SetCustomProperty("Message", "")
+        end
+    )
+end
+
 function API.EndMission()
     API.CURRENT_ARENA = 0
     API.Cleanup()
+    for i, player in ipairs(Game.GetPlayers) do
+        if not player.isDead then
+            player:SetWorldPosition(API.SpawnPoints[1]:GetWorldPosition())
+        end
+    end
+    Task.Spawn(
+        function()
+            API.MessageEvent:SetCustomProperty("Message", "Returning to base")
+            Task.Wait(3)
+            API.MessageEvent:SetCustomProperty("Message", "")
+        end
+    )
 end
 
 function API.FailMission()
     API.CURRENT_ARENA = 0
     API.Cleanup()
+    for i, player in ipairs(Game.GetPlayers()) do
+        if not player.isDead then
+            player:SetWorldPosition(API.SpawnPoints[1]:GetWorldPosition())
+        end
+    end
+    Task.Spawn(
+        function()
+            API.MessageEvent:SetCustomProperty("Message", "Mission Failed")
+            Task.Wait(3)
+            API.MessageEvent:SetCustomProperty("Message", "")
+        end
+    )
 end
 
 -- Training Objects
@@ -199,11 +298,25 @@ function API.PlayerLeft(player)
     API.TrainingTables[player] = nil
 end
 
+function API.SpawnAllPlayers()
+    local spawnPoint = API.SpawnPoints[API.CURRENT_ARENA + 1]
+    for i, player in ipairs(Game.GetPlayers()) do
+        if not player.isDead then
+            player:Spawn(
+                {
+                    position = spawnPoint:GetWorldPosition() + Vector3.New(0, i * 200, 0),
+                    rotation = spawnPoint:GetWorldRotation()
+                }
+            )
+        end
+    end
+end
+
 function API.GetSpawn(player)
     local offset = 0
     for i, _player in ipairs(Game.GetPlayers()) do
         if player == _player then
-            offset = i * 300
+            offset = i * 200
         end
     end
     return {API.SpawnPoints[API.CURRENT_ARENA + 1], offset}
@@ -267,13 +380,13 @@ function API.ApplyDamage(target, damage, index)
     if Object.IsValid(target) then
         target.serverUserData.health = math.max(0, target.serverUserData.health - damage)
     else
-        if API.SpawnedObjects[3][target] ~= nil then
-            API.SpawnedObjects[3][target] = nil
+        if API.SpawnedObjects[index][target] ~= nil then
+            API.SpawnedObjects[index][target] = nil
         end
         return
     end
     if target.serverUserData.health == 0 then
-        API.SpawnedObjects[3][target] = nil
+        API.SpawnedObjects[index][target] = nil
         API.Static:DestroySharedAsset(target)
     end
 end
@@ -313,5 +426,10 @@ end
 function API.Hello()
     print("Hello")
 end
+
+function API.registerCallBack(callback)
+    API.CallBack = callback
+end
+
 API.initializing = false
 return API

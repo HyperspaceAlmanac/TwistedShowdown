@@ -15,6 +15,7 @@ function LivesHandler(obj, key)
         if health == 0 then
             UIPanel.visibility = Visibility.FORCE_OFF
         else
+            UIPanel.visibility = Visibility.INHERIT
             H1:SetColor(health > 0 and red or white)
             H2:SetColor(health > 1 and red or white)
             H3:SetColor(health > 2 and red or white)

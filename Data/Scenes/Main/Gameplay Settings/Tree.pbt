@@ -1,15 +1,48 @@
 Name: "Gameplay Settings"
 RootId: 9086936746104183945
 Objects {
+  Id: 2849339898096448926
+  Name: "Static"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 9086936746104183945
+  WantsNetworking: true
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+    Type: RuntimeStatic
+  }
+}
+Objects {
   Id: 12211220915532394925
   Name: "Level2"
   Transform {
     Location {
-      X: -9800
-      Y: -6750
+      X: -10400
+      Y: -4900
       Z: 150
     }
     Rotation {
+      Yaw: -90
     }
     Scale {
       X: 1
@@ -49,6 +82,7 @@ Objects {
       Z: -4300
     }
     Rotation {
+      Yaw: 180
     }
     Scale {
       X: 1

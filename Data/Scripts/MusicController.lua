@@ -14,4 +14,9 @@ function MusicHandler(obj, key)
     end
 end
 MusicHandler(Music, "Song")
-Music.customPropertyChangedEvent:Connect(MusicHandler)
+local listener = Music.customPropertyChangedEvent:Connect(MusicHandler)
+function OnDestroyed(obj)
+    listener:Disconnect()
+    listener = nil
+end
+script.destroyEvent:Connect(OnDestroyed)

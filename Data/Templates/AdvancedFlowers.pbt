@@ -2398,6 +2398,18 @@ Assets {
               SubObjectId: 11626558946568358950
             }
           }
+          Overrides {
+            Name: "cs:LongFlowerAudio"
+            AssetReference {
+              Id: 14414096218688040566
+            }
+          }
+          Overrides {
+            Name: "cs:FastFlowerAudio"
+            AssetReference {
+              Id: 1596126356321612296
+            }
+          }
         }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"

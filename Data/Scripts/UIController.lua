@@ -14,6 +14,7 @@ local StaminaText = script:GetCustomProperty("StaminaText"):WaitForObject()
 local MagicText = script:GetCustomProperty("MagicText"):WaitForObject()
 
 local GoldAmountDisplay = script:GetCustomProperty("GoldAmount"):WaitForObject()
+local RewardAudio = script:GetCustomProperty("RewardAudio")
 
 local local_player = Game.GetLocalPlayer()
 
@@ -116,6 +117,9 @@ function UpdateStatus(player, key)
         local value = player:GetPrivateNetworkedData(key)
         player.clientUserData.resources[key] = value
         if key == "gold" then
+            if GoldAmountDisplay.text ~= "" then
+                World.SpawnAsset(RewardAudio, {position = local_player:GetWorldPosition()})
+            end
             GoldAmountDisplay.text = GoldDisplay(value)
         end
     end
@@ -141,7 +145,7 @@ magic = local_player:GetPrivateNetworkedData("magic") or 100
 stance = local_player:GetPrivateNetworkedData("Sword") or "Sword"
 targetHealth = local_player:GetPrivateNetworkedData("targetHealth") or 0
 local_player.clientUserData.stance = stance
-local_player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)
+local l1 = local_player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)
 
 local client_listeners = {}
 function PlayerJoined(player)
@@ -151,5 +155,16 @@ end
 function PlayerLeft(player)
     client_listeners[player] = nil
 end
-Game.playerJoinedEvent:Connect(PlayerJoined)
-Game.playerLeftEvent:Connect(PlayerLeft)
+local l2 = Game.playerJoinedEvent:Connect(PlayerJoined)
+local l3 = Game.playerLeftEvent:Connect(PlayerLeft)
+
+script.destroyEvent:Connect(
+    function(obj)
+        l1:Disconnect()
+        l1 = nil
+        l2:Disconnect()
+        l2 = nil
+        l3:Disconnect()
+        l3 = nil
+    end
+)

@@ -31,7 +31,8 @@ API.Triggers = {}
 API.TrainingTables = {}
 API.TrainingObjects = {{}, {}, {}}
 
-API.CallBack = nil
+API.ObjectiveCallback = nil
+API.DangerCallBack = nil
 
 function API.RegisterSpawn(spawnPoints)
     for _, spawn in ipairs(spawnPoints) do
@@ -90,6 +91,7 @@ end
 function API.Cleanup()
     API.Lives = 0
     API.StateEvent:SetCustomProperty("Lives", API.Lives)
+    API.DangerCallback(0, 0)
     API.CountDown = false
     API.TimeLeft = 0
     API.Phase = 0
@@ -98,6 +100,11 @@ function API.Cleanup()
     API.MissionTable = {}
     API.Music:SetCustomProperty("Song", 1)
     API.ClearSpawned()
+    for _, obj in ipairs(API.Static:GetChildren()) do
+        if Object.IsValid(obj) then
+            API.Static:DestroySharedAsset(obj)
+        end
+    end
 end
 
 function API.StartCountDown(time)
@@ -132,11 +139,12 @@ end
 
 function API.StartPhase()
     if API.Phase <= #API.MissionTable then
+        API.DangerCallback(API.CURRENT_ARENA, API.Phase)
         local mission = API.MissionTable[API.Phase]
         API.MessageEvent:SetCustomProperty("Message", mission.objective)
         for i=1,4 do
             for _, tbl in ipairs(mission.objects[i]) do
-                local spawned = API.Static:SpawnSharedAsset(tbl.template, {position = tbl.position, rotation = tbl.rotation})
+                local spawned = API.Static:SpawnSharedAsset(tbl.template, {position = tbl.position})
                 spawned.serverUserData.health = tbl.health
                 spawned.serverUserData.maxHealth = tbl.health
                 API.SpawnedObjects[i][spawned] = {}
@@ -161,7 +169,7 @@ function API.StartMission(missionNumber)
     elseif missionNumber == 2 then
         API.CURRENT_ARENA = 2
     end
-    local values = API.CallBack(missionNumber)
+    local values = API.ObjectiveCallback(missionNumber)
     API.MissionTable = values[1]
     API.RewardAmount = values[2]
     API.SpawnAllPlayers()
@@ -199,7 +207,6 @@ end
 
 function API.MissionSuccess()
     API.CURRENT_ARENA = 0
-    API.Cleanup()
     Task.Spawn(
         function()
             API.MessageEvent:SetCustomProperty("Message", "Succesfully Completed the Mission!")
@@ -217,6 +224,7 @@ function API.MissionSuccess()
             API.MessageEvent:SetCustomProperty("Message", "")
         end
     )
+    API.Cleanup()
 end
 
 function API.EndMission()
@@ -427,8 +435,12 @@ function API.Hello()
     print("Hello")
 end
 
-function API.registerCallBack(callback)
-    API.CallBack = callback
+function API.RegisterObjectiveCallback(callback)
+    API.ObjectiveCallback = callback
+end
+
+function API.RegisterDangerCallback(callback)
+    API.DangerCallback = callback
 end
 
 API.initializing = false

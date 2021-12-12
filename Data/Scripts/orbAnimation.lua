@@ -3,7 +3,12 @@ local Orb1 = script:GetCustomProperty("Orb1"):WaitForObject()
 local Orb2 = script:GetCustomProperty("Orb2"):WaitForObject()
 local Orb3 = script:GetCustomProperty("Orb3"):WaitForObject()
 local PowerCast = script:GetCustomProperty("PowerCast"):WaitForObject()
+local QuickCast = script:GetCustomProperty("QuickCast"):WaitForObject()
 local Shield = script:GetCustomProperty("Shield"):WaitForObject()
+
+local IceballAFX = script:GetCustomProperty("IceballAFX")
+local IcePowerCast = script:GetCustomProperty("IcePowerCast")
+local weapon = script.parent.parent
 
 local originalPosition = Orbs:GetPosition()
 --2, 1
@@ -16,6 +21,7 @@ function ShowOrb(ability)
 end
 
 function CastPower(ability)
+    World.SpawnAsset(IcePowerCast, {position = weapon:GetWorldPosition()})
     Orbs:MoveTo(Vector3.New(100, 0, 0), 0.3, true)
     Task.Wait(0.3)
     Orb1:MoveTo(Vector3.New(100, 0, 130), 0.3, true)
@@ -53,8 +59,17 @@ end
 
 function RecoveryPower(ability)
 end
-
+QuickCast.executeEvent:Connect(
+    function(ability)
+        World.SpawnAsset(IceballAFX, {position = weapon:GetWorldPosition()})
+    end
+)
 PowerCast.castEvent:Connect(CastPower)
 PowerCast.recoveryEvent:Connect(RecoveryPower)
+PowerCast.executeEvent:Connect(
+    function()
+        World.SpawnAsset(IceballAFX, {position = weapon:GetWorldPosition()})
+    end
+)
 Shield.executeEvent:Connect(HideOrb)
 Shield.recoveryEvent:Connect(ShowOrb)

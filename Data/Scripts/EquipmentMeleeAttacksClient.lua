@@ -82,7 +82,7 @@ end
 function GetValidTarget(target)
     if not Object.IsValid(target) then return nil end
 
-    if target:IsA("Player") or target:IsA("Damageable") then
+    if target:IsA("Player") or target:IsA("Damageable") or target:IsA("StaticMesh") then
         return target
     else
         return target:FindAncestorByType("Damageable")
@@ -125,7 +125,7 @@ function MeleeAttack(target, impactPosition, abilityInfo)
         -- Spawn player or object impact vfx template
         if target:IsA("Player") then
             SpawnImpactEffect(PLAYER_IMPACT, impactPosition)
-        elseif target:IsA("Damageable") then
+        elseif target:IsA("Damageable") or target:IsA("StaticMesh") then
             SpawnImpactEffect(OBJECT_IMPACT, impactPosition)
         end
 

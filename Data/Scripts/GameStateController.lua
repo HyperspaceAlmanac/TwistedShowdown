@@ -32,7 +32,7 @@ function Initialize()
     API.NumPlayers = MaxPlayers
 end
 
-function StartLevelOne(trigger, onePlayer)
+function StartLevel(trigger, onePlayer, level)
     if not onePlayer.serverUserData.waiting then
         onePlayer.serverUserData.waiting = true
         Task.Spawn(
@@ -63,12 +63,8 @@ function StartLevelOne(trigger, onePlayer)
                 return
             end
         end
-        API.StartMission(1)
+        API.StartMission(level)
     end
-end
-
-function StartLevelTwo(trigger, player)
-
 end
 
 function Tick(deltaTime)
@@ -78,5 +74,5 @@ function Tick(deltaTime)
 end
 
 Initialize()
-Level1Trigger.interactedEvent:Connect(StartLevelOne)
-Level2Trigger.interactedEvent:Connect(StartLevelTwo)
+Level1Trigger.interactedEvent:Connect(StartLevel, 1)
+Level2Trigger.interactedEvent:Connect(StartLevel, 2)

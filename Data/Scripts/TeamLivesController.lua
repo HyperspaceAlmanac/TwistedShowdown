@@ -25,4 +25,10 @@ function LivesHandler(obj, key)
 end
 
 LivesHandler(State, "Lives")
-State.customPropertyChangedEvent:Connect(LivesHandler)
+local listener = State.customPropertyChangedEvent:Connect(LivesHandler)
+script.destroyEvent:Connect(
+    function(obj)
+        listener:Disconnect()
+        listener = nil
+    end
+)

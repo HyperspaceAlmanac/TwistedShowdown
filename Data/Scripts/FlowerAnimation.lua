@@ -5,8 +5,14 @@ local PowerCast = script:GetCustomProperty("PowerCast"):WaitForObject()
 local HealCloud = script:GetCustomProperty("HealCloud"):WaitForObject()
 local Meditate = script:GetCustomProperty("Meditate"):WaitForObject()
 
+local LongFlowerAudio = script:GetCustomProperty("LongFlowerAudio")
+local FastFlowerAudio = script:GetCustomProperty("FastFlowerAudio")
+
+local weapon = script.parent.parent
+
 function QuickCastEvent(ability)
     HealVFX.visibility = Visibility.INHERIT
+    World.SpawnAsset(FastFlowerAudio, {position = weapon:GetWorldPosition()})
 end
 
 function QuickExecuteEvent(ability)
@@ -15,6 +21,7 @@ end
 
 function PowerCastEvent(ability)
     HealVFX.visibility = Visibility.INHERIT
+    World.SpawnAsset(LongFlowerAudio, {position = weapon:GetWorldPosition()})
 end
 
 function PowerExecuteEvent(ability)
@@ -23,6 +30,7 @@ end
 
 function MeditateExecute(ability)
     HealCloud.visibility = Visibility.INHERIT
+    World.SpawnAsset(LongFlowerAudio, {position = weapon:GetWorldPosition()})
 end
 
 function MeditateRecovery(ability)

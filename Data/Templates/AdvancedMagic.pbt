@@ -968,6 +968,24 @@ Assets {
               SubObjectId: 6258939578426429010
             }
           }
+          Overrides {
+            Name: "cs:IceballAFX"
+            AssetReference {
+              Id: 4848305288406173513
+            }
+          }
+          Overrides {
+            Name: "cs:QuickCast"
+            ObjectReference {
+              SubObjectId: 5610374673043739474
+            }
+          }
+          Overrides {
+            Name: "cs:IcePowerCast"
+            AssetReference {
+              Id: 4530939310317904973
+            }
+          }
         }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"

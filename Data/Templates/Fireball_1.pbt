@@ -1,13 +1,13 @@
 Assets {
-  Id: 16244471840856776085
-  Name: "Generic Damageable Object Swing Effect"
+  Id: 12890966431578686133
+  Name: "Fireball"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
-      RootId: 5602077941227452171
+      RootId: 2379510288610830601
       Objects {
-        Id: 5602077941227452171
-        Name: "Generic Damageable Object Swing Effect"
+        Id: 2379510288610830601
+        Name: "Fireball"
         Transform {
           Scale {
             X: 1
@@ -16,10 +16,11 @@ Assets {
           }
         }
         ParentId: 4781671109827199097
-        ChildIds: 11921031643571978044
-        ChildIds: 9184956974181536805
+        ChildIds: 4436641411683934238
+        ChildIds: 18274048025146287021
         UnregisteredParameters {
         }
+        Lifespan: 3
         WantsNetworking: true
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -34,41 +35,25 @@ Assets {
         }
       }
       Objects {
-        Id: 11921031643571978044
-        Name: "Impact Lines VFX"
+        Id: 4436641411683934238
+        Name: "Sphere"
         Transform {
           Location {
           }
           Rotation {
           }
           Scale {
-            X: 1
-            Y: 1
-            Z: 1
+            X: 3
+            Y: 3
+            Z: 3
           }
         }
-        ParentId: 5602077941227452171
+        ParentId: 2379510288610830601
         UnregisteredParameters {
           Overrides {
-            Name: "bp:Enable Flash"
-            Bool: false
-          }
-          Overrides {
-            Name: "bp:Color B"
-            Color {
-              R: 1
-              G: 1
-              B: 1
-              A: 1
-            }
-          }
-          Overrides {
-            Name: "bp:Color C"
-            Color {
-              R: 1
-              G: 1
-              B: 1
-              A: 1
+            Name: "ma:Shared_BaseMaterial:id"
+            AssetReference {
+              Id: 16325962649651067789
             }
           }
         }
@@ -84,35 +69,40 @@ Assets {
         EditorIndicatorVisibility {
           Value: "mc:eindicatorvisibility:visiblewhenselected"
         }
-        Blueprint {
-          BlueprintAsset {
-            Id: 2382763685592588764
+        CoreMesh {
+          MeshAsset {
+            Id: 13315692267709887749
           }
-          TeamSettings {
+          Teams {
+            IsTeamCollisionEnabled: true
+            IsEnemyCollisionEnabled: true
           }
-          Vfx {
-            AutoPlay: true
+          StaticMesh {
+            Physics {
+              Mass: 100
+              LinearDamping: 0.01
+            }
+            BoundsScale: 1
           }
-        }
-        Relevance {
-          Value: "mc:eproxyrelevance:medium"
         }
       }
       Objects {
-        Id: 9184956974181536805
-        Name: "Impact Metal 02 SFX"
+        Id: 18274048025146287021
+        Name: "Flame"
         Transform {
           Location {
+            Z: 50
           }
           Rotation {
+            Roll: -90
           }
           Scale {
-            X: 1
-            Y: 1
-            Z: 1
+            X: 20
+            Y: 20
+            Z: 20
           }
         }
-        ParentId: 5602077941227452171
+        ParentId: 2379510288610830601
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -125,36 +115,49 @@ Assets {
         EditorIndicatorVisibility {
           Value: "mc:eindicatorvisibility:visiblewhenselected"
         }
-        AudioInstance {
-          AudioAsset {
-            Id: 8635567348381027744
+        CoreMesh {
+          MeshAsset {
+            Id: 9199751096616988864
           }
-          AutoPlay: true
-          Volume: 2
-          Falloff: -1
-          Radius: -1
-          EnableOcclusion: true
-          IsSpatializationEnabled: true
-          IsAttenuationEnabled: true
+          Teams {
+            IsTeamCollisionEnabled: true
+            IsEnemyCollisionEnabled: true
+          }
+          StaticMesh {
+            Physics {
+              Mass: 100
+              LinearDamping: 0.01
+            }
+            BoundsScale: 1
+          }
         }
       }
     }
     Assets {
-      Id: 2382763685592588764
-      Name: "Impact Lines VFX"
-      PlatformAssetType: 8
+      Id: 13315692267709887749
+      Name: "Sphere"
+      PlatformAssetType: 1
       PrimaryAsset {
-        AssetType: "VfxBlueprintAssetRef"
-        AssetId: "fxbp_impact_lines"
+        AssetType: "StaticMeshAssetRef"
+        AssetId: "sm_sphere_002"
       }
     }
     Assets {
-      Id: 8635567348381027744
-      Name: "Axe Tree Wood Chop Hit Impact 01 SFX"
-      PlatformAssetType: 7
+      Id: 16325962649651067789
+      Name: "Burning Wood"
+      PlatformAssetType: 2
       PrimaryAsset {
-        AssetType: "AudioAssetRef"
-        AssetId: "sfx_axe_tree_wood_chop_hit_impact_01a_Cue_ref"
+        AssetType: "MaterialAssetRef"
+        AssetId: "fxmi_burning_erode"
+      }
+    }
+    Assets {
+      Id: 9199751096616988864
+      Name: "Candle Flame VFX"
+      PlatformAssetType: 1
+      PrimaryAsset {
+        AssetType: "StaticMeshAssetRef"
+        AssetId: "fxsm_candleflame"
       }
     }
     PrimaryAssetId {

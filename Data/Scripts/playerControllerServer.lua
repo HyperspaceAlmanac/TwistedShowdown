@@ -8,7 +8,6 @@ local Level2 = script:GetCustomProperty("Level2"):WaitForObject()
 
 local Target = nil
 local playerListeners = {}
-local prevShot = 0
 
 local statTable = {}
 local resourceNames = {"gold", "s1", "s2", "s3", "m1", "m2", "m3", "f1", "f2", "f3"}
@@ -24,8 +23,8 @@ function Tick(deltaTime)
             --raycast
             local rotation = Quaternion.New(player:GetLookWorldRotation())
             --local hitResult = World.Raycast(player:GetWorldPosition() + cameraOffset, player:GetWorldPosition() + rotation:GetForwardVector() * 10000,
-            local hitResult = World.Raycast(player:GetViewWorldPosition(), player:GetWorldPosition() + rotation:GetForwardVector() * 10000,
-                {ignorePlayers = {player} } --shouldDebugRender = true
+            local hitResult = World.Raycast(player:GetViewWorldPosition(), player:GetWorldPosition() + rotation:GetForwardVector() * 5000,
+                {ignorePlayers = {player}} --shouldDebugRender = true
             )
             local other = hitResult and hitResult.other or nil
             --print(other)
@@ -49,8 +48,22 @@ function Tick(deltaTime)
                 player:SetPrivateNetworkedData("Target", nil)
             end
         else
+            if not Object.IsValid(Target) then
+                player.serverUserData.lockedOn = false
+                player:SetPrivateNetworkedData("LockedOn", false)
+                player.serverUserData.target = nil
+                player:SetPrivateNetworkedData("Target", nil)
+                player:SetWorldRotation(rotation)
+                return
+            end
+            local distance = (Target:GetWorldPosition() - player:GetWorldPosition()).size
             local gameTarget, trainingTarget = API.ValidTarget(player, Target), API.ValidTrainingTarget(player, Target)
-            if gameTarget or trainingTarget then
+            if distance > 5500 then
+                player.serverUserData.lockedOn = false
+                player:SetPrivateNetworkedData("LockedOn", false)
+                player.serverUserData.target = nil
+                player:SetPrivateNetworkedData("Target", nil)
+            elseif gameTarget or trainingTarget then
                 local newHealth = 0
                 if gameTarget then
                     newHealth = gameTarget[1] / gameTarget[2]
@@ -69,11 +82,6 @@ function Tick(deltaTime)
             end
         end
         player:SetWorldRotation(rotation)
-        if prevShot > 0.5 then
-            prevShot = 0
-        elseif prevShot > 0 then
-            prevShot = prevShot + deltaTime
-        end
     end
 end
 
@@ -161,6 +169,13 @@ end
 
 function PlayerDied(player, dmg)
     API.PlayerDied()
+    for _, ik in ipairs(player:GetIKAnchors()) do
+        ik:Deactivate()
+    end
+    if player.serverUserData.lockedOn then
+        player.serverUserData.lockedOn = false
+        player:SetPrivateNetworkedData("LockedOn", false)
+    end
     Task.Spawn(function()
         Task.Wait(2)
         local values = API.GetSpawn(player)
@@ -173,7 +188,6 @@ function PlayerDied(player, dmg)
 end
 
 function PlayerJoined(player)
-    print("Player Joined")
     player:SetPrivateNetworkedData("LockedOn", false)
     player:SetPrivateNetworkedData("Target", nil)
     player:SetPrivateNetworkedData("targetHealth", 0)

@@ -26,6 +26,15 @@ Assets {
   }
 }
 Assets {
+  Id: 18134657101048932515
+  Name: "Japanese Paper Lantern Simple 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_lantern_paper_simple_001_ref"
+  }
+}
+Assets {
   Id: 17804966421917202844
   Name: "Forest Floor 02"
   PlatformAssetType: 2
@@ -80,12 +89,39 @@ Assets {
   }
 }
 Assets {
+  Id: 16505049504141550862
+  Name: "Cone - Truncated Wide"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_cone_truncated_003"
+  }
+}
+Assets {
+  Id: 16304944762043383244
+  Name: "BG Flat 011"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "BackgroundNoOutline_28"
+  }
+}
+Assets {
   Id: 16048367406070731799
   Name: "Plane 1m - One Sided"
   PlatformAssetType: 1
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_plane_1m_001"
+  }
+}
+Assets {
+  Id: 15586608988834122777
+  Name: "Spiral"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_helix_001"
   }
 }
 Assets {
@@ -125,6 +161,15 @@ Assets {
   }
 }
 Assets {
+  Id: 13984129898220198361
+  Name: "Prism - 6-Sided"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prism_hexagon_001"
+  }
+}
+Assets {
   Id: 13591052692852497934
   Name: "Raptor Mob"
   PlatformAssetType: 17
@@ -149,6 +194,15 @@ Assets {
   PrimaryAsset {
     AssetType: "MaterialAssetRef"
     AssetId: "mi_brick_stone_floor_rough_002"
+  }
+}
+Assets {
+  Id: 13315692267709887749
+  Name: "Sphere"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_sphere_002"
   }
 }
 Assets {
@@ -323,6 +377,15 @@ Assets {
   }
 }
 Assets {
+  Id: 7997871488546521706
+  Name: "Energy Tube Glow"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "Energy_Tube_Glow"
+  }
+}
+Assets {
   Id: 7887238662729938253
   Name: "Sky Dome"
   PlatformAssetType: 6
@@ -368,12 +431,30 @@ Assets {
   }
 }
 Assets {
+  Id: 7349674310211070709
+  Name: "Rock Pile 002"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_rocks_small_002"
+  }
+}
+Assets {
   Id: 7296091871461150667
   Name: "Shuriken 02"
   PlatformAssetType: 1
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_prop_jpn_shuriken_002"
+  }
+}
+Assets {
+  Id: 7182031939138639380
+  Name: "Tree Oak Stump 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_tree_oak_stump_001"
   }
 }
 Assets {
@@ -437,6 +518,24 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Ability_Green_022"
+  }
+}
+Assets {
+  Id: 4839026266860239865
+  Name: "Basic Hologram"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxmi_basic_hologram"
+  }
+}
+Assets {
+  Id: 4679184162407266511
+  Name: "Energy Distortion Line"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxmi_trline_distortion_emissive"
   }
 }
 Assets {
@@ -545,6 +644,15 @@ Assets {
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_fern_generic_002"
+  }
+}
+Assets {
+  Id: 1149970724187606991
+  Name: "Tree Redwood Medium"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_tree_redwood_002"
   }
 }
 Assets {

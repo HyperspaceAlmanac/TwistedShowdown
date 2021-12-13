@@ -1,4 +1,5 @@
 local Target = nil
+local targetPosition = nil
 local lockedOn = false
 local ForwardCamera = script:GetCustomProperty("ForwardCamera"):WaitForObject()
 local Reticle = script:GetCustomProperty("Reticle"):WaitForObject()
@@ -35,7 +36,13 @@ local resources = {"gold", "s1", "s2", "s3", "m1", "m2", "m3", "f1", "f2", "f3"}
 
 function Tick(deltaTime)
     if lockedOn and Target then
-        local rotation = Rotation.New(Target:GetWorldPosition() - local_player:GetWorldPosition(), local_player:GetWorldTransform():GetUpVector())
+        local position = nil
+        if targetPosition then
+            position = targetPosition
+        else
+            position = Target:GetWorldPosition()
+        end
+        local rotation = Rotation.New(position - local_player:GetViewWorldPosition(), local_player:GetWorldTransform():GetUpVector())
         local_player:SetLookWorldRotation(rotation)
         ForwardCamera:SetRotation(rotation)
         ForwardCamera.rotationMode = RotationMode.CAMERA
@@ -100,6 +107,8 @@ function UpdateStatus(player, key)
             Target = nil
         end
         UpdateHealthDisplay()
+    elseif key == "TargetPosition" then
+        targetPosition = player:GetPrivateNetworkedData(key)
     elseif key == "maxStamina" then
         maxStamina = player:GetPrivateNetworkedData(key)
     elseif key == "maxMagic" then

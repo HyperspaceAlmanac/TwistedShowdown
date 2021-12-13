@@ -13,7 +13,7 @@ local lockedOn = false
 function GetValidTarget(player, target)
     if not Object.IsValid(target) then return nil end
 
-    if API.ValidTrainingTarget(player, target) then
+    if API.ValidTarget(player, target) then
         return target
     elseif API.ValidTrainingTarget(player, target) then
         return target

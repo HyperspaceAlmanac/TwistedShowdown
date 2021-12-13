@@ -21,6 +21,7 @@ Objects {
   ChildIds: 8882167172195862892
   ChildIds: 13761596602606752352
   ChildIds: 4270654975677522684
+  ChildIds: 13153089272198848886
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -33,6 +34,40 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Folder {
+  }
+}
+Objects {
+  Id: 13153089272198848886
+  Name: "Humidifier"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 7073793853019583119
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Humidifier"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: -19400
+            Y: 15550
+            Z: -4150
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 18234640956447668374
+    }
   }
 }
 Objects {
@@ -5571,6 +5606,30 @@ Objects {
   ParentId: 411185601179516780
   UnregisteredParameters {
     Overrides {
+      Name: "cs:SacredTree"
+      AssetReference {
+        Id: 17316740933875942626
+      }
+    }
+    Overrides {
+      Name: "cs:Generator"
+      AssetReference {
+        Id: 14627971959100515209
+      }
+    }
+    Overrides {
+      Name: "cs:Humidifier"
+      AssetReference {
+        Id: 18234640956447668374
+      }
+    }
+    Overrides {
+      Name: "cs:Stabilizer"
+      AssetReference {
+        Id: 3499277885487398007
+      }
+    }
+    Overrides {
       Name: "cs:GameStateAPI"
       AssetReference {
         Id: 15612790520903086079
@@ -9831,7 +9890,7 @@ Objects {
   }
   Control {
     Width: 900
-    Height: 150
+    Height: 200
     UIY: 65
     RenderTransformPivot {
       Anchor {
@@ -9900,13 +9959,13 @@ Objects {
   }
   Control {
     Width: 850
-    Height: 120
-    UIY: 35
+    Height: 150
     RenderTransformPivot {
       Anchor {
         Value: "mc:euianchor:middlecenter"
       }
     }
+    UseParentHeight: true
     Text {
       Label: "Text"
       Color {
@@ -9921,7 +9980,7 @@ Objects {
         Id: 841534158063459245
       }
       VerticalJustification {
-        Value: "mc:everticaljustification:top"
+        Value: "mc:everticaljustification:center"
       }
       ShadowColor {
         A: 1

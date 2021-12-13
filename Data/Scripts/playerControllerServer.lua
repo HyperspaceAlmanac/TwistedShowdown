@@ -23,7 +23,7 @@ function Tick(deltaTime)
             --raycast
             local rotation = Quaternion.New(player:GetLookWorldRotation())
             --local hitResult = World.Raycast(player:GetWorldPosition() + cameraOffset, player:GetWorldPosition() + rotation:GetForwardVector() * 10000,
-            local hitResult = World.Raycast(player:GetViewWorldPosition(), player:GetWorldPosition() + rotation:GetForwardVector() * 5000,
+            local hitResult = World.Raycast(player:GetViewWorldPosition(), player:GetViewWorldPosition() + rotation:GetForwardVector() * 5000,
                 {ignorePlayers = {player}} --shouldDebugRender = true
             )
             local other = hitResult and hitResult.other or nil
@@ -32,7 +32,10 @@ function Tick(deltaTime)
             if gameTarget or trainingTarget then
                 Target = other
                 player.serverUserData.target = Target
+                local position = hitResult:GetImpactPosition()
+                player.serverUserData.targetPosition = position
                 player:SetPrivateNetworkedData("Target", other)
+                player:SetPrivateNetworkedData("TargetPosition", position)
                 local newHealth = 0
                 if gameTarget then
                     newHealth = gameTarget[1] / gameTarget[2]
@@ -45,6 +48,8 @@ function Tick(deltaTime)
                 end
             else
                 player.serverUserData.target = nil
+                player.serverUserData.targetPosition = nil
+                player:SetPrivateNetworkedData("TargetPosition", nil)
                 player:SetPrivateNetworkedData("Target", nil)
             end
         else
@@ -52,7 +57,9 @@ function Tick(deltaTime)
                 player.serverUserData.lockedOn = false
                 player:SetPrivateNetworkedData("LockedOn", false)
                 player.serverUserData.target = nil
+                player.serverUserData.targetPosition = nil
                 player:SetPrivateNetworkedData("Target", nil)
+                player:SetPrivateNetworkedData("TargetPosition", nil)
                 player:SetWorldRotation(rotation)
                 return
             end
@@ -62,7 +69,9 @@ function Tick(deltaTime)
                 player.serverUserData.lockedOn = false
                 player:SetPrivateNetworkedData("LockedOn", false)
                 player.serverUserData.target = nil
+                player.serverUserData.targetPosition = nil
                 player:SetPrivateNetworkedData("Target", nil)
+                player:SetPrivateNetworkedData("TargetPosition", nil)
             elseif gameTarget or trainingTarget then
                 local newHealth = 0
                 if gameTarget then
@@ -78,7 +87,9 @@ function Tick(deltaTime)
                 player.serverUserData.lockedOn = false
                 player:SetPrivateNetworkedData("LockedOn", false)
                 player.serverUserData.target = nil
+                player.serverUserData.targetPosition = nil
                 player:SetPrivateNetworkedData("Target", nil)
+                player:SetPrivateNetworkedData("TargetPosition", nil)
             end
         end
         player:SetWorldRotation(rotation)
@@ -193,6 +204,7 @@ function PlayerJoined(player)
     player:SetPrivateNetworkedData("targetHealth", 0)
     player.serverUserData.lockedOn = false
     player.serverUserData.target = nil
+    player.serverUserData.targetPosition = nil
     playerListeners[player] = {}
     playerListeners[player]["binding_released"] = player.bindingReleasedEvent:Connect(BindingReleased)
     playerListeners[player]["dataChanged"] = player.privateNetworkedDataChangedEvent:Connect(DataChanged)

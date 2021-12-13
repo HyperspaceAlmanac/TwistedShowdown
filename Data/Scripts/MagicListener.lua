@@ -22,7 +22,7 @@ local lockedOn = false
 function GetValidTarget(player, target)
     if not Object.IsValid(target) then return nil end
 
-    if API.ValidTrainingTarget(player, target) then
+    if API.ValidTarget(player, target) then
         return target
     elseif API.ValidTrainingTarget(player, target) then
         return target
@@ -58,12 +58,23 @@ function SpawnProjectile(ability, fast)
     local player = ability.owner
     local playerTransform = player:GetWorldTransform()
     local projectile = nil
+    local targetPos = player.serverUserData.targetPosition
     if fast then
-        local offset = playerTransform:GetForwardVector() * 100 + playerTransform:GetRightVector() * 100 + playerTransform:GetUpVector() * 100
-        projectile = Projectile.Spawn(FastProjectile, player:GetWorldPosition() + offset, Quaternion.New(player:GetViewWorldRotation()):GetForwardVector())
+        local startPos = player:GetWorldPosition() + playerTransform:GetForwardVector() * 100 + playerTransform:GetRightVector() * 100 + playerTransform:GetUpVector() * 100
+        if not targetPos then
+            projectile = Projectile.Spawn(FastProjectile, startPos, Quaternion.New(player:GetViewWorldRotation()):GetForwardVector())
+        else
+            local rotation = Rotation.New(targetPos - startPos, playerTransform:GetUpVector())
+            projectile = Projectile.Spawn(FastProjectile, startPos, Quaternion.New(rotation):GetForwardVector())
+        end
     else
-        local offset = playerTransform:GetForwardVector() * 200
-        projectile = Projectile.Spawn(PowerProjectile, player:GetWorldPosition() + offset, Quaternion.New(player:GetViewWorldRotation()):GetForwardVector())
+        local startPos = player:GetWorldPosition() + playerTransform:GetForwardVector() * 200
+        if not targetPos then
+            projectile = Projectile.Spawn(PowerProjectile, startPos, Quaternion.New(player:GetViewWorldRotation()):GetForwardVector())
+        else
+            local rotation = Rotation.New(targetPos - startPos, playerTransform:GetUpVector())
+            projectile =  Projectile.Spawn(PowerProjectile, startPos, Quaternion.New(rotation):GetForwardVector())
+        end
     end
     if projectile == nil then
         return

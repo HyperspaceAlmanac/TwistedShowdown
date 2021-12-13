@@ -76,6 +76,10 @@ function API.RegisterTrigger(trigger)
     API.Triggers[#API.Triggers + 1] = trigger
 end
 
+function API.RegisterCancelTrigger(trigger)
+    trigger.interactedEvent:Connect(API.EndMission())
+end
+
 function API.DisableTriggers()
     for _, trigger in API.triggers do
         trigger.isEnabled = false
@@ -139,6 +143,9 @@ end
 
 function API.StartPhase()
     if API.Phase <= #API.MissionTable then
+        if API.Phase > 4 then
+            API.Music:SetCustomProperty("Song", 3)
+        end
         API.DangerCallback(API.CURRENT_ARENA, API.Phase)
         local mission = API.MissionTable[API.Phase]
         API.MessageEvent:SetCustomProperty("Message", mission.objective)
@@ -169,7 +176,7 @@ function API.StartMission(missionNumber)
     elseif missionNumber == 2 then
         API.CURRENT_ARENA = 2
     end
-    local values = API.ObjectiveCallback(missionNumber)
+    local values = API.ObjectiveCallback(missionNumber, API.NumPlayers)
     API.MissionTable = values[1]
     API.RewardAmount = values[2]
     API.SpawnAllPlayers()
@@ -228,16 +235,19 @@ function API.MissionSuccess()
 end
 
 function API.EndMission()
+    if API.CURRENT_AREA == 0 then
+        return -- Someone else already activated this.
+    end
     API.CURRENT_ARENA = 0
     API.Cleanup()
     for i, player in ipairs(Game.GetPlayers) do
         if not player.isDead then
-            player:SetWorldPosition(API.SpawnPoints[1]:GetWorldPosition())
+            player:SetWorldPosition(API.SpawnPoints[1]:GetWorldPosition() + Vector3.New(0, 200 * i, 0))
         end
     end
     Task.Spawn(
         function()
-            API.MessageEvent:SetCustomProperty("Message", "Returning to base")
+            API.MessageEvent:SetCustomProperty("Message", "Returning to base.\nFight another day.")
             Task.Wait(3)
             API.MessageEvent:SetCustomProperty("Message", "")
         end

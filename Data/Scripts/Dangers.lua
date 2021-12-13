@@ -26,6 +26,8 @@ local level1Lanterns = {}
 local level2Lanterns = {}
 local testPosition = Vector3.New(-23400, 15600, -3350)
 
+local gracePeriod = 0
+
 function PopulateLanterns()
     for i = 2, 7 do
         level1Lanterns[i] = {}
@@ -68,6 +70,9 @@ end
 
 
 function TriggerOverlap(trigger, other)
+    if gracePeriod > 0 then
+        return
+    end
     if currentPhase < trigger.serverUserData.phase then
         return
     end
@@ -77,6 +82,9 @@ function TriggerOverlap(trigger, other)
 end
 
 function KillTrigger(trigger, other)
+    if gracePeriod > 0 then
+        return
+    end
     if Object.IsValid(other) and other:IsA("Player") and not other.isDead then
         other:ApplyDamage(Damage.New(1000))
      end
@@ -134,6 +142,13 @@ function UpdateState(level, phase)
     if level ~= currentLevel then
         Networking:SetCustomProperty("Level", level)
     end
+    gracePeriod = gracePeriod + 1
+    Task.Spawn(
+        function()
+            Task.Wait(3)
+            gracePeriod = gracePeriod - 1
+        end
+    )
     currentLevel = level
     currentPhase = phase
     elapsedTime = 0

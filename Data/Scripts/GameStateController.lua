@@ -14,6 +14,9 @@ local S_Hideout = script:GetCustomProperty("Hideout"):WaitForObject()
 local S_Level1 = script:GetCustomProperty("Level1"):WaitForObject()
 local S_Level2 = script:GetCustomProperty("Level2"):WaitForObject()
 
+-- Cancel Level
+local Escape1 = script:GetCustomProperty("Escape1"):WaitForObject()
+local Escape2 = script:GetCustomProperty("Escape2"):WaitForObject()
 
 -- Custom 
 local Level1Trigger = script:GetCustomProperty("Level1Trigger"):WaitForObject()
@@ -72,6 +75,9 @@ function Tick(deltaTime)
         API.CountDownTick(deltaTime)
     end
 end
+
+API.RegisterCancelTrigger(Escape1)
+API.RegisterCancelTrigger(Escape2)
 
 Initialize()
 Level1Trigger.interactedEvent:Connect(StartLevel, 1)

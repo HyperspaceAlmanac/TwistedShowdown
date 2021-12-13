@@ -32,16 +32,16 @@ function PopulateLanterns()
     for i = 2, 7 do
         level1Lanterns[i] = {}
     end
-    level1Lanterns[2][1] = Vector3.New(-26520, 20000, -2800)
-    level1Lanterns[2][2] = Vector3.New(-30000, 13200, -1350)
-    level1Lanterns[2][3] = Vector3.New(-21300, 14600, -3250)
+    level1Lanterns[2][1] = Vector3.New(-21800, 14600, -3450)
+    level1Lanterns[2][2] = Vector3.New(-26250, 23450, -1900)
+    level1Lanterns[2][3] = Vector3.New(-30000, 13200, -1350)
     level1Lanterns[4][1] = Vector3.New(-27450, 18250, 900)
     level1Lanterns[6][1] = Vector3.New(-21250, 20200, -3750)
     for i = 2, 7 do
         level2Lanterns[i] = {}
     end
     level2Lanterns[2][1] = Vector3.New(-7150, -6800, 850)
-    level2Lanterns[2][2] = Vector3.New(-13600, -5750, 3150)
+    level2Lanterns[2][2] = Vector3.New(-12850, -11100, 1200)
     level2Lanterns[2][3] = Vector3.New(-8900, -11600, 4150)
     level2Lanterns[2][4] = Vector3.New(-10300, -8900, 4500)
     level2Lanterns[4][1] = Vector3.New(-13850, -8300, 6150)
@@ -77,7 +77,7 @@ function TriggerOverlap(trigger, other)
         return
     end
     if Object.IsValid(other) and other:IsA("Player") and not other.isDead then
-       other:ApplyDamage(Damage.New(1000))
+       other:ApplyDamage(Damage.New(50 + currentLevel * 50))
     end
 end
 
@@ -86,7 +86,7 @@ function KillTrigger(trigger, other)
         return
     end
     if Object.IsValid(other) and other:IsA("Player") and not other.isDead then
-        other:ApplyDamage(Damage.New(1000))
+        other:ApplyDamage(Damage.New(50 + currentLevel * 50))
      end
 end
 
@@ -113,14 +113,14 @@ function ImpactEvent(projectile, other, hit)
         World.SpawnAsset(Explosion, {position = hit:GetImpactPosition()})
     end
     if Object.IsValid(other) and other:IsA("Player") and not other.isDead then
-        local damage = Damage.New(200)
+        local damage = Damage.New(50 + currentLevel * 50)
         other:ApplyDamage(damage)
     end
 end
 
-function SpawnFireball(position)
+function SpawnFireball(position, radius)
     for _, player in ipairs(Game.GetPlayers()) do
-        if (player:GetWorldPosition() - position).size < 5000 then
+        if (player:GetWorldPosition() - position).size < radius then
             local projectile = Projectile.Spawn(Fireball, position,
                 Quaternion.New(Rotation.New(position - player:GetWorldPosition(), Vector3.UP)):GetForwardVector())
             projectile.speed = 300
@@ -187,11 +187,11 @@ function ProcessTick(level, phase, tick)
         for i = 2, phase do
             if level == 1 then
                 for _, position in pairs(level1Lanterns[i]) do
-                    SpawnFireball(position)
+                    SpawnFireball(position, i < 4 and 500 or 250)
                 end
             elseif level == 2 then
                 for _, position in pairs(level2Lanterns[i]) do
-                    SpawnFireball(position)
+                    SpawnFireball(position, i < 4 and 375 or 250)
                 end
             end
         end

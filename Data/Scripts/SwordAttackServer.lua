@@ -127,6 +127,11 @@ function OnEquipped()
     EQUIPMENT.collision = Collision.INHERIT
 end
 
+function OnUnequip()
+    ResetMelee()
+    EQUIPMENT:Destroy()
+end
+
 -- nil OnExecute(Ability)
 -- Spawns a swing effect template on ability execute
 function OnExecute(ability)
@@ -177,4 +182,4 @@ for _, ability in ipairs(abilityDescendants) do
 end
 
 EQUIPMENT.equippedEvent:Connect(OnEquipped)
-EQUIPMENT.unequippedEvent:Connect(ResetMelee)
+EQUIPMENT.unequippedEvent:Connect(OnUnequip)

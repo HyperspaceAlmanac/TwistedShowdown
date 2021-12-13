@@ -618,7 +618,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 100
+            Float: 75
           }
           Overrides {
             Name: "cs:Damage:tooltip"

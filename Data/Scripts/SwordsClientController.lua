@@ -19,6 +19,7 @@ local b2_rot = Blade2:GetRotation()
 local b3_pos = Blade3:GetPosition()
 local b3_rot = Blade3:GetRotation()
 
+local local_player = Game.GetLocalPlayer()
 
 function PlayQuickAnimation()
     Blade1:MoveTo(Vector3.New(0, 0, 86), 0.1, true)
@@ -139,7 +140,11 @@ end
 
 function Tick(deltaTime)
     if QuickSlash.owner ~= nil then
-        Swords:SetWorldRotation(QuickSlash.owner:GetLookWorldRotation())
+        if QuickSlash.owner == local_player then
+            Swords:SetWorldRotation(QuickSlash.owner:GetViewWorldRotation())
+        else
+            Swords:SetWorldRotation(QuickSlash.owner:GetWorldRotation())
+        end
     end
 end
 QuickSlash.castEvent:Connect(QuickSlashAnimation)

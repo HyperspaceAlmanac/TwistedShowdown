@@ -10,7 +10,7 @@ local ShieldObj = script:GetCustomProperty("ShieldObj"):WaitForObject()
 local FastProjectile = script:GetCustomProperty("IceShard")
 local PowerProjectile = script:GetCustomProperty("IceShardLarge")
 local damageFast = QuickCast:GetCustomProperty("Damage")
-local damagePower = QuickCast:GetCustomProperty("Damage")
+local damagePower = PowerCast:GetCustomProperty("Damage")
 
 local IceExplosion = script:GetCustomProperty("IceExplosion")
 

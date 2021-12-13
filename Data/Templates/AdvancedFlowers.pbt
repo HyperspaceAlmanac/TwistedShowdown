@@ -266,7 +266,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Power"
-            Float: 30
+            Float: 50
           }
           Overrides {
             Name: "cs:Cost"

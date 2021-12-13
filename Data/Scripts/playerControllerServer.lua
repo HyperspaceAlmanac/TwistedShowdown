@@ -10,7 +10,7 @@ local Target = nil
 local playerListeners = {}
 
 local statTable = {}
-local resourceNames = {"gold", "s1", "s2", "s3", "m1", "m2", "m3", "f1", "f2", "f3"}
+local resourceNames = {"gold", "s1", "s2", "s3", "s4", "m1", "m2", "m3", "m4", "f1", "f2", "f3", "f4"}
 
 function Tick(deltaTime)
     for _, player in ipairs(Game.GetPlayers()) do

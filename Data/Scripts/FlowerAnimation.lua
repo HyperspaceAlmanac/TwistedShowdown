@@ -13,6 +13,7 @@ local weapon = script.parent.parent
 function QuickCastEvent(ability)
     HealVFX.visibility = Visibility.INHERIT
     World.SpawnAsset(FastFlowerAudio, {position = weapon:GetWorldPosition()})
+    ability.owner.clientUserData.casting = true
 end
 
 function QuickExecuteEvent(ability)
@@ -22,6 +23,7 @@ end
 function PowerCastEvent(ability)
     HealVFX.visibility = Visibility.INHERIT
     World.SpawnAsset(LongFlowerAudio, {position = weapon:GetWorldPosition()})
+    ability.owner.clientUserData.casting = true
 end
 
 function PowerExecuteEvent(ability)
@@ -38,12 +40,19 @@ function MeditateRecovery(ability)
 end
 
 QuickCast.interruptedEvent:Connect(
-    function()
+    function(ability)
         HealVFX.visibility = Visibility.FORCE_OFF
+        HealCloud.visibility = Visibility.FORCE_OFF
+        ability.owner.clientUserData.casting = false
     end
 )
 QuickCast.castEvent:Connect(QuickCastEvent)
 QuickCast.executeEvent:Connect(QuickExecuteEvent)
+QuickCast.recoveryEvent:Connect(
+    function(ability)
+        ability.owner.clientUserData.casting = false
+    end
+)
 
 PowerCast.interruptedEvent:Connect(
     function()
@@ -52,6 +61,11 @@ PowerCast.interruptedEvent:Connect(
 )
 PowerCast.castEvent:Connect(PowerCastEvent)
 PowerCast.executeEvent:Connect(PowerExecuteEvent)
+PowerCast.recoveryEvent:Connect(
+    function(ability)
+        ability.owner.clientUserData.casting = false
+    end
+)
 
 Meditate.interruptedEvent:Connect(
     function()

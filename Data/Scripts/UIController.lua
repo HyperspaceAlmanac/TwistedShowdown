@@ -15,9 +15,18 @@ local StaminaText = script:GetCustomProperty("StaminaText"):WaitForObject()
 local MagicText = script:GetCustomProperty("MagicText"):WaitForObject()
 
 local GoldAmountDisplay = script:GetCustomProperty("GoldAmount"):WaitForObject()
-local RewardAudio = script:GetCustomProperty("RewardAudio")
+local RewardAudio = script:GetCustomProperty("RewardAudio"):WaitForObject()
+
+local LockonSound = script:GetCustomProperty("LockonSound"):WaitForObject()
+local LockonOffSound = script:GetCustomProperty("LockonOffSound"):WaitForObject()
+
+local ShopTriggers = script:GetCustomProperty("ShopTriggers"):WaitForObject()
+local ShopBG = script:GetCustomProperty("ShopBG"):WaitForObject()
+local ShopUI = script:GetCustomProperty("ShopUI"):WaitForObject()
 
 local local_player = Game.GetLocalPlayer()
+local_player.clientUserData.casting = false
+local_player.clientUserData.waiting = false
 
 local stamina = 100
 local magic = 100
@@ -32,30 +41,25 @@ local white = Color.New(1, 1, 1)
 local red = Color.New(1, 0, 0)
 local brown = Color.New(0.59, 0.3, 0)
 
-local resources = {"gold", "s1", "s2", "s3", "m1", "m2", "m3", "f1", "f2", "f3"}
+local resources = {"gold", "s1", "s2", "s3", "s4", "m1", "m2", "m3", "m4", "f1", "f2", "f3", "f4"}
+local costTable = {0, 500, 2000, 5000, 10000}
 
-function Tick(deltaTime)
-    if lockedOn and Target then
-        local position = nil
-        if targetPosition then
-            position = targetPosition
-        else
-            position = Target:GetWorldPosition()
+function ShopEvent(trigger, player, index)
+    if player == local_player then
+        if not local_player.clientUserData.waiting then
+            local_player.clientUserData.waiting = true
+            Task.Spawn(
+                function()
+                    ShopUI.text = "You have successfully purchased\nSome Weapon"
+                    ShopBG.visibility = Visibility.INHERIT
+                    Task.Wait(2)
+                    ShopBG.visibility = Visibility.FORCE_OFF
+                    ShopUI.text = ""
+                    local_player.clientUserData.waiting = false
+                end
+            )
         end
-        local rotation = Rotation.New(position - local_player:GetViewWorldPosition(), local_player:GetWorldTransform():GetUpVector())
-        local_player:SetLookWorldRotation(rotation)
-        ForwardCamera:SetRotation(rotation)
-        ForwardCamera.rotationMode = RotationMode.CAMERA
-    else
-        ForwardCamera.rotationMode = RotationMode.LOOK_ANGLE
     end
-
-    HealthBar.progress = local_player.hitPoints / local_player.maxHitPoints
-    HealthText.text = tostring(local_player.hitPoints).." / "..tostring(local_player.maxHitPoints)
-    StaminaBar.progress = stamina / maxStamina
-    StaminaText.text = tostring(stamina).." / "..tostring(maxStamina)
-    MagicBar.progress = magic / maxMagic
-    MagicText.text = tostring(magic).." / "..tostring(maxMagic)
 end
 
 function GoldDisplay(amount)
@@ -95,6 +99,15 @@ function UpdateStatus(player, key)
     if key == "LockedOn" then
         lockedOn = player:GetPrivateNetworkedData(key)
         player.clientUserData.lockedOn = lockedOn
+        --[[
+        if GoldAmountDisplay.text ~= "" and not player.clientUserData.casting then
+            if lockedOn then
+                LockonSound:Play()
+            else
+                LockonOffSound:Play()
+            end
+        end
+        ]]
     elseif key == "Target" then
         Target = player:GetPrivateNetworkedData(key)
         if Target then
@@ -127,7 +140,7 @@ function UpdateStatus(player, key)
         player.clientUserData.resources[key] = value
         if key == "gold" then
             if GoldAmountDisplay.text ~= "" then
-                World.SpawnAsset(RewardAudio, {position = local_player:GetWorldPosition()})
+                RewardAudio:Play()
             end
             GoldAmountDisplay.text = GoldDisplay(value)
         end
@@ -156,13 +169,45 @@ targetHealth = local_player:GetPrivateNetworkedData("targetHealth") or 0
 local_player.clientUserData.stance = stance
 local l1 = local_player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)
 
+function Tick(deltaTime)
+    if lockedOn and Target then
+        local position = nil
+        if targetPosition then
+            position = targetPosition
+        else
+            position = Target:GetWorldPosition()
+        end
+        local rotation = Rotation.New(position - local_player:GetViewWorldPosition(), local_player:GetWorldTransform():GetUpVector())
+        local_player:SetLookWorldRotation(rotation)
+        ForwardCamera:SetRotation(rotation)
+        ForwardCamera.rotationMode = RotationMode.CAMERA
+    else
+        ForwardCamera.rotationMode = RotationMode.LOOK_ANGLE
+    end
+
+    HealthBar.progress = local_player.hitPoints / local_player.maxHitPoints
+    HealthText.text = tostring(local_player.hitPoints).." / "..tostring(local_player.maxHitPoints)
+    StaminaBar.progress = stamina / maxStamina
+    StaminaText.text = tostring(stamina).." / "..tostring(maxStamina)
+    MagicBar.progress = magic / maxMagic
+    MagicText.text = tostring(magic).." / "..tostring(maxMagic)
+end
+
 local client_listeners = {}
 function PlayerJoined(player)
-    client_listeners[player] = {}
+    if player == local_player then
+        client_listeners = {}
+        for i, trigger in ipairs(ShopTriggers:GetChildren()) do
+            client_listeners[i] = trigger.interactedEvent:Connect(ShopEvent, i)
+        end 
+    end
 end
 
 function PlayerLeft(player)
-    client_listeners[player] = nil
+    for i, listener in ipairs(client_listeners) do
+        listener:Disconnect()
+        client_listeners[listener] = nil
+    end
 end
 local l2 = Game.playerJoinedEvent:Connect(PlayerJoined)
 local l3 = Game.playerLeftEvent:Connect(PlayerLeft)

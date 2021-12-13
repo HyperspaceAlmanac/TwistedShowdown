@@ -37,12 +37,12 @@ Objects {
   Name: "Level2"
   Transform {
     Location {
-      X: -10400
-      Y: -4900
-      Z: 150
+      X: -12500
+      Y: -4350
+      Z: 950
     }
     Rotation {
-      Yaw: -90
+      Yaw: -45
     }
     Scale {
       X: 1
@@ -79,7 +79,7 @@ Objects {
     Location {
       X: -19000
       Y: 15850
-      Z: -4300
+      Z: -2550
     }
     Rotation {
       Yaw: 180

@@ -77,7 +77,7 @@ function API.RegisterTrigger(trigger)
 end
 
 function API.RegisterCancelTrigger(trigger)
-    trigger.interactedEvent:Connect(API.EndMission())
+    trigger.interactedEvent:Connect(API.EndMission)
 end
 
 function API.DisableTriggers()
@@ -143,7 +143,9 @@ end
 
 function API.StartPhase()
     if API.Phase <= #API.MissionTable then
-        if API.Phase > 4 then
+        if API.phase == 7 then
+            API.Music:SetCustomProperty("Song", 4)
+        elseif API.Phase > 4 then
             API.Music:SetCustomProperty("Song", 3)
         end
         API.DangerCallback(API.CURRENT_ARENA, API.Phase)
@@ -151,9 +153,15 @@ function API.StartPhase()
         API.MessageEvent:SetCustomProperty("Message", mission.objective)
         for i=1,4 do
             for _, tbl in ipairs(mission.objects[i]) do
-                local spawned = API.Static:SpawnSharedAsset(tbl.template, {position = tbl.position})
-                spawned.serverUserData.health = tbl.health
-                spawned.serverUserData.maxHealth = tbl.health
+                local scale = tbl.scale
+                local rotation = tbl.rotation
+                local spawned = API.Static:SpawnSharedAsset(tbl.template, {position = tbl.position, rotation = rotation or Rotation.ZERO, scale = scale or Vector3.ONE})
+                if API.NumPlayers == 1 then
+                    spawned.serverUserData.health = tbl.health
+                else
+                    spawned.serverUserData.health = tbl.health * 2
+                end
+                spawned.serverUserData.maxHealth = spawned.serverUserData.health
                 API.SpawnedObjects[i][spawned] = {}
             end
         end
@@ -240,7 +248,7 @@ function API.EndMission()
     end
     API.CURRENT_ARENA = 0
     API.Cleanup()
-    for i, player in ipairs(Game.GetPlayers) do
+    for i, player in ipairs(Game.GetPlayers()) do
         if not player.isDead then
             player:SetWorldPosition(API.SpawnPoints[1]:GetWorldPosition() + Vector3.New(0, 200 * i, 0))
         end

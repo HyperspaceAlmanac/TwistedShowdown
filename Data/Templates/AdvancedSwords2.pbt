@@ -1,13 +1,13 @@
 Assets {
-  Id: 7527101288333971002
-  Name: "AdvancedSwords"
+  Id: 12165661277569773210
+  Name: "AdvancedSwords2"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
       RootId: 13574242069172392238
       Objects {
         Id: 13574242069172392238
-        Name: "AdvancedSwords"
+        Name: "AdvancedSwords2"
         Transform {
           Scale {
             X: 1
@@ -64,11 +64,11 @@ Assets {
           }
           Overrides {
             Name: "cs:Cost1"
-            Int: 25
+            Int: 50
           }
           Overrides {
             Name: "cs:Cost2"
-            Int: 50
+            Int: 100
           }
           Overrides {
             Name: "cs:Cost3"
@@ -298,7 +298,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 25
+            Float: 50
           }
           Overrides {
             Name: "cs:UseHitSphere"
@@ -307,7 +307,7 @@ Assets {
           Overrides {
             Name: "cs:SwingEffect"
             AssetReference {
-              Id: 171090409284182791
+              Id: 12473476907545943681
             }
           }
           Overrides {
@@ -401,7 +401,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 75
+            Float: 150
           }
           Overrides {
             Name: "cs:UseHitSphere"
@@ -410,7 +410,7 @@ Assets {
           Overrides {
             Name: "cs:SwingEffect"
             AssetReference {
-              Id: 3359676698435492722
+              Id: 9780616220420621368
             }
           }
           Overrides {
@@ -1076,6 +1076,16 @@ Assets {
           }
         }
         ParentId: 10383333563329427401
+        UnregisteredParameters {
+          Overrides {
+            Name: "ma:Shared_Detail2:color"
+            Color {
+              G: 0.5
+              B: 1
+              A: 1
+            }
+          }
+        }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1170,7 +1180,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:id"
             AssetReference {
-              Id: 15882327866846003284
+              Id: 1163304690565593503
             }
           }
           Overrides {
@@ -1238,7 +1248,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 1
+              B: 1
               A: 1
             }
           }
@@ -1374,6 +1384,16 @@ Assets {
           }
         }
         ParentId: 15497956893219452516
+        UnregisteredParameters {
+          Overrides {
+            Name: "ma:Shared_Detail2:color"
+            Color {
+              G: 0.5
+              B: 1
+              A: 1
+            }
+          }
+        }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1453,7 +1473,9 @@ Assets {
         Name: "Wakizashi Blade"
         Transform {
           Location {
-            Z: 10.5285912
+            X: -6.67572e-06
+            Y: -1.25510383e-06
+            Z: 10.529
           }
           Rotation {
           }
@@ -1468,7 +1490,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:id"
             AssetReference {
-              Id: 15882327866846003284
+              Id: 1163304690565593503
             }
           }
           Overrides {
@@ -1536,7 +1558,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 1
+              B: 1
               A: 1
             }
           }
@@ -1673,6 +1695,16 @@ Assets {
           }
         }
         ParentId: 6015810936057498096
+        UnregisteredParameters {
+          Overrides {
+            Name: "ma:Shared_Detail2:color"
+            Color {
+              G: 0.5
+              B: 1
+              A: 1
+            }
+          }
+        }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1752,7 +1784,9 @@ Assets {
         Name: "Wakizashi Blade"
         Transform {
           Location {
-            Z: 10.5285912
+            X: 0.000733375549
+            Y: -1.25500196e-06
+            Z: 10.529
           }
           Rotation {
           }
@@ -1767,7 +1801,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:id"
             AssetReference {
-              Id: 15882327866846003284
+              Id: 1163304690565593503
             }
           }
           Overrides {
@@ -1835,7 +1869,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 1
+              B: 1
               A: 1
             }
           }
@@ -1969,15 +2003,6 @@ Assets {
       PrimaryAsset {
         AssetType: "StaticMeshAssetRef"
         AssetId: "sm_prop_jpn_wakizashi_blade_001"
-      }
-    }
-    Assets {
-      Id: 15882327866846003284
-      Name: "Magic Glass"
-      PlatformAssetType: 2
-      PrimaryAsset {
-        AssetType: "MaterialAssetRef"
-        AssetId: "fxmi_magic_glass"
       }
     }
     Assets {

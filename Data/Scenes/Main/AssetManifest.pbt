@@ -98,6 +98,15 @@ Assets {
   }
 }
 Assets {
+  Id: 16353917461806733124
+  Name: "Ring - Thin"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_torus_003"
+  }
+}
+Assets {
   Id: 16304944762043383244
   Name: "BG Flat 011"
   PlatformAssetType: 9
@@ -242,6 +251,15 @@ Assets {
   }
 }
 Assets {
+  Id: 11990386774216707705
+  Name: "Bubble"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxmi_bubble"
+  }
+}
+Assets {
   Id: 11761871474221141479
   Name: "Fantasy Castle Door 02"
   PlatformAssetType: 1
@@ -314,6 +332,15 @@ Assets {
   }
 }
 Assets {
+  Id: 10184847056121543272
+  Name: "Basic Material"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "mi_basic_pbr_material_001"
+  }
+}
+Assets {
   Id: 9338546721314186430
   Name: "Fantasy Ability Yellow 024"
   PlatformAssetType: 9
@@ -356,6 +383,15 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "Core_UI_AbstractPack_Background_006"
+  }
+}
+Assets {
+  Id: 8466743873110069131
+  Name: "Coin Collect Multiple 01 SFX"
+  PlatformAssetType: 7
+  PrimaryAsset {
+    AssetType: "AudioAssetRef"
+    AssetId: "sfx_crunchy_coin_collect_01_Cue_ref"
   }
 }
 Assets {
@@ -476,6 +512,15 @@ Assets {
   }
 }
 Assets {
+  Id: 6677237403455816226
+  Name: "Portal VFX"
+  PlatformAssetType: 6
+  PrimaryAsset {
+    AssetType: "BlueprintAssetRef"
+    AssetId: "fxbp_portal"
+  }
+}
+Assets {
   Id: 6275702538971290018
   Name: "Military Ability Healing 002"
   PlatformAssetType: 9
@@ -584,6 +629,24 @@ Assets {
   }
 }
 Assets {
+  Id: 3843551166258400649
+  Name: "Animated Neon Sign - Battery"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "fxsm_NeonSign_Battery"
+  }
+}
+Assets {
+  Id: 3358730465653412221
+  Name: "Dry Fire Click Generic Clicky 01 SFX"
+  PlatformAssetType: 7
+  PrimaryAsset {
+    AssetType: "AudioAssetRef"
+    AssetId: "sfx_clicky_dryfire_01_Cue_ref"
+  }
+}
+Assets {
   Id: 2433051722484962510
   Name: "Cylinder - 2-Toned"
   PlatformAssetType: 1
@@ -629,6 +692,15 @@ Assets {
   }
 }
 Assets {
+  Id: 1689945724973838331
+  Name: "Fantasy Castle Wall 02 - Window 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_ts_fan_cas_wall_002_win_02"
+  }
+}
+Assets {
   Id: 1510567160265264152
   Name: "Fantasy Ability Blue 017"
   PlatformAssetType: 9
@@ -644,6 +716,15 @@ Assets {
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_fern_generic_002"
+  }
+}
+Assets {
+  Id: 1340814136577956448
+  Name: "Button Click Back Core 01 SFX"
+  PlatformAssetType: 7
+  PrimaryAsset {
+    AssetType: "AudioAssetRef"
+    AssetId: "sfxui_click_back_core_01_Cue_ref"
   }
 }
 Assets {

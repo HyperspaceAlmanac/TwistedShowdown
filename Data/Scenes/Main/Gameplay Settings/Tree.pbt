@@ -37,8 +37,8 @@ Objects {
   Name: "Level2"
   Transform {
     Location {
-      X: -12500
-      Y: -4350
+      X: -13450
+      Y: -5400
       Z: 950
     }
     Rotation {

@@ -1,13 +1,13 @@
 Assets {
-  Id: 7527101288333971002
-  Name: "AdvancedSwords"
+  Id: 9501791379036254762
+  Name: "AdvancedSwords3"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
       RootId: 13574242069172392238
       Objects {
         Id: 13574242069172392238
-        Name: "AdvancedSwords"
+        Name: "AdvancedSwords3"
         Transform {
           Scale {
             X: 1
@@ -64,11 +64,11 @@ Assets {
           }
           Overrides {
             Name: "cs:Cost1"
-            Int: 25
+            Int: 75
           }
           Overrides {
             Name: "cs:Cost2"
-            Int: 50
+            Int: 150
           }
           Overrides {
             Name: "cs:Cost3"
@@ -298,7 +298,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 25
+            Float: 75
           }
           Overrides {
             Name: "cs:UseHitSphere"
@@ -307,7 +307,7 @@ Assets {
           Overrides {
             Name: "cs:SwingEffect"
             AssetReference {
-              Id: 171090409284182791
+              Id: 17590883049581387471
             }
           }
           Overrides {
@@ -401,7 +401,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 75
+            Float: 225
           }
           Overrides {
             Name: "cs:UseHitSphere"
@@ -410,7 +410,7 @@ Assets {
           Overrides {
             Name: "cs:SwingEffect"
             AssetReference {
-              Id: 3359676698435492722
+              Id: 10476904619357391616
             }
           }
           Overrides {
@@ -1080,7 +1080,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1164,7 +1164,9 @@ Assets {
         Name: "Wakizashi Blade"
         Transform {
           Location {
-            Z: 10.5285912
+            X: -0.204146385
+            Y: -1.33940375e-06
+            Z: 10.8821392
           }
           Rotation {
           }
@@ -1179,7 +1181,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:id"
             AssetReference {
-              Id: 7997871488546521706
+              Id: 1163304690565593503
             }
           }
           Overrides {
@@ -1200,7 +1202,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1254,7 +1256,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1394,7 +1396,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1478,7 +1480,9 @@ Assets {
         Name: "Wakizashi Blade"
         Transform {
           Location {
-            Z: 10.5285912
+            X: -0.204117775
+            Y: -1.33945025e-06
+            Z: 10.8825808
           }
           Rotation {
           }
@@ -1493,7 +1497,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:id"
             AssetReference {
-              Id: 7997871488546521706
+              Id: 1163304690565593503
             }
           }
           Overrides {
@@ -1514,7 +1518,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1568,7 +1572,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1709,7 +1713,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1793,7 +1797,9 @@ Assets {
         Name: "Wakizashi Blade"
         Transform {
           Location {
-            Z: 10.5285912
+            X: -0.203406334
+            Y: -1.33930189e-06
+            Z: 10.8825665
           }
           Rotation {
           }
@@ -1808,7 +1814,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:id"
             AssetReference {
-              Id: 7997871488546521706
+              Id: 1163304690565593503
             }
           }
           Overrides {
@@ -1829,7 +1835,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -1883,7 +1889,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 1
+              G: 1
               A: 1
             }
           }
@@ -2017,15 +2023,6 @@ Assets {
       PrimaryAsset {
         AssetType: "StaticMeshAssetRef"
         AssetId: "sm_prop_jpn_wakizashi_blade_001"
-      }
-    }
-    Assets {
-      Id: 7997871488546521706
-      Name: "Energy Tube Glow"
-      PlatformAssetType: 2
-      PrimaryAsset {
-        AssetType: "MaterialAssetRef"
-        AssetId: "Energy_Tube_Glow"
       }
     }
     Assets {

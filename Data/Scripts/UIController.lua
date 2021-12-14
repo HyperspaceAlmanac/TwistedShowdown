@@ -24,7 +24,17 @@ local ShopTriggers = script:GetCustomProperty("ShopTriggers"):WaitForObject()
 local ShopBG = script:GetCustomProperty("ShopBG"):WaitForObject()
 local ShopUI = script:GetCustomProperty("ShopUI"):WaitForObject()
 
+local EquipSound = script:GetCustomProperty("Equip"):WaitForObject()
+local ErrorSound = script:GetCustomProperty("Error"):WaitForObject()
+
+local CostsFolder = script:GetCustomProperty("Costs"):WaitForObject()
+local CostUITable = {}
+for i, cost in ipairs(CostsFolder:GetChildren()) do
+    CostUITable[i] = cost
+end
+
 local local_player = Game.GetLocalPlayer()
+local_player.clientUserData.resources = {}
 local_player.clientUserData.casting = false
 local_player.clientUserData.waiting = false
 
@@ -42,27 +52,55 @@ local red = Color.New(1, 0, 0)
 local brown = Color.New(0.59, 0.3, 0)
 
 local resources = {"gold", "s1", "s2", "s3", "s4", "m1", "m2", "m3", "m4", "f1", "f2", "f3", "f4"}
+local weapons = {"", "s1", "s2", "s3", "s4", "", "m1", "m2", "m3", "m4", "", "f1", "f2", "f3", "f4"}
 local costTable = {0, 500, 2000, 5000, 10000}
+
+function DefaultWeapon(index)
+    return index == 1 or index == 6 or index == 11
+end
 
 function ShopEvent(trigger, player, index)
     if player == local_player then
         if not local_player.clientUserData.waiting then
             local_player.clientUserData.waiting = true
-            Task.Spawn(
-                function()
-                    ShopUI.text = "You have successfully purchased\nSome Weapon"
-                    ShopBG.visibility = Visibility.INHERIT
-                    Task.Wait(2)
-                    ShopBG.visibility = Visibility.FORCE_OFF
-                    ShopUI.text = ""
-                    local_player.clientUserData.waiting = false
-                end
-            )
+
+			print(weapons[index])
+            if player.clientUserData.resources[weapons[index]] or DefaultWeapon(index) then
+                ShopUI.text = "Sucessfully equipped weapon"
+                ShopBG.visibility = Visibility.INHERIT
+                EquipSound:Play()
+                Task.Spawn(
+                    function()
+                        Task.Wait(2)
+                        ShopBG.visibility = Visibility.FORCE_OFF
+                        ShopUI.text = ""
+                        local_player.clientUserData.waiting = false
+                    end
+                )
+            else
+                Task.Spawn(
+                    function()
+                        Task.Wait(0.3)
+                        if not player.clientUserData.resources[weapons[index]] then
+                            ShopBG.visibility = Visibility.INHERIT
+                            ShopUI.text = "Not enough gold to purchase weapon"
+                        end
+                        ErrorSound:Play()
+                        Task.Wait(1.7)
+                        ShopBG.visibility = Visibility.FORCE_OFF
+                        ShopUI.text = ""
+                        local_player.clientUserData.waiting = false
+                    end
+                )
+            end
         end
     end
 end
 
 function GoldDisplay(amount)
+	if amount == nil then
+		return ""
+	end
     if amount < 1000 then
         return tostring(amount)
     elseif amount / 1000 < 1000 then
@@ -137,6 +175,9 @@ function UpdateStatus(player, key)
         UpdateHealthDisplay()
     elseif player.clientUserData.resources[key] ~= nil then
         local value = player:GetPrivateNetworkedData(key)
+        if value == nil then
+        	return
+        end
         player.clientUserData.resources[key] = value
         if key == "gold" then
             if GoldAmountDisplay.text ~= "" then
@@ -148,17 +189,16 @@ function UpdateStatus(player, key)
 end
 
 function InitializeResources()
-	local_player.clientUserData.resources = {}
 	for _, key in ipairs(resources) do
-	    if key == "gold" then
-	        local_player.clientUserData.resources[key] = 0
-	    else
-	        local_player.clientUserData.resources[key] = false
-	    end
+		if key == "gold" then
+			local_player.clientUserData.resources[key] = 0
+		else
+			local_player.clientUserData.resources[key] = false
+		end
+		local temp = local_player.clientUserData[key]
+		UpdateStatus(local_player, key)
 	end
 end
-
-InitializeResources()
 
 maxStamina = local_player:GetPrivateNetworkedData("maxStamina") or 100
 maxMagic = local_player:GetPrivateNetworkedData("maxMagic") or 100
@@ -167,7 +207,42 @@ magic = local_player:GetPrivateNetworkedData("magic") or 100
 stance = local_player:GetPrivateNetworkedData("Sword") or "Sword"
 targetHealth = local_player:GetPrivateNetworkedData("targetHealth") or 0
 local_player.clientUserData.stance = stance
+
+InitializeResources()
 local l1 = local_player.privateNetworkedDataChangedEvent:Connect(UpdateStatus)
+
+local green = Color.New(Vector3.New(0, 1, 0))
+local white = Color.New(Vector3.New(1, 1, 1))
+local red = Color.New(Vector3.New(1, 0, 0))
+
+
+function UpdateCostDisplay()
+    if not local_player.clientUserData.resources then
+        return
+    end
+    for i, key in ipairs(weapons) do
+        if key == "" or local_player.clientUserData.resources[key] then
+            CostUITable[i]:SetColor(green)
+            CostUITable[i].text = "Purchased"
+        else
+            local gold = local_player.clientUserData.resources.gold or 0
+            local costIndex = i
+            if i > 10 then
+                costIndex = i - 10
+            elseif i > 5 then
+                costIndex = i - 5
+            else
+                costIndex = i
+            end
+            CostUITable[i].text = tostring(costTable[costIndex])
+            if gold >= costTable[costIndex] then
+                CostUITable[i]:SetColor(white)
+            else
+                CostUITable[i]:SetColor(red)
+            end
+        end
+    end
+end
 
 function Tick(deltaTime)
     if lockedOn and Target then
@@ -185,12 +260,13 @@ function Tick(deltaTime)
         ForwardCamera.rotationMode = RotationMode.LOOK_ANGLE
     end
 
-    HealthBar.progress = local_player.hitPoints / local_player.maxHitPoints
+    HealthBar.progress = math.floor(local_player.hitPoints / local_player.maxHitPoints)
     HealthText.text = tostring(local_player.hitPoints).." / "..tostring(local_player.maxHitPoints)
     StaminaBar.progress = stamina / maxStamina
     StaminaText.text = tostring(stamina).." / "..tostring(maxStamina)
     MagicBar.progress = magic / maxMagic
     MagicText.text = tostring(magic).." / "..tostring(maxMagic)
+    UpdateCostDisplay()
 end
 
 local client_listeners = {}

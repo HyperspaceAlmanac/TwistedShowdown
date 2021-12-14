@@ -122,7 +122,12 @@ end
 
 -- nil OnEquipped()
 -- Enables collision on player to make the hitbox collidable
-function OnEquipped()
+function OnEquipped(equipment, player)
+    if player and Object.IsValid(player) then
+        if player.serverUserData.stance ~= "Sword" then
+            equipment.visibility = Visibility.FORCE_OFF
+        end
+    end
     Task.Wait(0.1)
     EQUIPMENT.collision = Collision.INHERIT
 end

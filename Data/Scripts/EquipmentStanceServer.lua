@@ -29,6 +29,11 @@ local originalStance = "unarmed_stance"
 
 -- nil OnEquipped(Equipment, Player)
 function OnEquipped(equipment, player)
+    if player and Object.IsValid(player) then
+        if player.serverUserData.stance ~= "Magic" then
+            equipment.visibility = Visibility.FORCE_OFF
+        end
+    end
     if EQUIPMENT_STANCE then
         player.animationStance = EQUIPMENT_STANCE
     end
@@ -37,6 +42,7 @@ end
 -- nil OnUnequipped(Equipment, Player)
 function OnUnequipped(equipment, player)
     player.animationStance = originalStance
+    EQUIPMENT:Destroy()
 end
 
 -- Initialize

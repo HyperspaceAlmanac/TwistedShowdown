@@ -44,6 +44,15 @@ Assets {
   }
 }
 Assets {
+  Id: 17650752665315833616
+  Name: "Japanese Tea Set - Caddy 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_tea_set_caddy_001_ref"
+  }
+}
+Assets {
   Id: 17246754151924769898
   Name: "Fantasy Castle Floor 03 4m"
   PlatformAssetType: 1
@@ -71,21 +80,21 @@ Assets {
   }
 }
 Assets {
+  Id: 16751224094635422494
+  Name: "Rock 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_rock_generic_001"
+  }
+}
+Assets {
   Id: 16674601062818495857
   Name: "Frame Rect 010"
   PlatformAssetType: 9
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "FrameRect_010"
-  }
-}
-Assets {
-  Id: 16516339866119199245
-  Name: "Ice Opaque"
-  PlatformAssetType: 2
-  PrimaryAsset {
-    AssetType: "MaterialAssetRef"
-    AssetId: "fxmi_ice_opaque"
   }
 }
 Assets {
@@ -116,12 +125,39 @@ Assets {
   }
 }
 Assets {
+  Id: 16292150775330556157
+  Name: "Flower Bellflower 02"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_foliage_gen_flower_bell_002_ref"
+  }
+}
+Assets {
   Id: 16048367406070731799
   Name: "Plane 1m - One Sided"
   PlatformAssetType: 1
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_plane_1m_001"
+  }
+}
+Assets {
+  Id: 15886381828502173648
+  Name: "Wakizashi Blade"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_wakizashi_blade_001"
+  }
+}
+Assets {
+  Id: 15690065643316114450
+  Name: "Gear Equipment Cloth Military Grab Movement 02 SFX"
+  PlatformAssetType: 7
+  PrimaryAsset {
+    AssetType: "AudioAssetRef"
+    AssetId: "sfx_gear_equipment_cloth_military_grab_movement_02a_Cue_ref"
   }
 }
 Assets {
@@ -140,6 +176,15 @@ Assets {
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_urb_end_table_001"
+  }
+}
+Assets {
+  Id: 14966147011442726154
+  Name: "Tree Sakura Hero 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_tree_sakura_hero_01_ref"
   }
 }
 Assets {
@@ -179,6 +224,15 @@ Assets {
   }
 }
 Assets {
+  Id: 13710161915374590549
+  Name: "Rock 03"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_rock_generic_003"
+  }
+}
+Assets {
   Id: 13591052692852497934
   Name: "Raptor Mob"
   PlatformAssetType: 17
@@ -215,6 +269,15 @@ Assets {
   }
 }
 Assets {
+  Id: 13174789148195749610
+  Name: "Japanese Tea Set - Cup 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_tea_set_tea_cup_001_ref"
+  }
+}
+Assets {
   Id: 12972318422346155431
   Name: "Bark Pine 01"
   PlatformAssetType: 2
@@ -248,6 +311,15 @@ Assets {
   PrimaryAsset {
     AssetType: "StaticMeshAssetRef"
     AssetId: "sm_cube_002"
+  }
+}
+Assets {
+  Id: 12080914882244420748
+  Name: "Wakizashi Handle"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_wakizashi_handle_001"
   }
 }
 Assets {
@@ -296,6 +368,15 @@ Assets {
   }
 }
 Assets {
+  Id: 11127381443941719369
+  Name: "Amethyst"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxmi_amethyst"
+  }
+}
+Assets {
   Id: 10995193757661392908
   Name: "Urban Interior - Oil Lantern 01 - Base 01"
   PlatformAssetType: 1
@@ -332,6 +413,24 @@ Assets {
   }
 }
 Assets {
+  Id: 10498062959888339686
+  Name: "Advanced Material"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "universal_material_001"
+  }
+}
+Assets {
+  Id: 10345235456809037794
+  Name: "Coral Spikes Big"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_coral_spike_big_01"
+  }
+}
+Assets {
   Id: 10184847056121543272
   Name: "Basic Material"
   PlatformAssetType: 2
@@ -341,12 +440,30 @@ Assets {
   }
 }
 Assets {
+  Id: 9431042241311314062
+  Name: "Wakizashi Guard"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_wakizashi_guard_001"
+  }
+}
+Assets {
   Id: 9338546721314186430
   Name: "Fantasy Ability Yellow 024"
   PlatformAssetType: 9
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Ability_Yellow_024"
+  }
+}
+Assets {
+  Id: 9245032317503548010
+  Name: "Tree Oak 01"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_tree_oak_001"
   }
 }
 Assets {
@@ -377,12 +494,34 @@ Assets {
   }
 }
 Assets {
+  Id: 8793237892004088019
+  Name: "MainStorage"
+  PlatformAssetType: 23
+  NetReferenceAsset {
+    NetReference {
+      Key: "354e146a741849a0b19f8c284d01ae23"
+      Type {
+        Value: "mc:enetreferencetype:sharedpersistence"
+      }
+    }
+  }
+}
+Assets {
   Id: 8687595600370261993
   Name: "Abstract Background 05"
   PlatformAssetType: 9
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "Core_UI_AbstractPack_Background_006"
+  }
+}
+Assets {
+  Id: 8476829092336201027
+  Name: "Wakizashi Scabbard"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_prop_jpn_wakizashi_scabbard_001"
   }
 }
 Assets {
@@ -629,21 +768,21 @@ Assets {
   }
 }
 Assets {
-  Id: 3843551166258400649
-  Name: "Animated Neon Sign - Battery"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "fxsm_NeonSign_Battery"
-  }
-}
-Assets {
   Id: 3358730465653412221
   Name: "Dry Fire Click Generic Clicky 01 SFX"
   PlatformAssetType: 7
   PrimaryAsset {
     AssetType: "AudioAssetRef"
     AssetId: "sfx_clicky_dryfire_01_Cue_ref"
+  }
+}
+Assets {
+  Id: 2928250529046907329
+  Name: "Coral Tubes Big"
+  PlatformAssetType: 1
+  PrimaryAsset {
+    AssetType: "StaticMeshAssetRef"
+    AssetId: "sm_coral_tube_big_01"
   }
 }
 Assets {
@@ -674,6 +813,15 @@ Assets {
   }
 }
 Assets {
+  Id: 2161664028752252598
+  Name: "UI Buzzer Error Denied 01 SFX"
+  PlatformAssetType: 7
+  PrimaryAsset {
+    AssetType: "AudioAssetRef"
+    AssetId: "sfx_ui_buzzer_error_denied_01_Cue_ref"
+  }
+}
+Assets {
   Id: 2106164552835247281
   Name: "Rubble Concrete 01"
   PlatformAssetType: 2
@@ -689,15 +837,6 @@ Assets {
   PrimaryAsset {
     AssetType: "AudioBlueprintAssetRef"
     AssetId: "abp_UpbeatMusic_ref"
-  }
-}
-Assets {
-  Id: 1689945724973838331
-  Name: "Fantasy Castle Wall 02 - Window 02"
-  PlatformAssetType: 1
-  PrimaryAsset {
-    AssetType: "StaticMeshAssetRef"
-    AssetId: "sm_ts_fan_cas_wall_002_win_02"
   }
 }
 Assets {
@@ -797,5 +936,14 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "UI_Fantasy_Ability_Green_017"
+  }
+}
+Assets {
+  Id: 184584825560688570
+  Name: "Additive Soft Edge"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxma_additive_edgefade"
   }
 }

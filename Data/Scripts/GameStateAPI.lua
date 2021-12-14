@@ -143,7 +143,9 @@ end
 
 function API.StartPhase()
     if API.Phase <= #API.MissionTable then
-        if API.phase == 7 then
+    	print(API.Phase)
+        if API.Phase == 7 then
+        	print("Finale")
             API.Music:SetCustomProperty("Song", 4)
         elseif API.Phase > 4 then
             API.Music:SetCustomProperty("Song", 3)

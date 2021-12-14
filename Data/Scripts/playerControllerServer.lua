@@ -5,6 +5,7 @@ local Hideout = script:GetCustomProperty("Hideout"):WaitForObject()
 local Level1 = script:GetCustomProperty("Level1"):WaitForObject()
 local Level2 = script:GetCustomProperty("Level2"):WaitForObject()
 
+local MainStorage = script:GetCustomProperty("MainStorage")
 
 local Target = nil
 local playerListeners = {}
@@ -143,7 +144,7 @@ function DataChanged(player, key)
     if key == "maxStamina" then
         statTable[player]["maxStamina"] = player:GetPrivateNetworkedData(key)
     elseif key == "maxMagic" then
-        statTable[player]["maxStamina"] = player:GetPrivateNetworkedData(key)
+        statTable[player]["maxMagic"] = player:GetPrivateNetworkedData(key)
     elseif key == "stamina2" then
         statTable[player]["stamina2"] = player:GetPrivateNetworkedData(key)
     elseif key == "magic2" then
@@ -222,10 +223,13 @@ function PlayerJoined(player)
     player:Spawn({position = Hideout:GetWorldPosition() + Vector3.New(0, (#Game.GetPlayers() - 1) * 200, 0), rotation = Hideout:GetWorldRotation()})
 
     -- Resource
-    local persistentTable = Storage.GetPlayerData(player)
+    -- DEBUG override storage
+    local persistentTable = Storage.GetSharedPlayerData(MainStorage, player)
+    local customTable = { gold = 2000 }
     player.serverUserData.resources = {}
     for _, key in ipairs(resourceNames) do
-        local value = persistentTable[key]
+        --local value = persistentTable[key]
+        local value = customTable[key]
         if key == "gold" then
             player:SetPrivateNetworkedData(key, value or 0)
             player.serverUserData.resources[key] = value or 0
@@ -245,11 +249,11 @@ function PlayerLeft(player)
     playerListeners[player] = nil
     statTable[player] = nil
 
-    local persistentTable = Storage.GetPlayerData(player)
+    local persistentTable = Storage.GetSharedPlayerData(MainStorage, player)
     for key, value in pairs(player.serverUserData.resources) do
         persistentTable[key] = value
     end
-    Storage.SetPlayerData(player, persistentTable)
+    Storage.SetSharedPlayerData(MainStorage, player, persistentTable)
 end
 
 Task.Spawn(UpdateStats)

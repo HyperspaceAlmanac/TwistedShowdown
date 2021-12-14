@@ -82,15 +82,16 @@ Assets {
         Name: "Sword"
         Transform {
           Location {
-            Z: 1700
+            Y: -50
+            Z: 1900
           }
           Rotation {
             Roll: 180
           }
           Scale {
-            X: 3
-            Y: 3
-            Z: 3
+            X: 5
+            Y: 5
+            Z: 5
           }
         }
         ParentId: 8864997389044280617
@@ -137,7 +138,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 100
+              R: 150
               A: 1
             }
           }
@@ -193,7 +194,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 100
+              R: 150
               A: 1
             }
           }
@@ -249,7 +250,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 100
+              R: 150
               A: 1
             }
           }
@@ -305,7 +306,7 @@ Assets {
           Overrides {
             Name: "ma:Shared_BaseMaterial:color"
             Color {
-              R: 100
+              R: 150
               A: 1
             }
           }

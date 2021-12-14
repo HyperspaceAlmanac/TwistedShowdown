@@ -32,20 +32,21 @@ function PopulateLanterns()
     for i = 2, 7 do
         level1Lanterns[i] = {}
     end
-    level1Lanterns[2][1] = Vector3.New(-21800, 14600, -3450)
+    level1Lanterns[2][1] = Vector3.New(-21500, 13750, -3450)
     level1Lanterns[2][2] = Vector3.New(-26250, 23450, -1900)
-    level1Lanterns[2][3] = Vector3.New(-30000, 13200, -1350)
-    level1Lanterns[4][1] = Vector3.New(-27450, 18250, 900)
-    level1Lanterns[6][1] = Vector3.New(-21250, 20200, -3750)
+    level1Lanterns[2][3] = Vector3.New(-28750, 12550, -1350)
+    level1Lanterns[4][1] = Vector3.New(-24400, 17500, 2600)
+    level1Lanterns[6][1] = Vector3.New(-19900, 20200, -1150)
+    level1Lanterns[7][1] = Vector3.New(-29950, 19050, 1800)
     for i = 2, 7 do
         level2Lanterns[i] = {}
     end
-    level2Lanterns[2][1] = Vector3.New(-7150, -6800, 850)
-    level2Lanterns[2][2] = Vector3.New(-12850, -11100, 1200)
+    level2Lanterns[2][1] = Vector3.New(-7100, -7050, 850)
+    level2Lanterns[2][2] = Vector3.New(-13600, -10350, 1200)
     level2Lanterns[2][3] = Vector3.New(-8900, -11600, 4150)
-    level2Lanterns[2][4] = Vector3.New(-10300, -8900, 4500)
-    level2Lanterns[4][1] = Vector3.New(-13850, -8300, 6150)
-    level2Lanterns[6][1] = Vector3.New(-11500, -11250, 6950)
+    level2Lanterns[2][4] = Vector3.New(-11250, -5900, 4500)
+    level2Lanterns[4][1] = Vector3.New(-12500, -9150, 6750)
+    level2Lanterns[6][1] = Vector3.New(-8050, -6950, 6950)
 end
 
 PopulateLanterns()
@@ -119,7 +120,11 @@ function ImpactEvent(projectile, other, hit)
 end
 
 function SpawnFireball(position, radius)
+    print("Spawn")
+    print(position)
+    print(radius)
     for _, player in ipairs(Game.GetPlayers()) do
+        print((player:GetWorldPosition() - position).size)
         if (player:GetWorldPosition() - position).size < radius then
             local projectile = Projectile.Spawn(Fireball, position,
                 Quaternion.New(Rotation.New(position - player:GetWorldPosition(), Vector3.UP)):GetForwardVector())
@@ -133,6 +138,7 @@ function SpawnFireball(position, radius)
                 projectileTable[projectile]:Disconnect()
                 projectileTable[projectile] = nil
             end, 3.5)
+            break
         end
     end
 end
@@ -183,15 +189,15 @@ end
 API.RegisterDangerCallback(UpdateState)
 
 function ProcessTick(level, phase, tick)
-    if phase > 1 and tick % 10 == 0  then
+    if phase > 1 and tick % 5 == 0  then -- DEBUG, change back to 10
         for i = 2, phase do
             if level == 1 then
                 for _, position in pairs(level1Lanterns[i]) do
-                    SpawnFireball(position, i < 4 and 500 or 250)
+                    SpawnFireball(position, i < 4 and 5000 or 2500)
                 end
             elseif level == 2 then
                 for _, position in pairs(level2Lanterns[i]) do
-                    SpawnFireball(position, i < 4 and 375 or 250)
+                    SpawnFireball(position, i < 4 and 3750 or 2500)
                 end
             end
         end

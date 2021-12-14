@@ -36,11 +36,17 @@ function OnEquipped(equipment, player)
     player:SetPrivateNetworkedData("stamina2", equipment:GetCustomProperty("StaminaPer2"))
     player:SetPrivateNetworkedData("magic2", equipment:GetCustomProperty("MagicPer2"))
     player:SetPrivateNetworkedData("health2", equipment:GetCustomProperty("HealthPer2"))
+    if player and Object.IsValid(player) then
+        if player.serverUserData.stance ~= "Flower" then
+            equipment.visibility = Visibility.FORCE_OFF
+        end
+    end
 end
 
 -- nil OnUnequipped(Equipment, Player)
 function OnUnequipped(equipment, player)
     player.animationStance = originalStance
+    EQUIPMENT:Destroy()
 end
 
 if EQUIPMENT.owner ~= nil then

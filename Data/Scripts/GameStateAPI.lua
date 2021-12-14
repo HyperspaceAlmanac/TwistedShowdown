@@ -8,7 +8,6 @@ else
     end
     return _G["GameStateAPI"]
 end
-API.GAME_STATE = "Waiting"
 API.CURRENT_ARENA = 0
 API.ArenaState = {}
 API.Phase = 0
@@ -351,7 +350,7 @@ function API.GetSpawn(player)
 end
 
 function API.PlayerDied()
-    if API.GAME_STATE ~= "Mission" then
+    if API.CURRENT_ARENA > 0 then
         API.Lives = API.Lives - 1
         if API.Lives <= 0 then
             API.FailMission()

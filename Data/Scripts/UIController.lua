@@ -260,7 +260,7 @@ function Tick(deltaTime)
         ForwardCamera.rotationMode = RotationMode.LOOK_ANGLE
     end
 
-    HealthBar.progress = math.floor(local_player.hitPoints / local_player.maxHitPoints)
+    HealthBar.progress = local_player.hitPoints / local_player.maxHitPoints
     HealthText.text = tostring(local_player.hitPoints).." / "..tostring(local_player.maxHitPoints)
     StaminaBar.progress = stamina / maxStamina
     StaminaText.text = tostring(stamina).." / "..tostring(maxStamina)

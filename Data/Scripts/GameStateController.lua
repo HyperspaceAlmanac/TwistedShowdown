@@ -58,7 +58,7 @@ function StartLevel(trigger, onePlayer, level)
             if not trigger:IsOverlapping(player) then
                 Task.Spawn(
                     function()
-                        Message:SetCustomProperty("Message", "Mission can only start if all players are here")
+                        Message:SetCustomProperty("Message", "Can only start mission if all players are here")
                         Task.Wait(2)
                         Message:SetCustomProperty("Message", "")
                     end

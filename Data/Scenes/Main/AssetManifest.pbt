@@ -552,6 +552,15 @@ Assets {
   }
 }
 Assets {
+  Id: 8385084507516081267
+  Name: "Edge Line Sharp"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxma_add_edgeline_sharpline"
+  }
+}
+Assets {
   Id: 8274563864735355392
   Name: "Fox Mob"
   PlatformAssetType: 17

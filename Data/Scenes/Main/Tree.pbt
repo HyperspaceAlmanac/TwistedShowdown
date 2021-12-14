@@ -21731,14 +21731,10 @@ Objects {
     }
   }
   ParentId: 10295055739958999201
-  ChildIds: 9179180207667345587
-  ChildIds: 9992138365942242652
   ChildIds: 5508710650729521520
+  ChildIds: 12784934542500955997
   ChildIds: 14402431209197757927
-  ChildIds: 7956989185874671191
-  ChildIds: 7510939184010306376
-  ChildIds: 12391222418608173096
-  ChildIds: 156904349277877397
+  ChildIds: 7883075970225923590
   ChildIds: 17988649320832037649
   ChildIds: 1591069703699147192
   Collidable_v2 {
@@ -33366,11 +33362,13 @@ Objects {
   }
 }
 Objects {
-  Id: 156904349277877397
-  Name: "Candles"
+  Id: 7883075970225923590
+  Name: "MissionTriggers"
   Transform {
     Location {
-      X: 50
+      X: 1550
+      Y: -11050
+      Z: -450
     }
     Rotation {
     }
@@ -33381,8 +33379,10 @@ Objects {
     }
   }
   ParentId: 12362471115917330361
-  ChildIds: 14237912673954164627
-  ChildIds: 2686408370040491121
+  ChildIds: 17521634098482974710
+  ChildIds: 11045153282012575107
+  ChildIds: 3150487466579281203
+  ChildIds: 18271295156003247191
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -33397,6 +33397,706 @@ Objects {
   }
   Folder {
     IsGroup: true
+  }
+}
+Objects {
+  Id: 18271295156003247191
+  Name: "Detect4"
+  Transform {
+    Location {
+      X: -750
+      Y: -1100
+      Z: 400
+    }
+    Rotation {
+    }
+    Scale {
+      X: 10
+      Y: 10
+      Z: 10
+    }
+  }
+  ParentId: 7883075970225923590
+  ChildIds: 11849880710609380966
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Trigger {
+    TeamSettings {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    TriggerShape_v2 {
+      Value: "mc:etriggershape:box"
+    }
+  }
+}
+Objects {
+  Id: 11849880710609380966
+  Name: "ClientContext"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 18271295156003247191
+  ChildIds: 13219146563881938394
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+  }
+}
+Objects {
+  Id: 13219146563881938394
+  Name: "Cube"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 11849880710609380966
+  UnregisteredParameters {
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:color"
+      Color {
+        R: 1
+        B: 1
+        A: 1
+      }
+    }
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:id"
+      AssetReference {
+        Id: 8385084507516081267
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 12095835209017042614
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 3150487466579281203
+  Name: "Detect3"
+  Transform {
+    Location {
+      X: -800
+      Y: 1650
+      Z: 400
+    }
+    Rotation {
+    }
+    Scale {
+      X: 10
+      Y: 10
+      Z: 10
+    }
+  }
+  ParentId: 7883075970225923590
+  ChildIds: 14745691612512057169
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Trigger {
+    TeamSettings {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    TriggerShape_v2 {
+      Value: "mc:etriggershape:box"
+    }
+  }
+}
+Objects {
+  Id: 14745691612512057169
+  Name: "ClientContext"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 3150487466579281203
+  ChildIds: 14703263469637221828
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+  }
+}
+Objects {
+  Id: 14703263469637221828
+  Name: "Cube"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 14745691612512057169
+  UnregisteredParameters {
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:color"
+      Color {
+        G: 1
+        B: 1
+        A: 1
+      }
+    }
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:id"
+      AssetReference {
+        Id: 8385084507516081267
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 12095835209017042614
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 11045153282012575107
+  Name: "Detect2"
+  Transform {
+    Location {
+      X: 550
+      Y: -1100
+      Z: 400
+    }
+    Rotation {
+    }
+    Scale {
+      X: 10
+      Y: 10
+      Z: 10
+    }
+  }
+  ParentId: 7883075970225923590
+  ChildIds: 9175521790207405086
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Trigger {
+    TeamSettings {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    TriggerShape_v2 {
+      Value: "mc:etriggershape:box"
+    }
+  }
+}
+Objects {
+  Id: 9175521790207405086
+  Name: "ClientContext"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 11045153282012575107
+  ChildIds: 2126665649828642064
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+  }
+}
+Objects {
+  Id: 2126665649828642064
+  Name: "Cube"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 9175521790207405086
+  UnregisteredParameters {
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:color"
+      Color {
+        R: 1
+        G: 1
+        A: 1
+      }
+    }
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:id"
+      AssetReference {
+        Id: 8385084507516081267
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 12095835209017042614
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 17521634098482974710
+  Name: "Detect1"
+  Transform {
+    Location {
+      X: 600
+      Y: 1650
+      Z: 400
+    }
+    Rotation {
+    }
+    Scale {
+      X: 10
+      Y: 10
+      Z: 10
+    }
+  }
+  ParentId: 7883075970225923590
+  ChildIds: 13006162863537203331
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Trigger {
+    TeamSettings {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    TriggerShape_v2 {
+      Value: "mc:etriggershape:box"
+    }
+  }
+}
+Objects {
+  Id: 13006162863537203331
+  Name: "ClientContext"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17521634098482974710
+  ChildIds: 7353594782233064413
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+  }
+}
+Objects {
+  Id: 7353594782233064413
+  Name: "Cube"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 13006162863537203331
+  UnregisteredParameters {
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:color"
+      Color {
+        G: 1
+        A: 1
+      }
+    }
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:id"
+      AssetReference {
+        Id: 8385084507516081267
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 12095835209017042614
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 14402431209197757927
+  Name: "Level2Trigger"
+  Transform {
+    Location {
+      X: 2350
+      Y: -12050
+      Z: -400
+    }
+    Rotation {
+    }
+    Scale {
+      X: 4
+      Y: 4
+      Z: 3
+    }
+  }
+  ParentId: 12362471115917330361
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Trigger {
+    Interactable: true
+    InteractionLabel: "Start Level 2"
+    TeamSettings {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    TriggerShape_v2 {
+      Value: "mc:etriggershape:box"
+    }
+  }
+}
+Objects {
+  Id: 12784934542500955997
+  Name: "Environment"
+  Transform {
+    Location {
+      X: -500
+      Y: -7000
+      Z: -650
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 12362471115917330361
+  ChildIds: 9179180207667345587
+  ChildIds: 9992138365942242652
+  ChildIds: 7956989185874671191
+  ChildIds: 7510939184010306376
+  ChildIds: 12391222418608173096
+  ChildIds: 156904349277877397
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsGroup: true
+  }
+}
+Objects {
+  Id: 156904349277877397
+  Name: "Candles"
+  Transform {
+    Location {
+      X: 550
+      Y: 7000
+      Z: 650
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 12784934542500955997
+  ChildIds: 14237912673954164627
+  ChildIds: 2686408370040491121
+  ChildIds: 812464619262285997
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsGroup: true
+  }
+}
+Objects {
+  Id: 812464619262285997
+  Name: "Fantasy Candle Lit - Holder 03 (Prop)"
+  Transform {
+    Location {
+      X: 5500
+      Y: -11250
+      Z: 150
+    }
+    Rotation {
+    }
+    Scale {
+      X: 3
+      Y: 3
+      Z: 3
+    }
+  }
+  ParentId: 156904349277877397
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 15839256792845667919
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Candle"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 150
+            Y: -10150
+            Z: -550
+          }
+        }
+        Overrides {
+          Name: "Scale"
+          Vector {
+            X: 3
+            Y: 3
+            Z: 3
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 758357857144515727
+    }
   }
 }
 Objects {
@@ -33468,8 +34168,8 @@ Objects {
         Overrides {
           Name: "Position"
           Vector {
-            X: 600
-            Y: -12350
+            X: 150
+            Y: -11250
             Z: -550
           }
         }
@@ -33498,8 +34198,9 @@ Objects {
   Name: "Ceiling"
   Transform {
     Location {
-      Y: -9050
-      Z: 650
+      X: 500
+      Y: -2050
+      Z: 1300
     }
     Rotation {
     }
@@ -33509,7 +34210,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12362471115917330361
+  ParentId: 12784934542500955997
   ChildIds: 4233316949064214397
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
@@ -33586,8 +34287,9 @@ Objects {
   Name: "DoorWay"
   Transform {
     Location {
-      X: -1150
-      Y: -12700
+      X: -650
+      Y: -5700
+      Z: 650
     }
     Rotation {
     }
@@ -33597,7 +34299,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12362471115917330361
+  ParentId: 12784934542500955997
   ChildIds: 5720732117776042433
   ChildIds: 380282909801866629
   Collidable_v2 {
@@ -33734,7 +34436,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12362471115917330361
+  ParentId: 12784934542500955997
   TemplateInstance {
     ParameterOverrideMap {
       key: 10216110161704570665
@@ -33746,9 +34448,9 @@ Objects {
         Overrides {
           Name: "Position"
           Vector {
-            X: -1075
-            Y: -12050
-            Z: -550
+            X: -575
+            Y: -5050
+            Z: 100
           }
         }
         Overrides {
@@ -33772,95 +34474,13 @@ Objects {
   }
 }
 Objects {
-  Id: 14402431209197757927
-  Name: "Level2Trigger"
-  Transform {
-    Location {
-      X: 2350
-      Y: -12050
-      Z: -400
-    }
-    Rotation {
-    }
-    Scale {
-      X: 4
-      Y: 4
-      Z: 3
-    }
-  }
-  ParentId: 12362471115917330361
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Trigger {
-    Interactable: true
-    InteractionLabel: "Start Level 2"
-    TeamSettings {
-      IsTeamCollisionEnabled: true
-      IsEnemyCollisionEnabled: true
-    }
-    TriggerShape_v2 {
-      Value: "mc:etriggershape:box"
-    }
-  }
-}
-Objects {
-  Id: 5508710650729521520
-  Name: "Level1Trigger"
-  Transform {
-    Location {
-      X: 1350
-      Y: -12050
-      Z: -400
-    }
-    Rotation {
-    }
-    Scale {
-      X: 4
-      Y: 4
-      Z: 3
-    }
-  }
-  ParentId: 12362471115917330361
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Trigger {
-    Interactable: true
-    InteractionLabel: "Start Level 1"
-    TeamSettings {
-      IsTeamCollisionEnabled: true
-      IsEnemyCollisionEnabled: true
-    }
-    TriggerShape_v2 {
-      Value: "mc:etriggershape:box"
-    }
-  }
-}
-Objects {
   Id: 9992138365942242652
   Name: "Wall"
   Transform {
     Location {
-      X: 50
+      X: 550
+      Y: 7000
+      Z: 650
     }
     Rotation {
     }
@@ -33870,7 +34490,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12362471115917330361
+  ParentId: 12784934542500955997
   ChildIds: 13122542821786043123
   ChildIds: 3740223117599316595
   ChildIds: 7278318102292838227
@@ -35390,7 +36010,7 @@ Objects {
   Transform {
     Location {
       X: 1450
-      Y: -2750
+      Y: -1950
       Z: 600
     }
     Rotation {
@@ -35438,7 +36058,7 @@ Objects {
   Transform {
     Location {
       X: 1450
-      Y: -2750
+      Y: -1950
     }
     Rotation {
       Yaw: 89.9999542
@@ -40721,9 +41341,8 @@ Objects {
   Name: "Floor"
   Transform {
     Location {
-      X: -850
-      Y: -8300
-      Z: -650
+      X: -350
+      Y: -1300
     }
     Rotation {
     }
@@ -40733,7 +41352,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12362471115917330361
+  ParentId: 12784934542500955997
   ChildIds: 17290580626999064074
   ChildIds: 17179758137995496246
   ChildIds: 17803988745545947769
@@ -43364,6 +43983,48 @@ Objects {
         LinearDamping: 0.01
       }
       BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 5508710650729521520
+  Name: "Level1Trigger"
+  Transform {
+    Location {
+      X: 1350
+      Y: -12050
+      Z: -400
+    }
+    Rotation {
+    }
+    Scale {
+      X: 4
+      Y: 4
+      Z: 3
+    }
+  }
+  ParentId: 12362471115917330361
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Trigger {
+    Interactable: true
+    InteractionLabel: "Start Level 1"
+    TeamSettings {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    TriggerShape_v2 {
+      Value: "mc:etriggershape:box"
     }
   }
 }

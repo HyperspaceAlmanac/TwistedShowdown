@@ -34,23 +34,23 @@ Assets {
           }
           Overrides {
             Name: "cs:Health"
-            Int: 800
+            Int: 500
           }
           Overrides {
             Name: "cs:Stamina"
-            Int: 400
+            Int: 250
           }
           Overrides {
             Name: "cs:Magic"
-            Int: 400
+            Int: 250
           }
           Overrides {
             Name: "cs:MagicPer2"
-            Int: 80
+            Int: 50
           }
           Overrides {
             Name: "cs:StaminaPer2"
-            Int: 80
+            Int: 50
           }
           Overrides {
             Name: "cs:HealthPer2"
@@ -58,11 +58,11 @@ Assets {
           }
           Overrides {
             Name: "cs:Cost1"
-            Int: 200
+            Int: 125
           }
           Overrides {
             Name: "cs:Cost2"
-            Int: 400
+            Int: 250
           }
           Overrides {
             Name: "cs:Cost3"
@@ -266,11 +266,11 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Power"
-            Float: 200
+            Float: 125
           }
           Overrides {
             Name: "cs:Cost"
-            Int: 200
+            Int: 125
           }
           Overrides {
             Name: "cs:Power:tooltip"
@@ -344,11 +344,11 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Power"
-            Float: 400
+            Float: 250
           }
           Overrides {
             Name: "cs:Cost"
-            Int: 400
+            Int: 250
           }
           Overrides {
             Name: "cs:Power:tooltip"

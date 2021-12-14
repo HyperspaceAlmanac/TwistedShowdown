@@ -10,9 +10,9 @@ Assets {
         Name: "Stabilizer"
         Transform {
           Scale {
-            X: 5
-            Y: 5
-            Z: 5
+            X: 10
+            Y: 10
+            Z: 10
           }
         }
         ParentId: 4781671109827199097
@@ -92,15 +92,15 @@ Assets {
         Name: "Sword"
         Transform {
           Location {
-            Z: 110
+            Z: 150
           }
           Rotation {
             Roll: -179.999954
           }
           Scale {
-            X: 0.599999964
-            Y: 0.599999964
-            Z: 0.599999964
+            X: 1
+            Y: 1
+            Z: 1
           }
         }
         ParentId: 14522180127921926915

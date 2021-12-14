@@ -64,11 +64,11 @@ Assets {
           }
           Overrides {
             Name: "cs:Cost1"
-            Int: 100
+            Int: 63
           }
           Overrides {
             Name: "cs:Cost2"
-            Int: 200
+            Int: 125
           }
           Overrides {
             Name: "cs:Cost3"
@@ -298,7 +298,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 100
+            Float: 63
           }
           Overrides {
             Name: "cs:UseHitSphere"
@@ -401,7 +401,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:Damage"
-            Float: 300
+            Float: 188
           }
           Overrides {
             Name: "cs:UseHitSphere"

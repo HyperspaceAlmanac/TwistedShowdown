@@ -18,7 +18,10 @@ Objects {
   ChildIds: 10295055739958999201
   ChildIds: 7129625667831014451
   ChildIds: 17755622305476538058
-  ChildIds: 9109768322810510149
+  ChildIds: 15382009156951636680
+  ChildIds: 18158695482001464703
+  ChildIds: 3131993073928796105
+  ChildIds: 12351603153103532195
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -34,8 +37,8 @@ Objects {
   }
 }
 Objects {
-  Id: 9109768322810510149
-  Name: "Stabilizer"
+  Id: 12351603153103532195
+  Name: "AdvancedMagic5"
   Transform {
     Scale {
       X: 1
@@ -44,53 +47,163 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
+  WantsNetworking: true
   TemplateInstance {
     ParameterOverrideMap {
-      key: 9324849059498895538
+      key: 13574242069172392238
       value {
         Overrides {
           Name: "Name"
-          String: "Stabilizer"
+          String: "AdvancedMagic5"
         }
         Overrides {
           Name: "Position"
           Vector {
-            X: -26400
-            Y: 12450
-            Z: -3850
-          }
-        }
-        Overrides {
-          Name: "Scale"
-          Vector {
-            X: 10
-            Y: 10
-            Z: 10
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 18292934452150325048
-      value {
-        Overrides {
-          Name: "Scale"
-          Vector {
-            X: 1
-            Y: 1
-            Z: 1
-          }
-        }
-        Overrides {
-          Name: "Position"
-          Vector {
+            X: 3400
+            Y: -5450
             Z: 150
           }
         }
       }
     }
     TemplateAsset {
-      Id: 3499277885487398007
+      Id: 12272849532835530782
+    }
+  }
+}
+Objects {
+  Id: 3131993073928796105
+  Name: "AdvancedMagic4"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  WantsNetworking: true
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 13574242069172392238
+      value {
+        Overrides {
+          Name: "Name"
+          String: "AdvancedMagic4"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 3400
+            Y: -5450
+            Z: 150
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 15824499902703851304
+    }
+  }
+}
+Objects {
+  Id: 18158695482001464703
+  Name: "AdvancedMagic3"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  WantsNetworking: true
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 5610374673043739474
+      value {
+        Overrides {
+          Name: "cs:Damage"
+          Float: 50
+        }
+      }
+    }
+    ParameterOverrideMap {
+      key: 9141415743232429155
+      value {
+        Overrides {
+          Name: "cs:Damage"
+          Float: 150
+        }
+      }
+    }
+    ParameterOverrideMap {
+      key: 13574242069172392238
+      value {
+        Overrides {
+          Name: "Name"
+          String: "AdvancedMagic3"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 3400
+            Y: -5450
+            Z: 150
+          }
+        }
+        Overrides {
+          Name: "cs:Cost1"
+          Int: 50
+        }
+        Overrides {
+          Name: "cs:Cost2"
+          Int: 100
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 16871585289519043894
+    }
+  }
+}
+Objects {
+  Id: 15382009156951636680
+  Name: "AdvancedMagic2"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  WantsNetworking: true
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 13574242069172392238
+      value {
+        Overrides {
+          Name: "Name"
+          String: "AdvancedMagic2"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 3400
+            Y: -5450
+            Z: 150
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 9307014880944558647
     }
   }
 }
@@ -12683,7 +12796,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Bonsai Garden\r\n    H: 1000\r\n    S: 500\r\n    M: 500\r\n    L: 250\r\n    R: 500"
+    Text: "Bonsai Garden\r\n    H: 600\r\n    S: 300\r\n    M: 300\r\n    L: 150\r\n    R: 300"
     FontAsset {
     }
     Color {
@@ -12804,7 +12917,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Tea Time\r\nH: 800\r\nS: 400\r\nM: 400\r\nL: 200\r\nR: 400"
+    Text: "Tea Time\r\nH: 500\r\nS: 250\r\nM: 250\r\nL: 125\r\nR: 250"
     FontAsset {
     }
     Color {
@@ -12925,7 +13038,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Rock\r\nH: 600\r\nS: 300\r\nM: 300\r\nL: 150\r\nR: 300"
+    Text: "Rock\r\nH: 400\r\nS: 200\r\nM: 200\r\nL: 100\r\nR: 200"
     FontAsset {
     }
     Color {
@@ -13045,7 +13158,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Corals\r\nH: 400\r\nS: 200\r\nM: 200\r\nL: 100\r\nR: 200"
+    Text: "Corals\r\nH: 300\r\nS: 150\r\nM: 150\r\nL: 75\r\nR: 150"
     FontAsset {
     }
     Color {
@@ -13164,7 +13277,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Flowers\r\nHealth: 200\r\nStamina: 100\r\nMagic: 100\r\nL: 50 Health\r\nR: 100 Health"
+    Text: "Flowers\r\nHealth: 200\r\nStamina: 100\r\nMana: 100\r\nL: 50 Health\r\nR: 100 Health"
     FontAsset {
     }
     Color {
@@ -13284,7 +13397,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Orb of Illusion\r\nL: 125\r\nR: 250"
+    Text: "Orb of Illusion\r\nL: 75\r\nR: 150"
     FontAsset {
     }
     Color {
@@ -13404,7 +13517,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Cloud Orb\r\nL: 100\r\nR: 200"
+    Text: "Cloud Orb\r\nL: 63\r\nR: 125"
     FontAsset {
     }
     Color {
@@ -13526,7 +13639,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Amethyst\r\nL: 75\r\nR: 150"
+    Text: "Amethyst\r\nL: 50\r\nR: 100"
     FontAsset {
     }
     Color {
@@ -13647,7 +13760,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Nature Orb\r\nL: 50\r\nR: 100"
+    Text: "Nature Orb\r\nL: 38\r\nR: 75"
     FontAsset {
     }
     Color {
@@ -13889,7 +14002,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Snow Storm\r\nL: 125\r\nR: 250"
+    Text: "Snow Storm\r\nL: 75\r\nR: 150"
     FontAsset {
     }
     Color {
@@ -14012,7 +14125,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Purple Chaos\r\nL: 100\r\nR: 200"
+    Text: "Purple Chaos\r\nL: 63\r\nR: 125"
     FontAsset {
     }
     Color {
@@ -14134,7 +14247,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Green Edge\r\nL: 75\r\nR: 150"
+    Text: "Green Edge\r\nL: 50\r\nR: 100"
     FontAsset {
     }
     Color {
@@ -14255,7 +14368,7 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Text {
-    Text: "Cyan Wave\r\nL: 50\r\nR: 100"
+    Text: "Cyan Wave\r\nL: 37\r\nR: 75"
     FontAsset {
     }
     Color {
@@ -18722,6 +18835,15 @@ Objects {
   ParentId: 15847004343151759021
   ChildIds: 2727570444924843732
   ChildIds: 9344670486298920594
+  ChildIds: 923282946390547271
+  ChildIds: 7577790159600744695
+  ChildIds: 9945959040049078476
+  ChildIds: 9163920359994239209
+  ChildIds: 3132883980030070252
+  ChildIds: 17708291086855645362
+  ChildIds: 15531955649396587235
+  ChildIds: 11210276220999298069
+  ChildIds: 10130701091439530180
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -18736,6 +18858,448 @@ Objects {
   }
   Folder {
     IsGroup: true
+  }
+}
+Objects {
+  Id: 10130701091439530180
+  Name: "RockPile"
+  Transform {
+    Location {
+      X: -3300
+      Y: 2200
+      Z: 150
+    }
+    Rotation {
+      Roll: -179.999969
+    }
+    Scale {
+      X: 5
+      Y: 5
+      Z: 5
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 10835155324150586940
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 11210276220999298069
+  Name: "RockPile"
+  Transform {
+    Location {
+      X: -2350
+      Y: -3000
+      Z: 150
+    }
+    Rotation {
+      Roll: 180
+    }
+    Scale {
+      X: 5
+      Y: 5
+      Z: 5
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 10835155324150586940
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 15531955649396587235
+  Name: "RockPile"
+  Transform {
+    Location {
+      X: 3150
+      Y: -2150
+      Z: 50
+    }
+    Rotation {
+    }
+    Scale {
+      X: 5
+      Y: 5
+      Z: 5
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 10835155324150586940
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 17708291086855645362
+  Name: "SharpRock"
+  Transform {
+    Location {
+      X: -2150
+      Y: -4950
+      Z: 1500
+    }
+    Rotation {
+      Pitch: -23.5246582
+      Yaw: -131.542572
+      Roll: 9.07260244e-07
+    }
+    Scale {
+      X: 4
+      Y: 3
+      Z: 3
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 9908298752182903901
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 3132883980030070252
+  Name: "SharpRock"
+  Transform {
+    Location {
+      X: 2700
+      Y: 3250
+      Z: 2400
+    }
+    Rotation {
+      Pitch: -14.7270508
+      Yaw: 64.9765549
+      Roll: 9.14006364e-07
+    }
+    Scale {
+      X: 4
+      Y: 3
+      Z: 3
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 9908298752182903901
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 9163920359994239209
+  Name: "SharpRock"
+  Transform {
+    Location {
+      X: 3350
+      Y: -1850
+      Z: 5800
+    }
+    Rotation {
+      Pitch: 20.9167252
+      Yaw: -5.70877075
+      Roll: 9.07260244e-07
+    }
+    Scale {
+      X: 4
+      Y: 5
+      Z: 3
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 9908298752182903901
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 9945959040049078476
+  Name: "SharpRock"
+  Transform {
+    Location {
+      X: 850
+      Y: 3700
+      Z: 5850
+    }
+    Rotation {
+      Pitch: 10.1548986
+      Yaw: 39.4532242
+      Roll: 9.07260244e-07
+    }
+    Scale {
+      X: 4
+      Y: 3
+      Z: 3
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 9908298752182903901
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 7577790159600744695
+  Name: "SharpRock"
+  Transform {
+    Location {
+      X: -4200
+      Y: -1650
+      Z: 4500
+    }
+    Rotation {
+      Pitch: -0.954162598
+      Yaw: -131.542557
+      Roll: 9.28621e-07
+    }
+    Scale {
+      X: 4
+      Y: 3
+      Z: 3
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 9908298752182903901
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
+  }
+}
+Objects {
+  Id: 923282946390547271
+  Name: "SharpRock"
+  Transform {
+    Location {
+      X: -4650
+      Y: 700
+      Z: 1900
+    }
+    Rotation {
+      Pitch: -23.1615601
+      Yaw: 159.362198
+    }
+    Scale {
+      X: 4
+      Y: 5
+      Z: 4
+    }
+  }
+  ParentId: 12882664200578756915
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 9908298752182903901
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
   }
 }
 Objects {
@@ -19136,8 +19700,8 @@ Objects {
     }
     Scale {
       X: 30
-      Y: 25
-      Z: 25
+      Y: 30
+      Z: 40
     }
   }
   ParentId: 12822474839251797625

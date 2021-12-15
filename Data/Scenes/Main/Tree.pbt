@@ -18,6 +18,8 @@ Objects {
   ChildIds: 10295055739958999201
   ChildIds: 7129625667831014451
   ChildIds: 17755622305476538058
+  ChildIds: 11415835369501838469
+  ChildIds: 17940963735145879282
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -33,6 +35,79 @@ Objects {
   }
   NetworkRelevanceDistance {
     Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 17940963735145879282
+  Name: "SoloMission"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 14546490105472636833
+      value {
+        Overrides {
+          Name: "Name"
+          String: "SoloMission"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 4050
+            Y: -4950
+            Z: 450
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 3025126733888339835
+    }
+  }
+}
+Objects {
+  Id: 11415835369501838469
+  Name: "MultiHub"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 14546490105472636833
+      value {
+        Overrides {
+          Name: "Name"
+          String: "MultiHub"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 4800
+            Y: -5000
+            Z: 450
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 14909247544406108287
+    }
   }
 }
 Objects {
@@ -11936,7 +12011,7 @@ Objects {
     }
     Overrides {
       Name: "cs:MaxPlayers"
-      Int: 1
+      Int: 4
     }
   }
   Collidable_v2 {
@@ -12286,7 +12361,7 @@ Objects {
     }
     Overrides {
       Name: "cs:MaxPlayers"
-      Int: 1
+      Int: 4
     }
     Overrides {
       Name: "cs:Escape1"
@@ -15940,6 +16015,8 @@ Objects {
   ChildIds: 5578020556469360965
   ChildIds: 6950056241209738076
   ChildIds: 1464386189662522424
+  ChildIds: 4546607984803247386
+  ChildIds: 12763431609173683184
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
   }
@@ -15959,11 +16036,113 @@ Objects {
   }
 }
 Objects {
+  Id: 12763431609173683184
+  Name: "PortalText1"
+  Transform {
+    Location {
+      X: 1950
+      Y: 7600
+    }
+    Rotation {
+      Yaw: -90
+    }
+    Scale {
+      X: 3
+      Y: 3
+      Z: 3
+    }
+  }
+  ParentId: 2763563945984140388
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Text {
+    Text: "Solo Missions"
+    FontAsset {
+    }
+    Color {
+      R: 1
+      G: 1
+      B: 1
+      A: 1
+    }
+    HorizontalAlignment {
+      Value: "mc:ecoretexthorizontalalign:left"
+    }
+    VerticalAlignment {
+      Value: "mc:ecoretextverticalalign:center"
+    }
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 4546607984803247386
+  Name: "PortalText1"
+  Transform {
+    Location {
+      X: 2750
+      Y: 7600
+    }
+    Rotation {
+      Yaw: -90
+    }
+    Scale {
+      X: 3
+      Y: 3
+      Z: 3
+    }
+  }
+  ParentId: 2763563945984140388
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Text {
+    Text: "Multiplayer Hub"
+    FontAsset {
+    }
+    Color {
+      R: 1
+      G: 1
+      B: 1
+      A: 1
+    }
+    HorizontalAlignment {
+      Value: "mc:ecoretexthorizontalalign:left"
+    }
+    VerticalAlignment {
+      Value: "mc:ecoretextverticalalign:center"
+    }
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
   Id: 1464386189662522424
   Name: "Status4"
   Transform {
     Location {
-      X: 3750
+      X: 3850
       Y: 50
       Z: -250
     }
@@ -16067,7 +16246,7 @@ Objects {
   Name: "Status3"
   Transform {
     Location {
-      X: 3600
+      X: 3750
       Y: 3450
       Z: -250
     }
@@ -16119,7 +16298,7 @@ Objects {
   Name: "Status1"
   Transform {
     Location {
-      X: 5100
+      X: 5150
       Y: 3450
       Z: -250
     }

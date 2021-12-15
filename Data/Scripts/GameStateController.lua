@@ -51,7 +51,7 @@ function StartLevel(trigger, onePlayer, level)
             if #Game.GetPlayers() < MaxPlayers then
                 Task.Spawn(
                     function()
-                        Message:SetCustomProperty("Message", "Need "..tostring(MaxPlayers).." to do the mission")
+                        Message:SetCustomProperty("Message", "Need "..tostring(MaxPlayers).." players to do the mission")
                         Task.Wait(2)
                         Message:SetCustomProperty("Message", "")
                     end

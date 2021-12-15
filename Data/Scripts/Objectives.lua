@@ -67,7 +67,7 @@ local mission1 = {
         objects = {
             {}, {
                 { template = Generator, position = Vector3.New(-29000, 20100, -1800), scale = Vector3.New(6, 6, 6), health = 100 },
-                { template = Generator, position = Vector3.New(-29000, 12550, -1800), scale = Vector3.New(6, 6, 6), health = 100 }
+                { template = Generator, position = Vector3.New(-29850, 13400, -1800), scale = Vector3.New(6, 6, 6), health = 100 }
             }, {
                 { template = Humidifier, position = Vector3.New(-22700, 18000, -3910), scale = Vector3.New(7, 7, 7), rotation = Rotation.New(180, 0, 0), health = 100 },
                 { template = Humidifier, position = Vector3.New(-22700, 14850, -3910), scale = Vector3.New(7, 7, 7), rotation = Rotation.New(180, 0, 0), health = 100 }
@@ -262,7 +262,7 @@ local mission3 = {
         objects = {
             {}, {
                 { template = Generator, position = Vector3.New(-29000, 20100, -1800), scale = Vector3.New(6, 6, 6), health = 250 },
-                { template = Generator, position = Vector3.New(-29000, 12550, -1800), scale = Vector3.New(6, 6, 6), health = 250 }
+                { template = Generator, position = Vector3.New(-29850, 13400, -1800), scale = Vector3.New(6, 6, 6), health = 250 }
             }, {
                 { template = Humidifier, position = Vector3.New(-22700, 18000, -3910), scale = Vector3.New(7, 7, 7), rotation = Rotation.New(180, 0, 0), health = 300 },
                 { template = Humidifier, position = Vector3.New(-22700, 14850, -3910), scale = Vector3.New(7, 7, 7), rotation = Rotation.New(180, 0, 0), health = 300 }

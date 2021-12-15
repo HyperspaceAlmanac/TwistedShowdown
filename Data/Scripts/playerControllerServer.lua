@@ -225,7 +225,7 @@ function PlayerJoined(player)
     -- Resource
     -- DEBUG override storage
     local persistentTable = Storage.GetSharedPlayerData(MainStorage, player)
-    local customTable = { gold = 2000 }
+    local customTable = { gold = 100000 }
     player.serverUserData.resources = {}
     for _, key in ipairs(resourceNames) do
         --local value = persistentTable[key]

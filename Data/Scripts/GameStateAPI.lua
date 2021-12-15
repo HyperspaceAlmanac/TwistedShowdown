@@ -184,6 +184,12 @@ function API.StartMission(missionNumber)
         API.CURRENT_ARENA = 1
     elseif missionNumber == 2 then
         API.CURRENT_ARENA = 2
+    elseif missionNumber == 3 then
+        API.CURRENT_ARENA = 4
+    elseif missionNumber == 4 then
+        API.CURRENT_ARENA = 4
+    else
+        API.CURRENT_ARENA = 1
     end
     local values = API.ObjectiveCallback(missionNumber, API.NumPlayers)
     API.MissionTable = values[1]

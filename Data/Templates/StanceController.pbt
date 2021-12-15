@@ -40,6 +40,9 @@ Assets {
             SelfId: 841534158063459245
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 9260083847901588013
@@ -117,6 +120,9 @@ Assets {
           KeyBinding_v2 {
             Value: "mc:egameaction:extraaction_11"
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -196,6 +202,9 @@ Assets {
             Value: "mc:egameaction:extraaction_12"
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 11842951403432373314
@@ -274,6 +283,9 @@ Assets {
             Value: "mc:egameaction:extraaction_13"
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 10078824225828029124
@@ -306,6 +318,9 @@ Assets {
         }
         NetworkContext {
           Type: Server
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -360,6 +375,9 @@ Assets {
             Id: 17472927908038745386
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 2341226696385245977
@@ -391,6 +409,9 @@ Assets {
         }
         NetworkContext {
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
     }
     PrimaryAssetId {
@@ -398,5 +419,5 @@ Assets {
       AssetId: "None"
     }
   }
-  SerializationVersion: 101
+  SerializationVersion: 103
 }

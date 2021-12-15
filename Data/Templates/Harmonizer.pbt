@@ -1,18 +1,18 @@
 Assets {
-  Id: 18234640956447668374
-  Name: "Humidifier"
+  Id: 17177964187167678936
+  Name: "Harmonizer"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
       RootId: 7073793853019583119
       Objects {
         Id: 7073793853019583119
-        Name: "Humidifier"
+        Name: "stabilizer"
         Transform {
           Scale {
-            X: 5
-            Y: 5
-            Z: 5
+            X: 10
+            Y: 10
+            Z: 10
           }
         }
         ParentId: 4781671109827199097
@@ -21,8 +21,15 @@ Assets {
           Overrides {
             Name: "ma:Shared_Detail2:color"
             Color {
-              G: 10
-              B: 10
+              R: 10
+              A: 1
+            }
+          }
+          Overrides {
+            Name: "ma:Shared_BaseMaterial:color"
+            Color {
+              G: 1
+              B: 1
               A: 1
             }
           }
@@ -98,10 +105,11 @@ Assets {
         Name: "Plants"
         Transform {
           Location {
-            Y: 1.90734372e-05
-            Z: -79.9997559
+            Y: -89.9998932
+            Z: 6.10351572e-06
           }
           Rotation {
+            Roll: 90
           }
           Scale {
             X: 0.7

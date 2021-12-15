@@ -26,6 +26,9 @@ Assets {
             }
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
     }
     PrimaryAssetId {
@@ -40,5 +43,5 @@ Assets {
     Version: "1.0.0"
     Description: "Equipment with some basic animations, and a system to add more custom animations.\r\nPress 1 to do wind up before punching.\r\nPress 2 to do a swipe.\r\nPress 3 to do a dodge motion.\r\n\r\nMore animations can be added by adding in abilities and IK Anchors with specific names.\r\n\r\nUpdate: Refactored client_context Anchors and script into Networked context.\r\nNow the animations should be visible to all players."
   }
-  SerializationVersion: 101
+  SerializationVersion: 103
 }

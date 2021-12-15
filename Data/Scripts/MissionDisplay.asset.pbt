@@ -1,6 +1,6 @@
 Assets {
-  Id: 9097637882889565073
-  Name: "GamePortalServer"
+  Id: 15537826005586837829
+  Name: "MissionDisplay"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {

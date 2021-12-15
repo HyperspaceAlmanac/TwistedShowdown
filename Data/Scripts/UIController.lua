@@ -28,6 +28,13 @@ local EquipSound = script:GetCustomProperty("Equip"):WaitForObject()
 local ErrorSound = script:GetCustomProperty("Error"):WaitForObject()
 
 local CostsFolder = script:GetCustomProperty("Costs"):WaitForObject()
+local WORLD_TEXT = script:GetCustomProperty("WorldText"):WaitForObject()
+
+local TrainingText = {}
+for _, text in ipairs(WORLD_TEXT:GetChildren()) do
+    TrainingText[#TrainingText + 1] = text
+end
+
 local CostUITable = {}
 for i, cost in ipairs(CostsFolder:GetChildren()) do
     CostUITable[i] = cost
@@ -215,6 +222,11 @@ local green = Color.New(Vector3.New(0, 1, 0))
 local white = Color.New(Vector3.New(1, 1, 1))
 local red = Color.New(Vector3.New(1, 0, 0))
 
+function TrainingObjDisplay()
+    for _, display in ipairs(TrainingText) do
+        display:SetWorldRotation(Rotation.New(local_player:GetViewWorldPosition() - display:GetWorldPosition(), Vector3.UP))
+    end
+end
 
 function UpdateCostDisplay()
     if not local_player.clientUserData.resources then
@@ -267,6 +279,7 @@ function Tick(deltaTime)
     MagicBar.progress = magic / maxMagic
     MagicText.text = tostring(magic).." / "..tostring(maxMagic)
     UpdateCostDisplay()
+    TrainingObjDisplay()
 end
 
 local client_listeners = {}

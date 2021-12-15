@@ -32,6 +32,9 @@ Assets {
         }
         NetworkContext {
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 7532149857515655334
@@ -85,6 +88,9 @@ Assets {
             BoundsScale: 1
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 396451665268715038
@@ -126,6 +132,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
     }
     Assets {
@@ -160,5 +169,5 @@ Assets {
       AssetId: "None"
     }
   }
-  SerializationVersion: 101
+  SerializationVersion: 103
 }

@@ -32,6 +32,9 @@ Assets {
         Folder {
           IsGroup: true
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 13621280677653341741
@@ -63,6 +66,9 @@ Assets {
           Value: "mc:eindicatorvisibility:visiblewhenselected"
         }
         NetworkContext {
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -426,6 +432,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 11407123264545136521
@@ -776,6 +785,9 @@ Assets {
         }
         Relevance {
           Value: "mc:eproxyrelevance:medium"
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -1129,6 +1141,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 11346112255505116926
@@ -1481,6 +1496,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 12671820257406749677
@@ -1830,6 +1848,9 @@ Assets {
         }
         Relevance {
           Value: "mc:eproxyrelevance:medium"
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -2183,6 +2204,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 11860374974559500184
@@ -2535,6 +2559,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 331017073724396494
@@ -2886,6 +2913,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 17425577751426112658
@@ -3233,6 +3263,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 18028062296248237509
@@ -3574,6 +3607,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 15262994545863496319
@@ -3909,6 +3945,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 16272941745020751929
@@ -3982,6 +4021,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 13440123079210299522
@@ -4048,6 +4090,9 @@ Assets {
         Relevance {
           Value: "mc:eproxyrelevance:medium"
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 14732975446292184854
@@ -4105,6 +4150,9 @@ Assets {
           }
           CastVolumetricShadows: true
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
     }
     Assets {
@@ -4148,5 +4196,5 @@ Assets {
       AssetId: "Magic_Circle_Aura"
     }
   }
-  SerializationVersion: 101
+  SerializationVersion: 103
 }

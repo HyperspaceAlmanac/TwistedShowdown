@@ -31,6 +31,9 @@ Objects {
   NetworkContext {
     Type: RuntimeStatic
   }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
 }
 Objects {
   Id: 12211220915532394925
@@ -70,6 +73,9 @@ Objects {
       Id: 841534158063459245
     }
     ShouldDecrowdPlayers: true
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {
@@ -111,6 +117,9 @@ Objects {
     }
     ShouldDecrowdPlayers: true
   }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
 }
 Objects {
   Id: 16813558807825262224
@@ -118,7 +127,7 @@ Objects {
   Transform {
     Location {
       X: 8950
-      Y: -11900
+      Y: -11650
       Z: 900
     }
     Rotation {
@@ -153,6 +162,9 @@ Objects {
       Id: 841534158063459245
     }
     ShouldDecrowdPlayers: true
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {
@@ -193,6 +205,9 @@ Objects {
       }
     }
   }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
 }
 Objects {
   Id: 14713340454944924967
@@ -226,6 +241,9 @@ Objects {
   Folder {
     IsGroup: true
   }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
 }
 Objects {
   Id: 724324913679364851
@@ -255,6 +273,9 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   NetworkContext {
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {
@@ -306,6 +327,9 @@ Objects {
     MinPitch: -89
     MaxPitch: 89
     DoesPositionOffsetSpring: true
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {
@@ -387,6 +411,9 @@ Objects {
       PlayerMasterVolumeMultiplier: 1
     }
   }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
 }
 Objects {
   Id: 16123814510452902121
@@ -422,6 +449,9 @@ Objects {
     BindingSetAsset {
       Id: 736360303936294653
     }
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {
@@ -531,5 +561,8 @@ Objects {
         Value: "mc:eplayerstoragemode:none"
       }
     }
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }

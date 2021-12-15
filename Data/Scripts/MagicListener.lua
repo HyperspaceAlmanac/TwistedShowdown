@@ -19,6 +19,15 @@ local API = require(script:GetCustomProperty("GameStateAPI"))
 local projectileTable = {}
 local lockedOn = false
 
+function CanCast()
+    if Object.IsValid(weapon) and weapon.owner and Object.IsValid(weapon.owner) then
+        if weapon.owner.stance == "Magic" then
+            return true
+        end
+    end
+    return false
+end
+
 function GetValidTarget(player, target)
     if not Object.IsValid(target) then return nil end
 

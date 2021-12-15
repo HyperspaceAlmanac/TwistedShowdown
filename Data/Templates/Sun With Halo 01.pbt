@@ -67,6 +67,9 @@ Assets {
             Id: 16910278292812118833
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 13285310378266025143
@@ -113,6 +116,9 @@ Assets {
             }
             BoundsScale: 1
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -234,6 +240,9 @@ Assets {
             Id: 10988486045141043269
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
     }
     Assets {
@@ -268,5 +277,5 @@ Assets {
       AssetId: "Sun_With_Halo_01"
     }
   }
-  SerializationVersion: 101
+  SerializationVersion: 103
 }

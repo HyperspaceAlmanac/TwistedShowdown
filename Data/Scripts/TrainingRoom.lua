@@ -6,27 +6,24 @@ local MagicTraining = script:GetCustomProperty("MagicTraining"):WaitForObject()
 local FlowerTraining = script:GetCustomProperty("FlowerTraining"):WaitForObject()
 
 local swordData = {
-    {maxHealth = 100, defense = 0, reward = 5},
-    {maxHealth = 500, defense = 50, reward = 100},
-    {maxHealth = 1000, defense = 100, reward = 1000},
-    {maxHealth = 10000, defense = 200, reward = 10000},
-    {maxHealth = 50000, defense = 300, reward = 50000}
+    {maxHealth = 200, defense = 0, reward = 10},
+    {maxHealth = 500, defense = 13, reward = 100},
+    {maxHealth = 1000, defense = 25, reward = 500},
+    {maxHealth = 2000, defense = 38, reward = 2000}
 }
 
 local magicData = {
-    {maxHealth = 100, defense = 0, reward = 5},
-    {maxHealth = 500, defense = 50, reward = 50},
-    {maxHealth = 1000, defense = 100, reward = 1000},
-    {maxHealth = 10000, defense = 200, reward = 10000},
-    {maxHealth = 50000, defense = 300, reward = 50000}
+    {maxHealth = 200, defense = 0, reward = 10},
+    {maxHealth = 500, defense = 13, reward = 100},
+    {maxHealth = 1000, defense = 25, reward = 500},
+    {maxHealth = 2000, defense = 38, reward = 2000}
 }
 
 local flowerData = {
-    {maxHealth = 100, defense = 0, reward = 5},
-    {maxHealth = 500, defense = 50, reward = 50},
-    {maxHealth = 2000, defense = 100, reward = 1000},
-    {maxHealth = 10000, defense = 200, reward = 10000},
-    {maxHealth = 50000, defense = 300, reward = 50000}
+    {maxHealth = 200, defense = 0, reward = 10},
+    {maxHealth = 500, defense = 0, reward = 100},
+    {maxHealth = 1000, defense = 0, reward = 500},
+    {maxHealth = 2000, defense = 0, reward = 2000}
 }
 
 for i, target in ipairs(SwordTraining:GetChildren()) do

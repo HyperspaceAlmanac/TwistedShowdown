@@ -106,6 +106,9 @@ Assets {
             SubObjectId: 6173395327735089011
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 6173395327735089011
@@ -147,6 +150,9 @@ Assets {
             Value: "mc:etriggershape:box"
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 8443887735401201725
@@ -178,6 +184,9 @@ Assets {
         }
         NetworkContext {
           Type: Server
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -217,6 +226,9 @@ Assets {
             Id: 8459825612529451237
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 9090704478224855346
@@ -246,6 +258,9 @@ Assets {
           ScriptAsset {
             Id: 1427829216143793458
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -278,6 +293,9 @@ Assets {
           ScriptAsset {
             Id: 5082628058110625875
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -333,6 +351,9 @@ Assets {
             Id: 1293911671925627851
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 3889587361379519780
@@ -373,6 +394,9 @@ Assets {
         }
         Folder {
           IsGroup: true
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -415,6 +439,9 @@ Assets {
             Value: "mc:eikanchortype:righthand"
           }
           BlendWeight: 1
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -460,6 +487,9 @@ Assets {
           }
           BlendWeight: 1
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 17304478426231268231
@@ -497,6 +527,9 @@ Assets {
             Value: "mc:eikanchortype:hip"
           }
           BlendWeight: 1
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -543,6 +576,9 @@ Assets {
           BlendWeight: 1
           BlendOutTime: 0.1
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 4396352640087304291
@@ -582,6 +618,9 @@ Assets {
             Value: "mc:eikanchortype:hip"
           }
           BlendWeight: 1
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -628,6 +667,9 @@ Assets {
           BlendWeight: 1
           BlendOutTime: 0.1
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 6111940836399224239
@@ -672,6 +714,9 @@ Assets {
           }
           BlendWeight: 1
           BlendOutTime: 0.1
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -720,6 +765,9 @@ Assets {
           BlendWeight: 1
           BlendOutTime: 0.1
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 789484837836206767
@@ -765,6 +813,9 @@ Assets {
           BlendWeight: 1
           BlendOutTime: 0.1
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 14062581388527037373
@@ -794,6 +845,9 @@ Assets {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
         NetworkContext {
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -833,6 +887,9 @@ Assets {
             Id: 440168262593430639
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 9543367848906561035
@@ -864,6 +921,9 @@ Assets {
           ScriptAsset {
             Id: 12971704803185333098
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -899,6 +959,9 @@ Assets {
         }
         Folder {
           IsGroup: true
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -1000,6 +1063,9 @@ Assets {
             Value: "mc:egameaction:extraaction_11"
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 16735688323165876019
@@ -1098,6 +1164,9 @@ Assets {
           KeyBinding_v2 {
             Value: "mc:egameaction:extraaction_12"
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -1198,6 +1267,9 @@ Assets {
             Value: "mc:egameaction:extraaction_13"
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 16529662061824233950
@@ -1232,6 +1304,9 @@ Assets {
             Id: 7824450448189259471
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
     }
     PrimaryAssetId {
@@ -1242,6 +1317,6 @@ Assets {
   Marketplace {
     Description: "Equipment with some basic animations, and a system to add more custom animations.\r\nPress 1 to do wind up before punching.\r\nPress 2 to do a swipe.\r\nPress 3 to do a dodge motion.\r\n\r\nMore animations can be added by adding in abilities and IK Anchors with specific names.\r\n\r\nUpdate: Refactored client_context Anchors and script into Networked context.\r\nNow the animations should be visible to all players."
   }
-  SerializationVersion: 101
+  SerializationVersion: 103
   DirectlyPublished: true
 }

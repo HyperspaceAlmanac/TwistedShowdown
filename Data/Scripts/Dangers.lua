@@ -120,11 +120,7 @@ function ImpactEvent(projectile, other, hit)
 end
 
 function SpawnFireball(position, radius)
-    print("Spawn")
-    print(position)
-    print(radius)
     for _, player in ipairs(Game.GetPlayers()) do
-        print((player:GetWorldPosition() - position).size)
         if (player:GetWorldPosition() - position).size < radius then
             local projectile = Projectile.Spawn(Fireball, position,
                 Quaternion.New(Rotation.New(position - player:GetWorldPosition(), Vector3.UP)):GetForwardVector())
@@ -189,13 +185,13 @@ end
 API.RegisterDangerCallback(UpdateState)
 
 function ProcessTick(level, phase, tick)
-    if phase > 1 and tick % 5 == 0  then -- DEBUG, change back to 10
+    if phase > 1 and tick % 10 == 0  then -- DEBUG, change back to 10
         for i = 2, phase do
-            if level == 1 then
+            if level == 1 or level == 3 then
                 for _, position in pairs(level1Lanterns[i]) do
                     SpawnFireball(position, i < 4 and 5000 or 2500)
                 end
-            elseif level == 2 then
+            elseif level == 2 or level == 4 then
                 for _, position in pairs(level2Lanterns[i]) do
                     SpawnFireball(position, i < 4 and 3750 or 2500)
                 end

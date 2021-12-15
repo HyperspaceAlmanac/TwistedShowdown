@@ -35,6 +35,15 @@ local SHOW_HIT_SPHERE = EQUIPMENT:GetCustomProperty("ShowHitSphere")
 -- Internal variables
 local abilityList = {}
 
+function CanCast()
+    if Object.IsValid(EQUIPMENT) and EQUIPMENT.owner and Object.IsValid(EQUIPMENT.owner) then
+        if EQUIPMENT.owner.stance == "Sword" then
+            return true
+        end
+    end
+    return false
+end
+
 -- nil Tick()
 -- Checks the players or damageable objects within hitbox, 
 -- and makes sure swipe effects stay at the player's location
@@ -125,6 +134,9 @@ end
 function OnEquipped(equipment, player)
     if player and Object.IsValid(player) then
         if player.serverUserData.stance ~= "Sword" then
+            for _, ability in ipairs(equipment:FindDescendantsByType("Ability")) do
+                ability.isEnabled = false
+            end
             equipment.visibility = Visibility.FORCE_OFF
         end
     end

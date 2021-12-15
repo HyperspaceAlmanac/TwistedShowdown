@@ -2,7 +2,7 @@ Assets {
   Id: 7142514894252550550
   Name: "YellowPotionLiquid"
   PlatformAssetType: 13
-  SerializationVersion: 101
+  SerializationVersion: 103
   CustomMaterialAsset {
     BaseMaterialId: 15965809651484852582
     ParameterOverrides {

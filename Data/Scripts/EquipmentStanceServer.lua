@@ -31,6 +31,9 @@ local originalStance = "unarmed_stance"
 function OnEquipped(equipment, player)
     if player and Object.IsValid(player) then
         if player.serverUserData.stance ~= "Magic" then
+            for _, ability in ipairs(equipment:FindDescendantsByType("Ability")) do
+                ability.isEnabled = false
+            end
             equipment.visibility = Visibility.FORCE_OFF
         end
     end

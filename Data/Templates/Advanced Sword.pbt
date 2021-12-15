@@ -104,6 +104,9 @@ Assets {
             SubObjectId: 15775079625870837992
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 15775079625870837992
@@ -144,6 +147,9 @@ Assets {
           TriggerShape_v2 {
             Value: "mc:etriggershape:box"
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -257,6 +263,9 @@ Assets {
           KeyBinding_v2 {
             Value: "mc:egameaction:primaryaction"
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -372,6 +381,9 @@ Assets {
             Value: "mc:egameaction:primaryaction"
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 3297314632271737610
@@ -403,6 +415,9 @@ Assets {
         }
         NetworkContext {
           Type: Server
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -442,6 +457,9 @@ Assets {
             Id: 8459825612529451237
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 12525221748800137288
@@ -471,6 +489,9 @@ Assets {
           ScriptAsset {
             Id: 1427829216143793458
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -504,6 +525,9 @@ Assets {
             Id: 5082628058110625875
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 17760304585295101073
@@ -534,6 +558,9 @@ Assets {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
         NetworkContext {
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -573,6 +600,9 @@ Assets {
             Id: 440168262593430639
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 8377405643480515226
@@ -605,6 +635,9 @@ Assets {
             Id: 12971704803185333098
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 16008354779414456412
@@ -634,6 +667,9 @@ Assets {
         }
         Folder {
           IsGroup: true
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -676,6 +712,9 @@ Assets {
             }
             BoundsScale: 1
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
       Objects {
@@ -730,6 +769,9 @@ Assets {
             BoundsScale: 1
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 9088924141626870616
@@ -783,6 +825,9 @@ Assets {
             BoundsScale: 1
           }
         }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
       }
       Objects {
         Id: 7364961029084904363
@@ -824,6 +869,9 @@ Assets {
             }
             BoundsScale: 1
           }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
         }
       }
     }
@@ -868,5 +916,5 @@ Assets {
       AssetId: "Advanced_Sword"
     }
   }
-  SerializationVersion: 101
+  SerializationVersion: 103
 }

@@ -2,7 +2,7 @@ Assets {
   Id: 10736505520176870505
   Name: "Custom Base Material from Japanese Paper Lantern Simple 01"
   PlatformAssetType: 13
-  SerializationVersion: 101
+  SerializationVersion: 103
   CustomMaterialAsset {
     BaseMaterialId: 6179613046344677116
     ParameterOverrides {

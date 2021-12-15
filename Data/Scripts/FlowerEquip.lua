@@ -30,14 +30,23 @@ local originalStance = "unarmed_stance"
 -- nil OnEquipped(Equipment, Player)
 function OnEquipped(equipment, player)
     player.maxHitPoints = equipment:GetCustomProperty("Health")
-    player.hitPoints = player.maxHitPoints
-    player:SetPrivateNetworkedData("maxStamina", equipment:GetCustomProperty("Stamina"))
-    player:SetPrivateNetworkedData("maxMagic", equipment:GetCustomProperty("Magic"))
+    player.hitPoints = math.min(player.maxHitPoints, player.hitPoints)
+    local maxMagic = equipment:GetCustomProperty("Magic")
+    local maxStamina = equipment:GetCustomProperty("Stamina")
+    local currentMagic = player:GetPrivateNetworkedData("magic") or maxMagic
+    local currentStamina = player:GetPrivateNetworkedData("stamina") or maxStamina
+    player:SetPrivateNetworkedData("maxStamina", maxStamina)
+    player:SetPrivateNetworkedData("maxMagic", maxMagic)
+    player:SetPrivateNetworkedData("stamina", currentStamina)
+    player:SetPrivateNetworkedData("magic", currentMagic)
     player:SetPrivateNetworkedData("stamina2", equipment:GetCustomProperty("StaminaPer2"))
     player:SetPrivateNetworkedData("magic2", equipment:GetCustomProperty("MagicPer2"))
     player:SetPrivateNetworkedData("health2", equipment:GetCustomProperty("HealthPer2"))
     if player and Object.IsValid(player) then
         if player.serverUserData.stance ~= "Flower" then
+            for _, ability in ipairs(equipment:FindDescendantsByType("Ability")) do
+                ability.isEnabled = false
+            end
             equipment.visibility = Visibility.FORCE_OFF
         end
     end

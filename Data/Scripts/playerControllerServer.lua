@@ -225,11 +225,11 @@ function PlayerJoined(player)
     -- Resource
     -- DEBUG override storage
     local persistentTable = Storage.GetSharedPlayerData(MainStorage, player)
-    local customTable = { gold = 100000 }
+    --local customTable = { gold = 100000 }
     player.serverUserData.resources = {}
     for _, key in ipairs(resourceNames) do
-        --local value = persistentTable[key]
-        local value = customTable[key]
+        local value = persistentTable[key]
+        --local value = customTable[key]
         if key == "gold" then
             player:SetPrivateNetworkedData(key, value or 0)
             player.serverUserData.resources[key] = value or 0

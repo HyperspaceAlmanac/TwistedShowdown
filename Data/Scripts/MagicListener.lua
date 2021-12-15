@@ -113,7 +113,7 @@ function HandleInterrupt(ability)
     if lockedOn == false then
         ability.owner:SetPrivateNetworkedData("LockedOn", false)
     end
-    print("Interrupted!")
+    --print("Interrupted!")
     player.lookControlMode = LookControlMode.RELATIVE
 end
 

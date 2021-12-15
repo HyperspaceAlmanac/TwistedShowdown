@@ -71,7 +71,7 @@ function ShopEvent(trigger, player, index)
         if not local_player.clientUserData.waiting then
             local_player.clientUserData.waiting = true
 
-			print(weapons[index])
+			--print(weapons[index])
             if player.clientUserData.resources[weapons[index]] or DefaultWeapon(index) then
                 ShopUI.text = "Sucessfully equipped weapon"
                 ShopBG.visibility = Visibility.INHERIT

@@ -1,13 +1,13 @@
 Assets {
-  Id: 3025126733888339835
-  Name: "SoloMission"
+  Id: 14691218672823227460
+  Name: "MultiHub2"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
       RootId: 14546490105472636833
       Objects {
         Id: 14546490105472636833
-        Name: "SoloMission"
+        Name: "MultiHub2"
         Transform {
           Scale {
             X: 1
@@ -22,7 +22,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:DestinationGame"
-            String: "b983bc/core-plaza"
+            String: "e63639/mclf-hub-world"
           }
           Overrides {
             Name: "cs:DestinationGame:tooltip"
@@ -72,7 +72,7 @@ Assets {
         }
         Trigger {
           Interactable: true
-          InteractionLabel: "Single player missions"
+          InteractionLabel: "Multiplayer Hub World"
           TeamSettings {
             IsTeamCollisionEnabled: true
             IsEnemyCollisionEnabled: true
@@ -357,7 +357,6 @@ Assets {
         Name: "PortalText"
         Transform {
           Location {
-            X: 200
             Z: 350
           }
           Rotation {
@@ -383,7 +382,7 @@ Assets {
           Value: "mc:eindicatorvisibility:visiblewhenselected"
         }
         Text {
-          Text: "Solo Missions"
+          Text: "Multiplayer Hub World"
           FontAsset {
           }
           Color {
@@ -393,7 +392,7 @@ Assets {
             A: 1
           }
           HorizontalAlignment {
-            Value: "mc:ecoretexthorizontalalign:left"
+            Value: "mc:ecoretexthorizontalalign:center"
           }
           VerticalAlignment {
             Value: "mc:ecoretextverticalalign:center"
@@ -436,10 +435,5 @@ Assets {
       AssetId: "None"
     }
   }
-  Marketplace {
-    Description: "portals"
-  }
   SerializationVersion: 103
-  DirectlyPublished: true
-  VirtualFolderPath: "Portals"
 }

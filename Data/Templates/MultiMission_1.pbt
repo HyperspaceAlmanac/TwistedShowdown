@@ -7,7 +7,7 @@ Assets {
       RootId: 14546490105472636833
       Objects {
         Id: 14546490105472636833
-        Name: "MultiMission"
+        Name: "SoloMissions"
         Transform {
           Scale {
             X: 1
@@ -22,7 +22,7 @@ Assets {
         UnregisteredParameters {
           Overrides {
             Name: "cs:DestinationGame"
-            String: "b983bc/core-plaza"
+            String: "d8248a/mclf-solo-missions"
           }
           Overrides {
             Name: "cs:DestinationGame:tooltip"
@@ -72,7 +72,7 @@ Assets {
         }
         Trigger {
           Interactable: true
-          InteractionLabel: "4 player missions"
+          InteractionLabel: "Singleplayer Missions"
           TeamSettings {
             IsTeamCollisionEnabled: true
             IsEnemyCollisionEnabled: true
@@ -244,6 +244,7 @@ Assets {
         }
         ParentId: 14363900378802400087
         ChildIds: 6520129888362863184
+        ChildIds: 9366040191249376506
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -327,6 +328,56 @@ Assets {
           Value: "mc:eproxyrelevance:critical"
         }
       }
+      Objects {
+        Id: 9366040191249376506
+        Name: "PortalText"
+        Transform {
+          Location {
+            Z: 350
+          }
+          Rotation {
+            Yaw: 90
+          }
+          Scale {
+            X: 3
+            Y: 3
+            Z: 3
+          }
+        }
+        ParentId: 5827717503969477939
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Text {
+          Text: "Singleplayer Missions"
+          FontAsset {
+          }
+          Color {
+            R: 1
+            G: 1
+            B: 1
+            A: 1
+          }
+          HorizontalAlignment {
+            Value: "mc:ecoretexthorizontalalign:center"
+          }
+          VerticalAlignment {
+            Value: "mc:ecoretextverticalalign:center"
+          }
+        }
+        NetworkRelevanceDistance {
+          Value: "mc:eproxyrelevance:critical"
+        }
+      }
     }
     Assets {
       Id: 16353917461806733124
@@ -360,5 +411,10 @@ Assets {
       AssetId: "None"
     }
   }
+  Marketplace {
+    Description: "portals"
+  }
   SerializationVersion: 103
+  DirectlyPublished: true
+  VirtualFolderPath: "Portals"
 }

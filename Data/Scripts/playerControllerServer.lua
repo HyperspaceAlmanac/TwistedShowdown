@@ -249,6 +249,10 @@ function PlayerLeft(player)
     playerListeners[player] = nil
     statTable[player] = nil
 
+    for _, eqp in ipairs(player:GetEquipment()) do
+        eqp:Unequip()
+    end
+
     local persistentTable = Storage.GetSharedPlayerData(MainStorage, player)
     for key, value in pairs(player.serverUserData.resources) do
         persistentTable[key] = value

@@ -360,5 +360,10 @@ Assets {
       AssetId: "None"
     }
   }
+  Marketplace {
+    Description: "portals"
+  }
   SerializationVersion: 103
+  DirectlyPublished: true
+  VirtualFolderPath: "Portals"
 }

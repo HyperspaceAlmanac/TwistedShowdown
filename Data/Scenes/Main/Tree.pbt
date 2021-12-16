@@ -18,8 +18,8 @@ Objects {
   ChildIds: 10295055739958999201
   ChildIds: 7129625667831014451
   ChildIds: 17755622305476538058
-  ChildIds: 11415835369501838469
-  ChildIds: 17940963735145879282
+  ChildIds: 5555865851414200082
+  ChildIds: 13820551967791716709
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -38,8 +38,8 @@ Objects {
   }
 }
 Objects {
-  Id: 17940963735145879282
-  Name: "SoloMission"
+  Id: 13820551967791716709
+  Name: "MultiHub2"
   Transform {
     Scale {
       X: 1
@@ -54,14 +54,14 @@ Objects {
       value {
         Overrides {
           Name: "Name"
-          String: "SoloMission"
+          String: "MultiHub2"
         }
         Overrides {
           Name: "Position"
           Vector {
-            X: 4050
+            X: 4000
             Y: -4950
-            Z: 450
+            Z: 350
           }
         }
         Overrides {
@@ -72,13 +72,13 @@ Objects {
       }
     }
     TemplateAsset {
-      Id: 3025126733888339835
+      Id: 14691218672823227460
     }
   }
 }
 Objects {
-  Id: 11415835369501838469
-  Name: "MultiHub"
+  Id: 5555865851414200082
+  Name: "MultiMission"
   Transform {
     Scale {
       X: 1
@@ -93,20 +93,26 @@ Objects {
       value {
         Overrides {
           Name: "Name"
-          String: "MultiHub"
+          String: "SoloMissions"
         }
         Overrides {
           Name: "Position"
           Vector {
             X: 4800
-            Y: -5000
-            Z: 450
+            Y: -4950
+            Z: 350
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+            Yaw: 180
           }
         }
       }
     }
     TemplateAsset {
-      Id: 14909247544406108287
+      Id: 7771926758531697735
     }
   }
 }
@@ -8170,11 +8176,8 @@ Objects {
   ChildIds: 1616393386324039793
   ChildIds: 8299572764437760775
   ChildIds: 15368596237965687198
-  ChildIds: 14256426484269170660
   ChildIds: 13732889084371175343
-  ChildIds: 11467353446588662152
   ChildIds: 660665503759719590
-  ChildIds: 8711592888760646885
   ChildIds: 6817932646710129985
   ChildIds: 17248152630083344152
   ChildIds: 9802312433059203653
@@ -9859,88 +9862,6 @@ Objects {
   }
 }
 Objects {
-  Id: 8711592888760646885
-  Name: "MagicText"
-  Transform {
-    Location {
-      Z: 500
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 8953069086191306679
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Control {
-    Width: 200
-    Height: 60
-    UIX: 600
-    UIY: 195
-    RenderTransformPivot {
-      Anchor {
-        Value: "mc:euianchor:middlecenter"
-      }
-    }
-    Text {
-      Color {
-        R: 1
-        G: 1
-        B: 1
-        A: 1
-      }
-      Size: 20
-      Justification {
-        Value: "mc:etextjustify:left"
-      }
-      AutoWrapText: true
-      Font {
-        Id: 841534158063459245
-      }
-      VerticalJustification {
-        Value: "mc:everticaljustification:top"
-      }
-      ShadowColor {
-        A: 1
-      }
-      ShadowOffset {
-      }
-      OutlineColor {
-        A: 1
-      }
-    }
-    AnchorLayout {
-      SelfAnchor {
-        Anchor {
-          Value: "mc:euianchor:topleft"
-        }
-      }
-      TargetAnchor {
-        Anchor {
-          Value: "mc:euianchor:topleft"
-        }
-      }
-    }
-  }
-  NetworkRelevanceDistance {
-    Value: "mc:eproxyrelevance:critical"
-  }
-}
-Objects {
   Id: 660665503759719590
   Name: "Magic"
   Transform {
@@ -9956,6 +9877,7 @@ Objects {
     }
   }
   ParentId: 8953069086191306679
+  ChildIds: 8711592888760646885
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -9969,10 +9891,10 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Control {
-    Width: 300
-    Height: 60
-    UIX: 270
-    UIY: 190
+    Width: 200
+    Height: 45
+    UIX: 210
+    UIY: 150
     RenderTransformPivot {
       Anchor {
         Value: "mc:euianchor:middlecenter"
@@ -10023,8 +9945,8 @@ Objects {
   }
 }
 Objects {
-  Id: 11467353446588662152
-  Name: "StaminaText"
+  Id: 8711592888760646885
+  Name: "MagicText"
   Transform {
     Location {
       Z: 500
@@ -10037,7 +9959,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8953069086191306679
+  ParentId: 660665503759719590
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -10052,9 +9974,8 @@ Objects {
   }
   Control {
     Width: 200
-    Height: 60
-    UIX: 600
-    UIY: 125
+    Height: 45
+    UIX: 20
     RenderTransformPivot {
       Anchor {
         Value: "mc:euianchor:middlecenter"
@@ -10095,7 +10016,7 @@ Objects {
       }
       TargetAnchor {
         Anchor {
-          Value: "mc:euianchor:topleft"
+          Value: "mc:euianchor:topright"
         }
       }
     }
@@ -10120,6 +10041,7 @@ Objects {
     }
   }
   ParentId: 8953069086191306679
+  ChildIds: 11467353446588662152
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -10133,10 +10055,10 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Control {
-    Width: 300
-    Height: 60
-    UIX: 270
-    UIY: 120
+    Width: 200
+    Height: 45
+    UIX: 210
+    UIY: 100
     RenderTransformPivot {
       Anchor {
         Value: "mc:euianchor:middlecenter"
@@ -10187,8 +10109,8 @@ Objects {
   }
 }
 Objects {
-  Id: 14256426484269170660
-  Name: "HealthText"
+  Id: 11467353446588662152
+  Name: "StaminaText"
   Transform {
     Location {
       Z: 500
@@ -10201,7 +10123,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8953069086191306679
+  ParentId: 13732889084371175343
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -10216,9 +10138,8 @@ Objects {
   }
   Control {
     Width: 200
-    Height: 60
-    UIX: 600
-    UIY: 50
+    Height: 45
+    UIX: 20
     RenderTransformPivot {
       Anchor {
         Value: "mc:euianchor:middlecenter"
@@ -10259,7 +10180,7 @@ Objects {
       }
       TargetAnchor {
         Anchor {
-          Value: "mc:euianchor:topleft"
+          Value: "mc:euianchor:topright"
         }
       }
     }
@@ -10284,6 +10205,7 @@ Objects {
     }
   }
   ParentId: 8953069086191306679
+  ChildIds: 14256426484269170660
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -10297,9 +10219,9 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Control {
-    Width: 300
-    Height: 60
-    UIX: 270
+    Width: 200
+    Height: 45
+    UIX: 210
     UIY: 50
     RenderTransformPivot {
       Anchor {
@@ -10341,6 +10263,87 @@ Objects {
       TargetAnchor {
         Anchor {
           Value: "mc:euianchor:topleft"
+        }
+      }
+    }
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 14256426484269170660
+  Name: "HealthText"
+  Transform {
+    Location {
+      Z: 500
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 15368596237965687198
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 200
+    Height: 45
+    UIX: 20
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    Text {
+      Color {
+        R: 1
+        G: 1
+        B: 1
+        A: 1
+      }
+      Size: 20
+      Justification {
+        Value: "mc:etextjustify:left"
+      }
+      AutoWrapText: true
+      Font {
+        Id: 841534158063459245
+      }
+      VerticalJustification {
+        Value: "mc:everticaljustification:top"
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      OutlineColor {
+        A: 1
+      }
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:topleft"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:topright"
         }
       }
     }
@@ -10459,8 +10462,8 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Control {
-    Width: 200
-    Height: 200
+    Width: 150
+    Height: 150
     UIX: 50
     UIY: 50
     RenderTransformPivot {
@@ -11627,8 +11630,9 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Control {
-    Width: 900
+    Width: 800
     Height: 200
+    UIX: 50
     UIY: 65
     RenderTransformPivot {
       Anchor {
@@ -11706,6 +11710,7 @@ Objects {
         Value: "mc:euianchor:middlecenter"
       }
     }
+    UseParentWidth: true
     UseParentHeight: true
     Text {
       Label: "Text"
@@ -12345,18 +12350,6 @@ Objects {
       Name: "cs:GameStateAPI"
       AssetReference {
         Id: 15612790520903086079
-      }
-    }
-    Overrides {
-      Name: "cs:Level1Trigger"
-      ObjectReference {
-        SelfId: 841534158063459245
-      }
-    }
-    Overrides {
-      Name: "cs:Level2Trigger"
-      ObjectReference {
-        SelfId: 841534158063459245
       }
     }
     Overrides {
@@ -16015,8 +16008,6 @@ Objects {
   ChildIds: 5578020556469360965
   ChildIds: 6950056241209738076
   ChildIds: 1464386189662522424
-  ChildIds: 4546607984803247386
-  ChildIds: 12763431609173683184
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
   }
@@ -16030,108 +16021,6 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   NetworkContext {
-  }
-  NetworkRelevanceDistance {
-    Value: "mc:eproxyrelevance:critical"
-  }
-}
-Objects {
-  Id: 12763431609173683184
-  Name: "PortalText1"
-  Transform {
-    Location {
-      X: 1950
-      Y: 7600
-    }
-    Rotation {
-      Yaw: -90
-    }
-    Scale {
-      X: 3
-      Y: 3
-      Z: 3
-    }
-  }
-  ParentId: 2763563945984140388
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Text {
-    Text: "Solo Missions"
-    FontAsset {
-    }
-    Color {
-      R: 1
-      G: 1
-      B: 1
-      A: 1
-    }
-    HorizontalAlignment {
-      Value: "mc:ecoretexthorizontalalign:left"
-    }
-    VerticalAlignment {
-      Value: "mc:ecoretextverticalalign:center"
-    }
-  }
-  NetworkRelevanceDistance {
-    Value: "mc:eproxyrelevance:critical"
-  }
-}
-Objects {
-  Id: 4546607984803247386
-  Name: "PortalText1"
-  Transform {
-    Location {
-      X: 2750
-      Y: 7600
-    }
-    Rotation {
-      Yaw: -90
-    }
-    Scale {
-      X: 3
-      Y: 3
-      Z: 3
-    }
-  }
-  ParentId: 2763563945984140388
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Text {
-    Text: "Multiplayer Hub"
-    FontAsset {
-    }
-    Color {
-      R: 1
-      G: 1
-      B: 1
-      A: 1
-    }
-    HorizontalAlignment {
-      Value: "mc:ecoretexthorizontalalign:left"
-    }
-    VerticalAlignment {
-      Value: "mc:ecoretextverticalalign:center"
-    }
   }
   NetworkRelevanceDistance {
     Value: "mc:eproxyrelevance:critical"
@@ -36531,7 +36420,7 @@ Objects {
   }
   Trigger {
     Interactable: true
-    InteractionLabel: "Start Mission 4"
+    InteractionLabel: "Start Mission 2 Hard Mode"
     TeamSettings {
       IsTeamCollisionEnabled: true
       IsEnemyCollisionEnabled: true
@@ -36674,7 +36563,7 @@ Objects {
   }
   Trigger {
     Interactable: true
-    InteractionLabel: "Start Mission 3"
+    InteractionLabel: "Start Mission 1 Hard Mode"
     TeamSettings {
       IsTeamCollisionEnabled: true
       IsEnemyCollisionEnabled: true

@@ -81,6 +81,11 @@ if Equipment.owner ~= nil then
     Equipped(Equipment, Equipment.owner)
 end
 Equipment.equippedEvent:Connect(Equipped)
+Equipment.unequippedEvent:Connect(
+    function(eqp)
+        Equipment:Destroy()
+    end
+)
 Sword.castEvent:Connect(SCast)
 Magic.castEvent:Connect(MCast)
 Flower.castEvent:Connect(FCast)

@@ -1,6 +1,7 @@
 # Magical Creatures Liberation Front
 Game made for Core Creators Game Jam within one month.
 The theme of the contest is "Twist," and in this game, the player gets to play a member of the Magical Creatures Liberation Front. 
+This is a project on CORE game platform, and this is for a game that can be played there.
 
 # Link to game:
 
@@ -24,3 +25,6 @@ Multiple phase missions.
 
 Persistent progression system where players can earn gold and upgrade their gear.
 
+## Note:
+The project does contain some code templates and starter files from Manticore.
+Those have the MIT license at the top. For some of them I used as is, for other ones I made modifications to them.

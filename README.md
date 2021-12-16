@@ -3,16 +3,19 @@ Game made for Core Creators Game Jam within one month.
 The theme of the contest is "Twist," and in this game, the player gets to play a member of the Magical Creatures Liberation Front. 
 This is a project on CORE game platform, and this is for a game that can be played there.
 
-# Link to game:
+## Link to game:
 
 https://www.coregames.com/games/e63639/mclf-hub-world
 
 Game is cloned multiple times with small changes to support a 4 player hub world, 4 player missions world, and a single player missions world. Link is to hub world.
 
 
-# Gameplay
+## Gameplay
 The game is a twist of the classic trope of slaying monsters, where now the player's goal is to free them from their magical prisons.
 The player has access to triple swords, ice magic orb, and special healing abilities that cost health.
+
+## Gameplay videos
+Coming Soon
 
 ## Key Features:
 Lock on system that changes the reticle baed on what the player is aiming at.

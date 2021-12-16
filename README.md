@@ -10,7 +10,7 @@ Game is cloned multiple times with small changes to support a 4 player hub world
 
 
 # Gameplay
-The gamep is a twist of the classic trope of slaying monsters, where now the player's goal is to free them from their magical prisons.
+The game is a twist of the classic trope of slaying monsters, where now the player's goal is to free them from their magical prisons.
 The player has access to triple swords, ice magic orb, and special healing abilities that cost health.
 
 ## Key Features:

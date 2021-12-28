@@ -2,6 +2,7 @@
 Game made for Core Creators Game Jam within one month.
 The theme of the contest is "Twist," and in this game, the player gets to play a member of the Magical Creatures Liberation Front. 
 This is a project on CORE game platform, and this is for a game that can be played there.
+Game Link: https://www.coregames.com/games/e63639/mclf-hub-world
 
 ## Gameplay Videos:
 ### Weapon Animations

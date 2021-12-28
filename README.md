@@ -5,7 +5,7 @@ This is a project on CORE game platform, and this is for a game that can be play
 
 ## Gameplay Videos:
 ### Weapon Animations
-[![Weapon Animations](https://img.youtube.com/vi/t9mQh-t3yA8/0.jpg)](https://www.youtube.com/watch?v=t9mQh-t3yA8)
+[![Weapon Animations](https://img.youtube.com/vi/4DajI5yxDVo/0.jpg)](https://www.youtube.com/watch?v=4DajI5yxDVo)
 ### Hub World
 [![Img alt text](https://img.youtube.com/vi/XEznV4O3Ddo/0.jpg)](https://www.youtube.com/watch?v=XEznV4O3Ddo)
 ### Missions 1 and 2

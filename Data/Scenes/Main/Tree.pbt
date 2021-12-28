@@ -12016,7 +12016,7 @@ Objects {
     }
     Overrides {
       Name: "cs:MaxPlayers"
-      Int: 4
+      Int: 1
     }
   }
   Collidable_v2 {
@@ -12354,7 +12354,7 @@ Objects {
     }
     Overrides {
       Name: "cs:MaxPlayers"
-      Int: 4
+      Int: 1
     }
     Overrides {
       Name: "cs:Escape1"

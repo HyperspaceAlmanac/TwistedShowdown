@@ -23,9 +23,6 @@ if MAX_PLAYERS == 1 then
 end
 
 function Tick(deltaTime)
-    if MAX_PLAYERS == 1 then
-        return
-    end
     for i = 1, 4 do
         local ready = 0
         for _, player in ipairs(Game.GetPlayers()) do
@@ -33,8 +30,8 @@ function Tick(deltaTime)
                 ready = ready + 1
             end
         end
-        displays[i].text = tostring(ready).."/4" 
-        if ready == 4 then
+        displays[i].text = tostring(ready).."/"..tostring(MAX_PLAYERS) 
+        if ready == MAX_PLAYERS then
             displays[i]:SetColor(white)
         else
             displays[i]:SetColor(red)
